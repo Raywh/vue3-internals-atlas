@@ -3,7 +3,9 @@
 把 vuejs/core 的 233 个源文件、1187 条依赖关系和 234 条「这个文件在干嘛、改它要小心什么」的认知条目，
 做成一张可以点着学的地图，外加一条 9 章的学习路线。
 
-打开 **[`vue-graph.html`](vue-graph.html)**（单文件、离线、无外链、无依赖）。
+打开 **[在线版](https://raywh.github.io/vue3-internals-atlas/)**（单文件、离线、无外链、无依赖）。
+
+> ⚠️ 在仓库里点 `vue-graph.html` 看到的是源码，不是页面。GitHub 不会执行仓库里的 HTML（否则任何仓库都能在 github.com 域名下跑 JS，等于开放 XSS），只当文本给你看；渲染版只能走 GitHub Pages。想离线看就 `git clone` 后双击该文件。
 
 ![总览](screenshots/01-overview.png)
 
