@@ -7,6 +7,28 @@
 
 > ⚠️ 在仓库里点 `vue-graph.html` 看到的是源码，不是页面。GitHub 不会执行仓库里的 HTML（否则任何仓库都能在 github.com 域名下跑 JS，等于开放 XSS），只当文本给你看；渲染版只能走 GitHub Pages。想离线看就 `git clone` 后双击该文件。
 
+### 渲染方式：HTML-in-canvas
+
+这个版本不用 `arc()` 画节点，而是把 233 个节点做成 `<canvas content="drawable">` 里的**真 DOM**：
+圆点是一个 `drawable` 的 `<div>`，标签是另一层 `drawable`（固定 10px，不随缩放放大），每帧用
+`drawElementImage` 把它们的快照画到当前变换的位置；边仍旧是 canvas 2D。
+
+因此**需要 Chrome / Edge 157+**。不支持时页面顶部会给一条横幅，并提供
+[`vue-graph-classic.html`](vue-graph-classic.html)——同数据、纯 Canvas2D、任何浏览器都能开。
+
+在 Chrome 157.0.8103.79 / headless 下实测（不是估计）：
+
+| 项 | 结果 |
+|---|---|
+| 整帧成本（233 圆点 + 233 标签 + 1187 边） | **1.6–1.7 ms**（60fps 预算 16.7 ms） |
+| `drawElementImage` 失败次数 | 0 |
+| 放大 2×/3× 的文字 | **重新栅格，不糊** |
+| 缩放来回（1×→3×→1×） | 与新元素逐像素一致，不累积失真 |
+| dest rect 的副作用 | **会改元素几何**：画到 (500,300)，`getBoundingClientRect` 就是 (500,300) |
+| 初始布局在画布外 | 没有 paint record，调用抛 `No cached paint record` |
+
+所以命中测试不依赖元素几何（那只是「上次画到哪」），而是按自己的变换算；元素全部 `pointer-events:none`。
+
 ![总览](screenshots/01-overview.png)
 
 ## 这是什么
@@ -55,6 +77,8 @@ renderer.ts[DB9L]: F:把新旧 VNode 树的差异落到宿主节点，并调度�
 | CH8 | 进阶：内置组件、hydration 与 SSR | 90 min |
 
 ![CH1](screenshots/02-ch1-reactivity.png)
+
+![放大后的标签（HTML 文字由 drawElementImage 画进画布）](screenshots/04-zoomed-labels.png)
 
 ## 索引是怎么来的
 

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vue 3 内核知识图谱 · AOCI-CODE 索引</title>
+<style>
+  :root{
+    --bg:#0b0e14; --bg2:#111621; --panel:#141a26; --line:#243044;
+    --fg:#e6edf7; --dim:#8b9ab1; --dim2:#5d6b82; --vue:#42b883;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased}
+  #app{display:grid;grid-template-columns:262px 1fr 392px;grid-template-rows:52px 1fr;height:100vh}
+  header{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:0 16px;
+    background:linear-gradient(180deg,#10151f,#0b0e14);border-bottom:1px solid var(--line);z-index:5}
+  .logo{display:flex;align-items:baseline;gap:8px;font-weight:650}
+  .logo b{color:var(--vue);font-size:15px}
+  .logo span{font-size:12px;color:var(--dim2)}
+  .search{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .search input{background:#0e131d;border:1px solid var(--line);color:var(--fg);border-radius:7px;
+    padding:7px 11px;width:270px;font-size:12.5px;font-family:var(--mono);outline:none}
+  .search input:focus{border-color:var(--vue)}
+  .stat{font-size:11px;color:var(--dim2);font-family:var(--mono);white-space:nowrap}
+
+  aside.left{border-right:1px solid var(--line);background:var(--bg2);overflow-y:auto;padding:10px 0 40px}
+  .sect{padding:10px 14px 6px;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim2)}
+  .chap{display:block;width:100%;text-align:left;background:none;border:0;border-left:2px solid transparent;
+    color:var(--dim);padding:9px 14px 9px 15px;cursor:pointer;font-size:12.5px;line-height:1.45;transition:.13s}
+  .chap:hover{background:#161d2b;color:var(--fg)}
+  .chap.on{background:#16202f;border-left-color:var(--vue);color:var(--fg)}
+  .chap i{display:block;font-style:normal;font-size:10px;color:var(--dim2);font-family:var(--mono);margin-bottom:2px}
+  .chap em{display:block;font-style:normal;color:var(--dim2);font-size:11px;margin-top:3px}
+  .chap.on em{color:#9fb0c8}
+
+  main{position:relative;overflow:hidden;background:radial-gradient(1200px 700px at 50% 40%,#111a26 0%,#0b0e14 62%)}
+  canvas{display:block;width:100%;height:100%;cursor:grab}
+  canvas.drag{cursor:grabbing}
+  .legend{position:absolute;left:14px;bottom:12px;display:flex;flex-wrap:wrap;gap:10px;
+    font-size:10.5px;color:var(--dim2);font-family:var(--mono);pointer-events:none;max-width:70%}
+  .legend b{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+  .hint{position:absolute;right:14px;bottom:12px;font-size:10.5px;color:var(--dim2);font-family:var(--mono);pointer-events:none}
+  .chiprow{position:absolute;left:14px;top:12px;display:flex;gap:6px;flex-wrap:wrap;max-width:72%}
+  .chip{background:#111825cc;border:1px solid var(--line);color:var(--dim);border-radius:20px;
+    padding:4px 10px;font-size:11px;cursor:pointer;font-family:var(--mono);backdrop-filter:blur(6px)}
+  .chip.on{border-color:var(--vue);color:var(--vue);background:#12241ecc}
+
+  aside.right{border-left:1px solid var(--line);background:var(--bg2);overflow-y:auto;padding:0 0 60px}
+  .detail{padding:16px 18px}
+  .path{font-family:var(--mono);font-size:11px;color:var(--vue);word-break:break-all;line-height:1.5}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0 12px}
+  .badge{font-family:var(--mono);font-size:10px;border:1px solid var(--line);border-radius:5px;padding:2px 6px;color:var(--dim)}
+  .badge.tag{border-color:#2c4a3a;color:var(--vue);background:#0f1f18}
+  .field{margin:0 0 13px}
+  .field h4{margin:0 0 4px;font-size:10px;letter-spacing:.1em;color:var(--dim2);text-transform:uppercase;font-weight:600}
+  .field p{margin:0;font-size:13px;line-height:1.62;color:#d3dded}
+  .rel{display:block;font-family:var(--mono);font-size:11px;color:#6aa9ff;cursor:pointer;padding:2px 0;word-break:break-all}
+  .rel:hover{text-decoration:underline;color:#8cc4ff}
+  .empty{font-size:12px;color:var(--dim2);font-style:italic}
+  .chapcard{padding:16px 18px}
+  .chapcard h2{margin:0 0 6px;font-size:16px;line-height:1.4}
+  .chapcard h3{margin:16px 0 5px;font-size:10px;letter-spacing:.1em;color:var(--dim2);text-transform:uppercase}
+  .chapcard p{margin:0;font-size:12.5px;line-height:1.65;color:#c3cfdf}
+  .chapcard ul{margin:0;padding-left:17px}
+  .chapcard li{font-size:12.5px;line-height:1.62;color:#c3cfdf;margin-bottom:5px}
+  .chapcard .time{font-family:var(--mono);font-size:10px;color:var(--dim2)}
+  .readlist{margin:8px 0 0;padding:0;list-style:none}
+  .readlist li{font-family:var(--mono);font-size:11px;color:#6aa9ff;cursor:pointer;padding:3px 0;
+    display:flex;justify-content:space-between;gap:8px}
+  .readlist li:hover{color:#8cc4ff}
+  .readlist li span{color:var(--dim2);flex:none}
+  .ex{background:#0f1622;border-left:2px solid #ffb86c;padding:9px 11px;border-radius:0 6px 6px 0;margin-top:6px}
+  .empty-state{padding:60px 24px;text-align:center;color:var(--dim2);font-size:12.5px;line-height:1.8}
+  hr{border:0;border-top:1px solid var(--line);margin:14px 0}
+  ::-webkit-scrollbar{width:9px;height:9px}
+  ::-webkit-scrollbar-thumb{background:#1e2837;border-radius:5px}
+  ::-webkit-scrollbar-track{background:transparent}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="logo"><b>Vue 3 内核知识图谱</b><span>vuejs/core @ v3.5.46 · 由 AOCI-CODE 索引驱动</span></div>
+    <div class="search">
+      <span class="stat" id="stat"></span>
+      <input id="q" placeholder="搜索文件 / 符号 / 职责…" autocomplete="off">
+    </div>
+  </header>
+  <aside class="left" id="chapters"></aside>
+  <main>
+    <canvas id="cv"></canvas>
+    <div class="chiprow" id="chips"></div>
+    <div class="legend" id="legend"></div>
+    <div class="hint">拖拽平移 · 滚轮缩放 · 点节点看条目</div>
+  </main>
+  <aside class="right" id="right"></aside>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const nodes = DATA.nodes, edges = DATA.edges, chapters = DATA.chapters;
+
+const PKG_COLOR = {
+  reactivity:'#42b883','runtime-core':'#6aa9ff','runtime-dom':'#8bd450',
+  'compiler-core':'#c792ea','compiler-dom':'#e6a2ff','compiler-sfc':'#b18aff',
+  'compiler-ssr':'#a58bff','server-renderer':'#ffb86c',shared:'#ffd479',
+  vue:'#ff6b81','vue-compat':'#ff9aa8','runtime-test':'#7fd1c1'
+};
+const byId = new Map(nodes.map(n => [n.id, n]));
+const outMap = new Map(), inMap = new Map();
+for (const n of nodes) { outMap.set(n.id, []); inMap.set(n.id, []); }
+for (const e of edges) {
+  if (!byId.has(e.from) || !byId.has(e.to)) continue;
+  outMap.get(e.from).push(e.to);
+  inMap.get(e.to).push(e.from);
+}
+
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+const W = () => cv.clientWidth, H = () => cv.clientHeight;
+let scale = 1, tx = 0, ty = 0;
+
+const pkgs = [...new Set(nodes.map(n => n.pkg))];
+const weight = pkgs.map(p => nodes.filter(n => n.pkg === p).length);
+const order = pkgs.map((p, i) => i).sort((a, b) => weight[b] - weight[a]);
+const anchor = new Map();
+{
+  const cols = 4, gx = 360, gy = 330;
+  const rows = Math.ceil(order.length / cols);
+  order.forEach((idx, k) => {
+    const col = k % cols, row = Math.floor(k / cols);
+    anchor.set(pkgs[idx], { x: (col - (cols - 1) / 2) * gx, y: (row - (rows - 1) / 2) * gy });
+  });
+}
+
+const sim = nodes.map(n => {
+  const a = anchor.get(n.pkg) || { x: 0, y: 0 };
+  return {
+    ...n, ax: a.x, ay: a.y,
+    x: a.x + (Math.random() - .5) * 170, y: a.y + (Math.random() - .5) * 170,
+    vx: 0, vy: 0,
+    r: Math.max(4.5, Math.min(14, 3.4 + Math.sqrt(n.lines) * .62)),
+  };
+});
+const simById = new Map(sim.map(n => [n.id, n]));
+
+let alpha = 1, frames = 0;
+function clampRadius(p) {
+  const R = 150 + Math.min(60, Math.sqrt(p.lines) * 1.2) + (p.hasEntry ? 0 : 18);
+  const dx = p.x - p.ax, dy = p.y - p.ay, d = Math.hypot(dx, dy);
+  if (d > R) { p.x = p.ax + (dx / d) * R; p.y = p.ay + (dy / d) * R; }
+}
+function tick() {
+  const n = sim.length;
+  for (let i = 0; i < n; i++) {
+    const a = sim[i];
+    for (let j = i + 1; j < n; j++) {
+      const b = sim[j];
+      let dx = b.x - a.x, dy = b.y - a.y;
+      const d2 = dx * dx + dy * dy || .01;
+      if (d2 > 26000) continue;
+      const f = 240 / d2, d = Math.sqrt(d2);
+      dx /= d; dy /= d;
+      a.vx -= dx * f; a.vy -= dy * f;
+      b.vx += dx * f; b.vy += dy * f;
+    }
+  }
+  for (const e of edges) {
+    const a = simById.get(e.from), b = simById.get(e.to);
+    if (!a || !b) continue;
+    let dx = b.x - a.x, dy = b.y - a.y;
+    const d = Math.hypot(dx, dy) || 1;
+    const f = (d - 46) * 0.0006 * alpha;
+    dx /= d; dy /= d;
+    a.vx += dx * f * 6; a.vy += dy * f * 6;
+    b.vx -= dx * f * 6; b.vy -= dy * f * 6;
+  }
+  for (const p of sim) {
+    p.vx += (p.ax - p.x) * 0.03;
+    p.vy += (p.ay - p.y) * 0.03;
+    p.vx *= 0.8; p.vy *= 0.8;
+    p.x += p.vx * alpha; p.y += p.vy * alpha;
+    clampRadius(p);
+  }
+  alpha = Math.max(0.05, alpha * 0.994);
+}
+
+function fit() {
+  let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+  for (const a of anchor.values()) {
+    minx = Math.min(minx, a.x); maxx = Math.max(maxx, a.x);
+    miny = Math.min(miny, a.y); maxy = Math.max(maxy, a.y);
+  }
+  const pad = 265;
+  const s = Math.min(W() / (maxx - minx + pad * 2), H() / (maxy - miny + pad * 2), 1.8);
+  scale = Math.max(0.22, s);
+  tx = -((minx + maxx) / 2) * scale;
+  ty = -((miny + maxy) / 2) * scale;
+}
+function fitTo(ids) {
+  const pts = ids.map(id => simById.get(id)).filter(Boolean);
+  if (!pts.length) return;
+  let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+  for (const p of pts) {
+    minx = Math.min(minx, p.x); maxx = Math.max(maxx, p.x);
+    miny = Math.min(miny, p.y); maxy = Math.max(maxy, p.y);
+  }
+  const s = Math.min(W() / (maxx - minx + 330), H() / (maxy - miny + 330), 2.2);
+  scale = Math.max(0.45, s);
+  tx = -((minx + maxx) / 2) * scale;
+  ty = -((miny + maxy) / 2) * scale;
+}
+
+const state = { focus: null, pkg: null, q: '', hover: null, sel: null };
+
+function draw() {
+  const w = W(), h = H(), dpr = window.devicePixelRatio || 1;
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) {
+    cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+  }
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, w, h);
+  ctx.save();
+  ctx.translate(w / 2 + tx, h / 2 + ty);
+  ctx.scale(scale, scale);
+
+  const q = state.q.trim().toLowerCase();
+  const visible = new Set(sim.filter(n => {
+    if (state.focus && n.chapter !== state.focus) return false;
+    if (state.pkg && n.pkg !== state.pkg) return false;
+    if (q && !(n.id + ' ' + (n.exports || []).join(' ') + ' ' + (n.f || '')).toLowerCase().includes(q)) return false;
+    return true;
+  }).map(n => n.id));
+  const hot = state.hover;
+  const nbr = hot ? new Set([hot, ...(outMap.get(hot) || []), ...(inMap.get(hot) || [])]) : null;
+
+  ctx.font = '600 11px ui-monospace,monospace';
+  ctx.textAlign = 'center';
+  for (const [pk, a] of anchor) {
+    ctx.globalAlpha = .45;
+    ctx.fillStyle = PKG_COLOR[pk] || '#8899aa';
+    ctx.fillText(pk, a.x, a.y - 226);
+  }
+  ctx.textAlign = 'left';
+  ctx.globalAlpha = 1;
+
+  ctx.lineWidth = 1;
+  for (const e of edges) {
+    if (!visible.has(e.from) || !visible.has(e.to)) continue;
+    const a = simById.get(e.from), b = simById.get(e.to);
+    const isHot = hot && (e.from === hot || e.to === hot);
+    ctx.strokeStyle = isHot ? 'rgba(66,184,131,.55)' : 'rgba(120,150,190,.10)';
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+  }
+  for (const p of sim) {
+    const vis = visible.has(p.id), isHot = hot === p.id, isNbr = nbr && nbr.has(p.id);
+    ctx.globalAlpha = vis ? (nbr && !isNbr ? .22 : 1) : .1;
+    const col = PKG_COLOR[p.pkg] || '#8899aa';
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r * (isHot ? 1.55 : 1), 0, Math.PI * 2);
+    ctx.fillStyle = p.hasEntry ? col : '#3f4f66';
+    ctx.fill();
+    if (isHot) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.4; ctx.stroke(); }
+    else if (p.hasEntry) { ctx.strokeStyle = col + '55'; ctx.lineWidth = 1; ctx.stroke(); }
+    if ((scale > 2.1 && vis) || isHot) {
+      ctx.globalAlpha = isHot ? 1 : .55 * (vis ? 1 : .2);
+      ctx.fillStyle = '#aab8cc';
+      ctx.font = '9px ui-monospace,monospace';
+      ctx.fillText(p.id.split('/').pop(), p.x + p.r + 4, p.y + 3);
+    }
+  }
+  ctx.globalAlpha = 1;
+  ctx.restore();
+}
+
+function loop() {
+  tick(); tick();
+  frames++;
+  if (frames === 40 || frames === 120 || frames === 300) fit();
+  draw();
+  requestAnimationFrame(loop);
+}
+
+function toWorld(ev) {
+  const r = cv.getBoundingClientRect();
+  return { x: (ev.clientX - r.left - W() / 2 - tx) / scale, y: (ev.clientY - r.top - H() / 2 - ty) / scale };
+}
+function pick(ev) {
+  const p = toWorld(ev);
+  let best = null, bd = 1e9;
+  for (const n of sim) {
+    const d = Math.hypot(n.x - p.x, n.y - p.y);
+    if (d < n.r + 9 && d < bd) { bd = d; best = n; }
+  }
+  return best;
+}
+let drag = null;
+cv.addEventListener('mousedown', e => { drag = { x: e.clientX, y: e.clientY, tx, ty }; cv.classList.add('drag'); });
+window.addEventListener('mouseup', () => { drag = null; cv.classList.remove('drag'); });
+window.addEventListener('mousemove', e => {
+  if (drag) { tx = drag.tx + (e.clientX - drag.x); ty = drag.ty + (e.clientY - drag.y); return; }
+  const n = pick(e); state.hover = n ? n.id : null;
+});
+cv.addEventListener('click', e => { const n = pick(e); if (n) { state.sel = n.id; renderDetail(n.id); } });
+cv.addEventListener('wheel', e => {
+  e.preventDefault();
+  const r = cv.getBoundingClientRect();
+  const mx = e.clientX - r.left - W() / 2, my = e.clientY - r.top - H() / 2;
+  const ns = Math.min(5, Math.max(.28, scale * (e.deltaY < 0 ? 1.1 : 0.9)));
+  tx = mx - (mx - tx) * (ns / scale);
+  ty = my - (my - ty) * (ns / scale);
+  scale = ns;
+}, { passive: false });
+
+const chapEl = document.getElementById('chapters');
+chapEl.innerHTML = '<div class="sect">学习路线</div>'
+  + '<button class="chap on" data-ch="">全部文件<em>' + nodes.length + ' 个节点 · ' + edges.length + ' 条依赖</em></button>'
+  + '<div class="sect">9 章 · 约 10 小时</div>'
+  + chapters.map(c => '<button class="chap" data-ch="' + c.id + '"><i>CH ' + String(c.order).padStart(2, '0') + ' · ' + c.minutes + ' 分钟</i>' + esc(c.title) + '</button>').join('');
+
+const chips = document.getElementById('chips');
+chips.innerHTML = '<span class="chip on" data-pkg="">全部包</span>' + pkgs.map(p =>
+  '<span class="chip" data-pkg="' + p + '" style="border-color:' + (PKG_COLOR[p] || '#888') + '44">' + p + '</span>').join('');
+chips.addEventListener('click', e => {
+  const c = e.target.closest('.chip'); if (!c) return;
+  chips.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
+  c.classList.add('on');
+  state.pkg = c.dataset.pkg || null;
+});
+chapEl.addEventListener('click', e => {
+  const b = e.target.closest('.chap'); if (!b) return;
+  chapEl.querySelectorAll('.chap').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  state.focus = b.dataset.ch || null;
+  state.sel = null;
+  if (state.focus) {
+    renderChapter(state.focus);
+    const c = chapters.find(x => x.id === state.focus);
+    if (c) fitTo(c.files);
+  } else { renderEmpty(); fit(); }
+});
+document.getElementById('legend').innerHTML = pkgs.map(p =>
+  '<span><b style="background:' + (PKG_COLOR[p] || '#888') + '"></b>' + p + '</span>').join('');
+document.getElementById('stat').textContent = nodes.length + ' files · ' + edges.length + ' imports';
+document.getElementById('q').addEventListener('input', e => { state.q = e.target.value; });
+
+const right = document.getElementById('right');
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function relLinks(list) {
+  const uniq = [...new Set(list || [])];
+  if (!uniq.length) return '<span class="empty">无</span>';
+  return uniq.map(p => {
+    const n = byId.get(p);
+    if (!n) return '<span class="rel" style="color:#5d6b82;cursor:default">' + esc(p) + ' <span style="color:#40506a">(不在图中)</span></span>';
+    return '<span class="rel" data-go="' + esc(p) + '">' + esc(p) + ' <span style="color:#5d6b82">(' + n.lines + ' 行)</span></span>';
+  }).join('');
+}
+function renderDetail(id) {
+  const n = byId.get(id);
+  if (!n) return;
+  const chap = chapters.find(c => c.id === n.chapter);
+  const rDeps = (n.r || []).filter(x => x && x !== '-');
+  right.innerHTML = '<div class="detail">'
+    + '<div class="path">' + esc(n.id) + '</div>'
+    + '<div class="badges">'
+    + '<span class="badge">' + esc(n.pkg) + '</span>'
+    + '<span class="badge">' + n.lines + ' 行</span>'
+    + (n.tags ? '<span class="badge tag">' + esc(n.tags) + '</span>' : '<span class="badge" style="color:#5d6b82">无 AOCI 条目</span>')
+    + '<span class="badge">被 ' + inMap.get(id).length + ' 依赖 · 依赖 ' + outMap.get(id).length + '</span>'
+    + (chap ? '<span class="badge" style="border-color:#3a4a5e;color:#9fb0c8">CH' + String(chap.order).padStart(2, '0') + '</span>' : '')
+    + '</div>'
+    + (n.hasEntry
+      ? '<div class="field"><h4>F · 职责</h4><p>' + esc(n.f || '—') + '</p></div>'
+        + '<div class="field"><h4>R · 必须一起读</h4>' + (rDeps.length ? rDeps.map(p => '<span class="rel" data-go="' + esc(p) + '">' + esc(p) + '</span>').join('') : '<span class="empty">无强关联</span>') + '</div>'
+        + '<div class="field"><h4>A · 对外符号</h4><p style="font-family:var(--mono);font-size:12px;color:#8bd450">' + esc(n.a || '—') + '</p></div>'
+        + '<div class="field"><h4>S · 不能改坏的约束</h4><p style="color:#ffb86c">' + esc(n.s || '—') + '</p></div>'
+      : '<div class="field"><h4>状态</h4><p class="empty">该文件未进入 AOCI 索引范围（tests / 私有包），结构关系仍然有效。</p></div>')
+    + '<hr>'
+    + '<div class="field"><h4>它 import 了谁</h4>' + relLinks(outMap.get(id)) + '</div>'
+    + '<div class="field"><h4>谁 import 了它</h4>' + relLinks(inMap.get(id)) + '</div>'
+    + '</div>';
+  right.querySelectorAll('[data-go]').forEach(el => el.onclick = () => {
+    const t = el.dataset.go; state.sel = t; state.hover = t; renderDetail(t);
+  });
+  right.scrollTop = 0;
+}
+function renderChapter(cid) {
+  const c = chapters.find(x => x.id === cid);
+  const files = nodes.filter(n => n.chapter === cid);
+  right.innerHTML = '<div class="chapcard">'
+    + '<div class="time">CH' + String(c.order).padStart(2, '0') + ' · 约 ' + c.minutes + ' 分钟 · ' + files.length + ' 个文件</div>'
+    + '<h2>' + esc(c.title) + '</h2>'
+    + '<h3>读完你要能做到</h3><p>' + esc(c.goal) + '</p>'
+    + '<h3>必读文件（按顺序）</h3><ul class="readlist">'
+    + c.files.map(f => {
+      const n = byId.get(f);
+      return '<li data-go="' + esc(f) + '">' + esc(f.replace('packages/', '')) + '<span>' + (n ? n.lines + ' 行' : '—') + '</span></li>';
+    }).join('')
+    + '</ul>'
+    + '<h3>关键结论</h3><ul>' + c.concepts.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>'
+    + '<h3>自检问题</h3><ul>' + c.questions.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>'
+    + '<h3>动手</h3><div class="ex">' + esc(c.exercise) + '</div>'
+    + '</div>';
+  right.querySelectorAll('[data-go]').forEach(el => el.onclick = () => {
+    const t = el.dataset.go; state.sel = t; state.hover = t; state.focus = null;
+    chapEl.querySelectorAll('.chap').forEach(x => x.classList.remove('on'));
+    const all = chapEl.querySelector('.chap[data-ch=""]');
+    if (all) all.classList.add('on');
+    renderDetail(t);
+  });
+  right.scrollTop = 0;
+}
+function renderEmpty() {
+  right.innerHTML = '<div class="empty-state">← 点左边任一章开始<br>或点图中任一节点</div>';
+}
+
+(function deepLink() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (!h) { renderEmpty(); return; }
+  if (/^ch[0-9]$/.test(h) && chapters.some(c => c.id === h)) {
+    state.focus = h;
+    chapEl.querySelectorAll('.chap').forEach(x => x.classList.toggle('on', x.dataset.ch === h));
+    renderChapter(h);
+    const c = chapters.find(x => x.id === h);
+    if (c) setTimeout(() => fitTo(c.files), 1400);
+  } else if (byId.has(h)) {
+    state.sel = h; state.hover = h; renderDetail(h);
+  } else { renderEmpty(); }
+})();
+
+fit();
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
