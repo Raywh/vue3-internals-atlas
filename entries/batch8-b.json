@@ -1,0 +1,46 @@
+[
+ {
+  "path": "packages/server-renderer/src/render.ts",
+  "entry": "render.ts[IB9L]: F:把 vnode 树按类型分派渲染成分块缓冲，是 SSR 的主干流程 | R:code:packages/server-renderer/src/renderToString.ts,code:packages/server-renderer/src/renderToStream.ts,code:packages/server-renderer/src/helpers/ssrRenderTeleport.ts | A:createBuffer,renderComponentVNode,renderVNode,SSRBuffer | S:Suspense 只渲染 ssContent 不渲染 fallback；连续字符串会并入同一缓冲项，hasAsync 决定展开时能否跳过 await"
+ },
+ {
+  "path": "packages/server-renderer/src/renderToStream.ts",
+  "entry": "renderToStream.ts[IB8M]: F:把渲染缓冲逐块推入可写流，并在结束时补齐 teleport 内容 | R:code:packages/server-renderer/src/render.ts,code:packages/server-renderer/src/renderToString.ts | A:renderToNodeStream,pipeToNodeWritable,renderToWebStream,renderToSimpleStream | S:push 顺序即输出顺序，末尾 null 才结束；ESM 构建下 renderToNodeStream 直接抛错"
+ },
+ {
+  "path": "packages/server-renderer/src/renderToString.ts",
+  "entry": "renderToString.ts[IB7S]: F:把缓冲展开成完整字符串，并收尾 teleport 与 watcher 句柄 | R:code:packages/server-renderer/src/render.ts,code:packages/server-renderer/src/renderToStream.ts,code:packages/server-renderer/src/helpers/ssrRenderTeleport.ts | A:renderToString,unrollBuffer,resolveTeleports,cleanupFailedRender | S:nestedUnrollBuffer 会把已 await 的项就地回写，缓冲不可重复展开"
+ },
+ {
+  "path": "packages/server-renderer/src/index.ts",
+  "entry": "index.ts[IB5T]: F:加载时注册 SSR 指令实现，并汇总对外渲染入口与内部 helper | R:code:packages/server-renderer/src/renderToString.ts,code:packages/server-renderer/src/renderToStream.ts,code:packages/server-renderer/src/internal.ts | A:renderToString,renderToSimpleStream,renderToNodeStream,renderToWebStream | S:模块加载即执行 initDirectivesForSSR，副作用不可挪到调用时"
+ },
+ {
+  "path": "packages/server-renderer/src/internal.ts",
+  "entry": "internal.ts[IB4T]: F:汇总编译器生成的 SSR 代码所依赖的运行时 helper 导出面 | R:code:packages/compiler-ssr/src/runtimeHelpers.ts,code:packages/server-renderer/src/render.ts | A:ssrRenderVNode,ssrRenderComponent,ssrRenderSlot,ssrRenderList | S:导出名须与 compiler-ssr 的 helper 名一致"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrRenderSlot.ts",
+  "entry": "ssrRenderSlot.ts[IB5S]: F:渲染具名插槽，内容全为注释时回退 fallback，模板插槽恒包片段注释 | R:code:packages/server-renderer/src/render.ts,code:packages/runtime-core/src/helpers/renderSlot.ts,code:packages/server-renderer/src/helpers/ssrRenderComponent.ts | A:ssrRenderSlot,ssrRenderSlotInner,SSRSlot,SSRSlots | S:插槽是否为空按缓冲项是否全为注释判断，Transition 下强制非空"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrRenderComponent.ts",
+  "entry": "ssrRenderComponent.ts[IB4T]: F:把组件、props 与插槽包成 vnode，交给统一组件渲染入口 | R:code:packages/server-renderer/src/render.ts,code:packages/server-renderer/src/helpers/ssrRenderSlot.ts | A:ssrRenderComponent | S:整项 push 缓冲，不要拼成字符串"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrRenderList.ts",
+  "entry": "ssrRenderList.ts[IB4T]: F:按数组、字符串、数字、可迭代与对象五种形态展开 v-for 项 | R:code:packages/runtime-core/src/helpers/renderList.ts,code:packages/shared/src/general.ts | A:ssrRenderList | S:数字源非正整数时整段跳过，仅 DEV 警告"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrRenderSuspense.ts",
+  "entry": "ssrRenderSuspense.ts[IB4T]: F:在 SSR 只渲染 Suspense 的默认内容，缺失时补空注释占位 | R:code:packages/server-renderer/src/render.ts,code:packages/compiler-ssr/src/transforms/ssrTransformSuspense.ts | A:ssrRenderSuspense | S:必须同步，返回的 Promise 会被丢弃"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrRenderTeleport.ts",
+  "entry": "ssrRenderTeleport.ts[IB5T]: F:把 Teleport 内容写入按选择器分桶的独立缓冲，原位留注释锚 | R:code:packages/server-renderer/src/render.ts,code:packages/server-renderer/src/renderToString.ts,code:packages/compiler-ssr/src/transforms/ssrTransformTeleport.ts | A:ssrRenderTeleport | S:内容写入独立缓冲，用注释包裹，并靠 splice 原位插入保住嵌套顺序"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrVModelHelpers.ts",
+  "entry": "ssrVModelHelpers.ts[IB5T]: F:按控件类型算出 v-model 在服务端应输出的 value 或 checked | R:code:packages/compiler-ssr/src/transforms/ssrVModel.ts,code:packages/shared/src/looseEqual.ts,code:packages/server-renderer/src/helpers/ssrRenderAttrs.ts | A:ssrRenderDynamicModel,ssrGetDynamicModelProps,ssrLooseEqual,ssrLooseContain | S:只产出 value 或 checked 属性，不产出事件与修饰符，比较一律宽松相等"
+ }
+]

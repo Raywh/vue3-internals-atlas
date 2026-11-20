@@ -1,0 +1,251 @@
+{
+  "version": 1,
+  "source": "vuejs/core @ 7de9e41 (v3.5.46, 2026-11-20)",
+  "chapters": [
+    {
+      "id": "ch0",
+      "order": 0,
+      "title": "先建地图：12 个包各自负责什么",
+      "goal": "看到 `import { createApp } from 'vue'` 时，能说出这个调用最终落到哪几个文件、经过哪几层。",
+      "minutes": 20,
+      "files": [
+        "packages/vue/src/index.ts",
+        "packages/vue/src/runtime.ts",
+        "packages/runtime-dom/src/index.ts",
+        "packages/runtime-core/src/index.ts",
+        "packages/reactivity/src/index.ts",
+        "packages/compiler-dom/src/index.ts",
+        "packages/shared/src/index.ts"
+      ],
+      "concepts": [
+        "packages/vue/src/index.ts 不只是 re-export：它实现 compileToFunction 并 registerRuntimeCompiler；真正纯 re-export 的是 runtime.ts",
+        "runtime-dom 负责浏览器宿主（DOM 操作、属性打补丁），runtime-core 与宿主无关",
+        "compiler-dom → compiler-core 是编译期链路，和运行期链路在 createApp 处分叉",
+        "reactivity 是唯一不依赖别的包的底层（除 shared）"
+      ],
+      "questions": [
+        "vue/src/runtime.ts 与 index.ts 的差别是什么？为什么 `vue/dist/vue.runtime.esm-bundler.js` 会少一块代码？",
+        "createApp 的实现在哪个文件？为什么 runtime-dom 还要自己包一层 createApp？"
+      ],
+      "exercise": "打开 runtime-dom/src/index.ts，找到 createApp 里对 mount 的包装，说明它比 runtime-core 的版本多做了什么（提示：innerHTML、template 选项、devtools）。"
+    },
+    {
+      "id": "ch1",
+      "order": 1,
+      "title": "响应式内核：target → dep → effect 三张表",
+      "goal": "能手画出 reactive 对象的读取如何收集依赖、写入如何触发，以及 computed / ref / watch 各自在这张图上的位置。",
+      "minutes": 90,
+      "files": [
+        "packages/reactivity/src/reactive.ts",
+        "packages/reactivity/src/baseHandlers.ts",
+        "packages/reactivity/src/effect.ts",
+        "packages/reactivity/src/dep.ts",
+        "packages/reactivity/src/ref.ts",
+        "packages/reactivity/src/computed.ts",
+        "packages/reactivity/src/collectionHandlers.ts",
+        "packages/reactivity/src/arrayInstrumentations.ts",
+        "packages/reactivity/src/effectScope.ts"
+      ],
+      "concepts": [
+        "targetMap 在 dep.ts：WeakMap<target, Map<key, Dep>>；Dep 是类，它的订阅者是一条 Link 双向链表",
+        "track 只认全局 activeSub，effect 嵌套靠 run 里保存/恢复 activeSub",
+        "trigger 不再分两轮跑 effect：Dep.trigger 把订阅者推进批次，startBatch/endBatch 统一通知，computed 靠 dep.version 与 globalVersion 判断要不要重算",
+        "computed 在 3.5 不再自建 effect，脏判走 flags 与版本号；值没变就不递增 dep.version，下游不跟着重跑",
+        "ref 的 .value 是个 getter/setter，不是 Proxy",
+        "数组方法被 Instrumentations 重写，为了处理 length 与迭代时的依赖收集"
+      ],
+      "questions": [
+        "dep.ts 里 Dep.trigger 与 endBatch 是什么关系？为什么同一 tick 改三次只重算一次 computed？",
+        "computed.ts 里 refreshComputed 为什么要保存并恢复 activeSub？",
+        "reactive() 对同一个对象为什么必须返回同一个 Proxy（缓存）？"
+      ],
+      "exercise": "在 dep.ts 里读 Dep.trigger 与 globalVersion 的配合，然后把 dep.version 的相等判断去掉（只改本地副本），推演一条 computed 链会在什么情况下多算一次。"
+    },
+    {
+      "id": "ch2",
+      "order": 2,
+      "title": "vnode 与组件实例：运行时的一半数据结构",
+      "goal": "能说出组件实例（ComponentInternalInstance）上有哪些字段、它们分别由谁写入；能解释 props 为什么是 shallowReactive 而不深。",
+      "minutes": 70,
+      "files": [
+        "packages/runtime-core/src/vnode.ts",
+        "packages/runtime-core/src/component.ts",
+        "packages/runtime-core/src/componentProps.ts",
+        "packages/runtime-core/src/componentEmits.ts",
+        "packages/runtime-core/src/componentSlots.ts",
+        "packages/runtime-core/src/componentOptions.ts",
+        "packages/shared/src/shapeFlags.ts"
+      ],
+      "concepts": [
+        "vnode 是纯对象：type / props / children / shapeFlag / patchFlag / el / component",
+        "shapeFlag 用位运算把「元素/组件/有状态/子节点形态」压进一个数字",
+        "组件实例是可变对象，vnode 尽量不可变；patch 靠 instance.subTree 对比",
+        "props 用 shallowReactive：深层变更不触发组件更新，是刻意的性能取舍",
+        "emit 的名字解析（camelCase / kebab-case / once 后缀）发生在 componentEmits"
+      ],
+      "questions": [
+        "shapeFlag 里 ELEMENT=1、STATEFUL_COMPONENT=4，那 ARRAY_CHILDREN 和 SLOTS_CHILDREN 怎么共存？",
+        "为什么 updateProps 只做浅比较？如果 props 里放了一个大对象会怎样？"
+      ],
+      "exercise": "读 createVNode 的末尾，找出 `shapeFlag` 是怎么从 type 和 children 推出来的，并把所有分支列成一张表。"
+    },
+    {
+      "id": "ch3",
+      "order": 3,
+      "title": "渲染器：patch 的一整棵决策树",
+      "goal": "能沿着 renderer.ts 的 patch 走完「挂载一个组件」的全过程，并说清 patchFlag 触发的快速路径省掉了什么。",
+      "minutes": 120,
+      "files": [
+        "packages/runtime-core/src/renderer.ts",
+        "packages/runtime-dom/src/nodeOps.ts",
+        "packages/runtime-dom/src/patchProp.ts",
+        "packages/runtime-dom/src/modules/class.ts",
+        "packages/runtime-dom/src/modules/style.ts",
+        "packages/runtime-dom/src/modules/events.ts",
+        "packages/shared/src/patchFlags.ts"
+      ],
+      "concepts": [
+        "patch 先比 type，不同就 unmount 再 mount；相同再按 shapeFlag 分派",
+        "renderer 与宿主解耦：所有 DOM 操作都从 nodeOps 里取（这是 runtime-test 能跑的原因）",
+        "patchFlag 是编译期写进 vnode 的优化位掩码，让 patchElement 只 diff 指定字段",
+        "children 是数组时一律走 patchKeyedChildren（连无 key 也走 LIS 复用），key 只决定复用能不能命中"
+      ],
+      "questions": [
+        "patchElement 里 dynamicChildren（Block Tree）相比全量 diff 少做了什么？",
+        "为什么事件监听器用 invoker 包一层，而不是直接 addEventListener 新函数？"
+      ],
+      "exercise": "在 renderer.ts 里找出所有 `if (shapeFlag & ShapeFlags.` 的分支，画成决策树，标出每个分支对应的真实场景。"
+    },
+    {
+      "id": "ch4",
+      "order": 4,
+      "title": "调度器：为什么改三次只渲染一次",
+      "goal": "能解释 queueJob / flushJobs / nextTick 三者的关系，以及组件更新为什么进同一个微任务队列。",
+      "minutes": 45,
+      "files": [
+        "packages/runtime-core/src/scheduler.ts",
+        "packages/runtime-core/src/apiCreateApp.ts",
+        "packages/runtime-core/src/errorHandling.ts"
+      ],
+      "concepts": [
+        "queueJob 去重靠 job 上的 SchedulerJobFlags.QUEUED 位，入队位置用 id 二分查找（父先于子）",
+        "flushJobs 期间新入队的 job 会在同一轮被处理（循环到队列空）",
+        "nextTick 就是把回调排到当前 flush 之后",
+        "错误在 flush 时统一 catch 并走 errorHandler，不会中断整队"
+      ],
+      "questions": [
+        "队列是怎么在入队时保证按 id 有序的？这对父子组件的更新顺序意味着什么？",
+        "scheduler 的 flushPromise 是怎么创建和复位的？"
+      ],
+      "exercise": "写一个最小复现：在同一个 tick 里改同一个 ref 三次，用 nextTick 打印 DOM，验证只 patch 一次。"
+    },
+    {
+      "id": "ch5",
+      "order": 5,
+      "title": "编译器三段式：parse → transform → codegen",
+      "goal": "给定 `<div v-if=\"ok\">{{ msg }}</div>`，能说出 AST 长什么样、经过哪些 transform、最终生成的 render 函数是什么。",
+      "minutes": 120,
+      "files": [
+        "packages/compiler-core/src/compile.ts",
+        "packages/compiler-core/src/tokenizer.ts",
+        "packages/compiler-core/src/parser.ts",
+        "packages/compiler-core/src/ast.ts",
+        "packages/compiler-core/src/transform.ts",
+        "packages/compiler-core/src/codegen.ts",
+        "packages/compiler-core/src/options.ts"
+      ],
+      "concepts": [
+        "tokenizer 是状态机，处理插值、HTML 实体、CDATA 边界",
+        "parser 把 token 组成 AST，并在栈上维护 element 嵌套",
+        "transform 遍历 AST 并原地替换节点，插件式（nodeTransforms）",
+        "codegen 只认最终 AST，把字符串拼接成 render 函数源码",
+        "compile.ts 只导出 baseCompile 与 getBaseTransformPreset；compile 与 compileToFunction 是 compiler-dom、vue 在它之上的包装"
+      ],
+      "questions": [
+        "为什么 transform 要先 enter 再 exit？v-if 的分支替换发生在哪个阶段？",
+        "静态提升（hoistStatic）是在 transform 还是 codegen 做的？为什么？"
+      ],
+      "exercise": "用 `npx @vue/compiler-dom` 编译一段模板，打印 AST，找出其中 patchFlag 为 -1/1/8/16 的节点分别对应什么。"
+    },
+    {
+      "id": "ch6",
+      "order": 6,
+      "title": "变换器：指令是怎么变成运行时调用的",
+      "goal": "能解释 v-if / v-for / v-model / v-on 各自编译成什么，以及静态提升的安全前提。",
+      "minutes": 80,
+      "files": [
+        "packages/compiler-core/src/transforms/vIf.ts",
+        "packages/compiler-core/src/transforms/vFor.ts",
+        "packages/compiler-core/src/transforms/transformElement.ts",
+        "packages/compiler-core/src/transforms/transformExpression.ts",
+        "packages/compiler-core/src/transforms/cacheStatic.ts",
+        "packages/compiler-core/src/transforms/vModel.ts",
+        "packages/compiler-dom/src/index.ts"
+      ],
+      "concepts": [
+        "v-if 不是指令而是结构变换：生成 conditional 表达式 + 三条分支",
+        "v-for 生成 renderList 调用，key 与 memo 的语义在这里绑定",
+        "transformElement 负责 props 归一化和 patchFlag 推断",
+        "transformExpression 把模板里的表达式包上 _ctx 前缀并识别运行时 helper",
+        "cacheStatic 只提升「确定不会变」的节点，命中条件比想象中严"
+      ],
+      "questions": [
+        "v-for 和 v-if 同时写在一个元素上时，谁的优先级高？从代码里找证据。",
+        "为什么 v-model 在 compiler-dom 里还要再实现一次？"
+      ],
+      "exercise": "把 vIf.ts 的 processIf 读完，写出 `v-if / v-else-if / v-else` 三条分支被合并成什么 AST 结构。"
+    },
+    {
+      "id": "ch7",
+      "order": 7,
+      "title": "组合式 API：setup 里为什么能注册生命周期",
+      "goal": "能解释 currentInstance 这套「隐式上下文」机制，以及 watch / computed / inject 为什么只能在 setup 或生命周期里同步调用。",
+      "minutes": 60,
+      "files": [
+        "packages/runtime-core/src/apiSetupHelpers.ts",
+        "packages/runtime-core/src/apiLifecycle.ts",
+        "packages/runtime-core/src/apiWatch.ts",
+        "packages/runtime-core/src/apiComputed.ts",
+        "packages/runtime-core/src/apiInject.ts",
+        "packages/runtime-core/src/component.ts"
+      ],
+      "concepts": [
+        "currentInstance 是全局单例，setup 执行时被 set，结束 restore",
+        "onMounted 等 API 本质是往 instance[hook] 数组里 push 函数",
+        "watch 依赖 effect 的 scheduler，浅 watch 与 deep watch 走不同分支",
+        "inject 沿 instance.provides 原型链向上找"
+      ],
+      "questions": [
+        "如果我把 onMounted 放进 setTimeout 里会怎样？从代码找原因。",
+        "watch 的 flush: 'post' 与 'sync' 分别插在调度器的哪个位置？"
+      ],
+      "exercise": "在 apiLifecycle.ts 里找到 createHook 的实现，说明 hook 数组在什么时候被读、卸载时靠什么执行。"
+    },
+    {
+      "id": "ch8",
+      "order": 8,
+      "title": "进阶专题：内置组件、hydration 与 SSR",
+      "goal": "能说明 KeepAlive 的缓存键、Teleport 的挂载时机、Suspense 的异步边界，以及 SSR 与客户端 hydrate 的分工。",
+      "minutes": 90,
+      "files": [
+        "packages/runtime-core/src/components/KeepAlive.ts",
+        "packages/runtime-core/src/components/Teleport.ts",
+        "packages/runtime-core/src/components/Suspense.ts",
+        "packages/runtime-core/src/hydration.ts",
+        "packages/server-renderer/src/renderToString.ts",
+        "packages/server-renderer/src/renderToStream.ts"
+      ],
+      "concepts": [
+        "KeepAlive 用 Map 缓存 vnode，max 触发 LRU",
+        "Teleport 的目标容器由 runtime-core 的 resolveTarget 解析，runtime-dom 只提供 nodeOps 里的 querySelector",
+        "Suspense 用 asyncDep 与 resolve 回调把异步组件挂起",
+        "hydration 是「复用已有 DOM」，节点对不上就 patch 兜底"
+      ],
+      "questions": [
+        "KeepAlive 的 include/exclude 是按什么匹配的？",
+        "SSR 时组件的 onMounted 为什么不会执行？"
+      ],
+      "exercise": "在 hydration.ts 里找出节点不匹配时的降级路径，说明为什么它不会抛错而是重挂。"
+    }
+  ]
+}

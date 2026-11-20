@@ -1,0 +1,4 @@
+[
+{"path":"packages/runtime-core/src/hydration.ts","entry":"hydration.ts[DB9L]: F:遍历服务端已渲染的 DOM，把 vnode.el 指向现有节点并逐节点检出失配 | R:code:packages/runtime-core/src/renderer.ts,code:packages/runtime-core/src/vnode.ts,code:packages/runtime-core/src/components/Suspense.ts | A:createHydrationFunctions,isComment,DOMNodeTypes,RootHydrateFunction | S:失配降级为 patch 重挂而不抛错；fragment 注释锚点必须保留；vnode.el 先赋值，失配时置空"},
+{"path":"packages/runtime-core/src/hydrationStrategies.ts","entry":"hydrationStrategies.ts[IB6S]: F:提供按空闲、可见、媒体查询、交互触发的异步组件懒水合策略工厂 | R:code:packages/runtime-core/src/apiAsyncComponent.ts,code:packages/runtime-core/src/hydration.ts,code:packages/runtime-core/src/index.ts | A:hydrateOnIdle,hydrateOnVisible,hydrateOnMediaQuery,hydrateOnInteraction | S:teardown 要在水合前卸载时调用；交互策略水合后重放事件；contents 元素改观察子节点"}
+]

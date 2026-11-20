@@ -1,0 +1,8224 @@
+{
+ "generatedAt": "2026-11-20T14:19:49.826Z",
+ "source": "vuejs/core @ ref: refs/heads/main",
+ "stats": {
+  "nodes": 233,
+  "edges": 1187
+ },
+ "nodes": [
+  {
+   "id": "compiler-core/src/ast.ts",
+   "pkg": "compiler-core",
+   "lines": 898,
+   "exports": [
+    "Namespace",
+    "Namespaces",
+    "NodeTypes",
+    "ElementTypes",
+    "Node",
+    "SourceLocation",
+    "Position",
+    "ParentNode",
+    "ExpressionNode",
+    "TemplateChildNode",
+    "RootNode",
+    "ElementNode",
+    "BaseElementNode",
+    "PlainElementNode",
+    "ComponentNode",
+    "SlotOutletNode",
+    "TemplateNode",
+    "TextNode",
+    "CommentNode",
+    "AttributeNode",
+    "DirectiveNode",
+    "ConstantTypes",
+    "SimpleExpressionNode",
+    "InterpolationNode",
+    "CompoundExpressionNode",
+    "IfNode",
+    "IfBranchNode",
+    "ForNode",
+    "ForParseResult",
+    "TextCallNode",
+    "TemplateTextChildNode",
+    "VNodeCall",
+    "JSChildNode",
+    "CallExpression",
+    "ObjectExpression",
+    "Property",
+    "ArrayExpression",
+    "FunctionExpression",
+    "ConditionalExpression",
+    "CacheExpression",
+    "MemoExpression",
+    "SSRCodegenNode",
+    "BlockStatement",
+    "TemplateLiteral",
+    "IfStatement",
+    "AssignmentExpression",
+    "SequenceExpression",
+    "ReturnStatement",
+    "DirectiveArguments",
+    "DirectiveArgumentNode",
+    "RenderSlotCall",
+    "SlotsExpression",
+    "SlotsObjectExpression",
+    "SlotsObjectProperty",
+    "SlotFunctionExpression",
+    "DynamicSlotsExpression",
+    "DynamicSlotEntries",
+    "ConditionalDynamicSlotNode",
+    "ListDynamicSlotNode",
+    "ListDynamicSlotIterator",
+    "DynamicSlotNode",
+    "DynamicSlotFnProperty",
+    "BlockCodegenNode",
+    "IfConditionalExpression",
+    "ForCodegenNode",
+    "ForRenderListExpression",
+    "ForIteratorExpression",
+    "locStub",
+    "createRoot",
+    "createVNodeCall",
+    "createArrayExpression",
+    "createObjectExpression",
+    "createObjectProperty",
+    "createSimpleExpression",
+    "createInterpolation",
+    "createCompoundExpression",
+    "createCallExpression",
+    "createFunctionExpression",
+    "createConditionalExpression",
+    "createCacheExpression",
+    "createBlockStatement",
+    "createTemplateLiteral",
+    "createIfStatement",
+    "createAssignmentExpression",
+    "createSequenceExpression",
+    "createReturnStatement",
+    "getVNodeHelper",
+    "getVNodeBlockHelper",
+    "convertToBlock"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/babelUtils.ts",
+   "pkg": "compiler-core",
+   "lines": 558,
+   "exports": [
+    "walkIdentifiers",
+    "isReferencedIdentifier",
+    "isInDestructureAssignment",
+    "isInNewExpression",
+    "walkFunctionParams",
+    "walkBlockDeclarations",
+    "extractIdentifiers",
+    "isFunctionType",
+    "isStaticProperty",
+    "isStaticPropertyKey",
+    "TS_NODE_TYPES",
+    "unwrapTSNode",
+    "NODE",
+    "foo"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/codegen.ts",
+   "pkg": "compiler-core",
+   "lines": 1119,
+   "exports": [
+    "CodegenSourceMapGenerator",
+    "RawSourceMap",
+    "CodegenResult",
+    "CodegenContext",
+    "generate"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/compat/compatConfig.ts",
+   "pkg": "compiler-core",
+   "lines": 150,
+   "exports": [
+    "CompilerCompatConfig",
+    "CompilerCompatOptions",
+    "CompilerDeprecationTypes",
+    "isCompatEnabled",
+    "checkCompatEnabled",
+    "warnDeprecation"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/compat/transformFilter.ts",
+   "pkg": "compiler-core",
+   "lines": 193,
+   "exports": [
+    "transformFilter"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/compile.ts",
+   "pkg": "compiler-core",
+   "lines": 123,
+   "exports": [
+    "TransformPreset",
+    "getBaseTransformPreset",
+    "baseCompile"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/errors.ts",
+   "pkg": "compiler-core",
+   "lines": 194,
+   "exports": [
+    "CompilerError",
+    "CoreCompilerError",
+    "defaultOnError",
+    "defaultOnWarn",
+    "createCompilerError",
+    "ErrorCodes",
+    "errorMessages"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/index.ts",
+   "pkg": "compiler-core",
+   "lines": 80,
+   "exports": [
+    "baseCompile",
+    "BindingTypes",
+    "baseParse",
+    "transform",
+    "createTransformContext",
+    "traverseNode",
+    "createStructuralDirectiveTransform",
+    "generate",
+    "ErrorCodes",
+    "errorMessages",
+    "createCompilerError",
+    "getBaseTransformPreset",
+    "transformModel",
+    "transformOn",
+    "transformBind",
+    "noopDirectiveTransform",
+    "processIf",
+    "processFor",
+    "createForLoopParams",
+    "transformExpression",
+    "processExpression",
+    "stringifyExpression",
+    "buildSlots",
+    "trackVForSlotScopes",
+    "trackSlotScopes",
+    "transformElement",
+    "resolveComponentType",
+    "buildProps",
+    "buildDirectiveArgs",
+    "transformVBindShorthand",
+    "processSlotOutlet",
+    "getConstantType",
+    "generateCodeFrame",
+    "checkCompatEnabled",
+    "warnDeprecation",
+    "CompilerDeprecationTypes"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "compiler-core/src/options.ts",
+   "pkg": "compiler-core",
+   "lines": 350,
+   "exports": [
+    "ErrorHandlingOptions",
+    "ParserOptions",
+    "HoistTransform",
+    "BindingTypes",
+    "BindingMetadata",
+    "TransformOptions",
+    "CodegenOptions",
+    "CompilerOptions"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/parser.ts",
+   "pkg": "compiler-core",
+   "lines": 1087,
+   "exports": [
+    "MergedParserOptions",
+    "defaultParserOptions",
+    "cloneLoc",
+    "baseParse"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/runtimeHelpers.ts",
+   "pkg": "compiler-core",
+   "lines": 133,
+   "exports": [
+    "FRAGMENT",
+    "TELEPORT",
+    "SUSPENSE",
+    "KEEP_ALIVE",
+    "BASE_TRANSITION",
+    "OPEN_BLOCK",
+    "CREATE_BLOCK",
+    "CREATE_ELEMENT_BLOCK",
+    "CREATE_VNODE",
+    "CREATE_ELEMENT_VNODE",
+    "CREATE_COMMENT",
+    "CREATE_TEXT",
+    "CREATE_STATIC",
+    "RESOLVE_COMPONENT",
+    "RESOLVE_DYNAMIC_COMPONENT",
+    "RESOLVE_DIRECTIVE",
+    "RESOLVE_FILTER",
+    "WITH_DIRECTIVES",
+    "RENDER_LIST",
+    "RENDER_SLOT",
+    "CREATE_SLOTS",
+    "TO_DISPLAY_STRING",
+    "MERGE_PROPS",
+    "NORMALIZE_CLASS",
+    "NORMALIZE_STYLE",
+    "NORMALIZE_PROPS",
+    "GUARD_REACTIVE_PROPS",
+    "TO_HANDLERS",
+    "CAMELIZE",
+    "CAPITALIZE",
+    "TO_HANDLER_KEY",
+    "SET_BLOCK_TRACKING",
+    "PUSH_SCOPE_ID",
+    "POP_SCOPE_ID",
+    "WITH_CTX",
+    "UNREF",
+    "IS_REF",
+    "WITH_MEMO",
+    "IS_MEMO_SAME",
+    "helperNameMap",
+    "registerRuntimeHelpers"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/tokenizer.ts",
+   "pkg": "compiler-core",
+   "lines": 1198,
+   "exports": [
+    "ParseMode",
+    "CharCodes",
+    "State",
+    "isWhitespace",
+    "toCharCodes",
+    "QuoteType",
+    "Callbacks",
+    "Sequences",
+    "default"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transform.ts",
+   "pkg": "compiler-core",
+   "lines": 521,
+   "exports": [
+    "NodeTransform",
+    "DirectiveTransform",
+    "DirectiveTransformResult",
+    "StructuralDirectiveTransform",
+    "ImportItem",
+    "TransformContext",
+    "createTransformContext",
+    "transform",
+    "traverseChildren",
+    "traverseNode",
+    "createStructuralDirectiveTransform"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/cacheStatic.ts",
+   "pkg": "compiler-core",
+   "lines": 466,
+   "exports": [
+    "cacheStatic",
+    "getSingleElementRoot",
+    "getConstantType"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/noopDirectiveTransform.ts",
+   "pkg": "compiler-core",
+   "lines": 4,
+   "exports": [
+    "noopDirectiveTransform"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/transformElement.ts",
+   "pkg": "compiler-core",
+   "lines": 966,
+   "exports": [
+    "transformElement",
+    "resolveComponentType",
+    "PropsExpression",
+    "buildProps",
+    "buildDirectiveArgs"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/transformExpression.ts",
+   "pkg": "compiler-core",
+   "lines": 422,
+   "exports": [
+    "transformExpression",
+    "processExpression",
+    "stringifyExpression"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/transformSlotOutlet.ts",
+   "pkg": "compiler-core",
+   "lines": 124,
+   "exports": [
+    "transformSlotOutlet",
+    "processSlotOutlet"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/transformText.ts",
+   "pkg": "compiler-core",
+   "lines": 120,
+   "exports": [
+    "transformText"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/transformVBindShorthand.ts",
+   "pkg": "compiler-core",
+   "lines": 49,
+   "exports": [
+    "transformVBindShorthand"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/vBind.ts",
+   "pkg": "compiler-core",
+   "lines": 87,
+   "exports": [
+    "transformBind"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/vFor.ts",
+   "pkg": "compiler-core",
+   "lines": 400,
+   "exports": [
+    "transformFor",
+    "processFor",
+    "finalizeForParseResult",
+    "createForLoopParams"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/vIf.ts",
+   "pkg": "compiler-core",
+   "lines": 349,
+   "exports": [
+    "transformIf",
+    "processIf"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/vMemo.ts",
+   "pkg": "compiler-core",
+   "lines": 44,
+   "exports": [
+    "transformMemo"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/vModel.ts",
+   "pkg": "compiler-core",
+   "lines": 170,
+   "exports": [
+    "transformModel"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/vOn.ts",
+   "pkg": "compiler-core",
+   "lines": 180,
+   "exports": [
+    "VOnDirectiveNode",
+    "transformOn"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/vOnce.ts",
+   "pkg": "compiler-core",
+   "lines": 29,
+   "exports": [
+    "transformOnce"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/transforms/vSlot.ts",
+   "pkg": "compiler-core",
+   "lines": 424,
+   "exports": [
+    "trackSlotScopes",
+    "trackVForSlotScopes",
+    "SlotFnBuilder",
+    "buildSlots"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/utils.ts",
+   "pkg": "compiler-core",
+   "lines": 626,
+   "exports": [
+    "isStaticExp",
+    "isCoreComponent",
+    "isSimpleIdentifier",
+    "validFirstIdentCharRE",
+    "isMemberExpressionBrowser",
+    "isMemberExpressionNode",
+    "isMemberExpression",
+    "isFnExpressionBrowser",
+    "isFnExpressionNode",
+    "isFnExpression",
+    "advancePositionWithClone",
+    "advancePositionWithMutation",
+    "assert",
+    "findDir",
+    "findProp",
+    "isStaticArgOf",
+    "hasDynamicKeyVBind",
+    "isText",
+    "isVPre",
+    "isVSlot",
+    "isTemplateNode",
+    "isSlotOutlet",
+    "injectProp",
+    "toValidAssetId",
+    "hasScopeRef",
+    "getMemoedVNodeCall",
+    "forAliasRE",
+    "isAllWhitespace",
+    "isWhitespaceText",
+    "isCommentOrWhitespace"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-core/src/validateExpression.ts",
+   "pkg": "compiler-core",
+   "lines": 66,
+   "exports": [
+    "validateBrowserExpression"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/decodeHtmlBrowser.ts",
+   "pkg": "compiler-dom",
+   "lines": 17,
+   "exports": [
+    "decodeHtmlBrowser"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/errors.ts",
+   "pkg": "compiler-dom",
+   "lines": 64,
+   "exports": [
+    "DOMCompilerError",
+    "createDOMCompilerError",
+    "DOMErrorCodes",
+    "DOMErrorMessages"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/htmlNesting.ts",
+   "pkg": "compiler-dom",
+   "lines": 201,
+   "exports": [
+    "isValidHTMLNesting"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/index.ts",
+   "pkg": "compiler-dom",
+   "lines": 79,
+   "exports": [
+    "DOMNodeTransforms",
+    "DOMDirectiveTransforms",
+    "compile",
+    "parse",
+    "parserOptions",
+    "transformStyle",
+    "createDOMCompilerError",
+    "DOMErrorCodes",
+    "DOMErrorMessages"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "compiler-dom/src/parserOptions.ts",
+   "pkg": "compiler-dom",
+   "lines": 70,
+   "exports": [
+    "parserOptions"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/runtimeHelpers.ts",
+   "pkg": "compiler-dom",
+   "lines": 41,
+   "exports": [
+    "V_MODEL_RADIO",
+    "V_MODEL_CHECKBOX",
+    "V_MODEL_TEXT",
+    "V_MODEL_SELECT",
+    "V_MODEL_DYNAMIC",
+    "V_ON_WITH_MODIFIERS",
+    "V_ON_WITH_KEYS",
+    "V_SHOW",
+    "TRANSITION",
+    "TRANSITION_GROUP"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/ignoreSideEffectTags.ts",
+   "pkg": "compiler-dom",
+   "lines": 20,
+   "exports": [
+    "ignoreSideEffectTags"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/stringifyStatic.ts",
+   "pkg": "compiler-dom",
+   "lines": 436,
+   "exports": [
+    "StringifyThresholds",
+    "stringifyStatic"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/transformStyle.ts",
+   "pkg": "compiler-dom",
+   "lines": 47,
+   "exports": [
+    "transformStyle"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/Transition.ts",
+   "pkg": "compiler-dom",
+   "lines": 73,
+   "exports": [
+    "transformTransition"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/validateHtmlNesting.ts",
+   "pkg": "compiler-dom",
+   "lines": 28,
+   "exports": [
+    "validateHtmlNesting"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/vHtml.ts",
+   "pkg": "compiler-dom",
+   "lines": 30,
+   "exports": [
+    "transformVHtml"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/vModel.ts",
+   "pkg": "compiler-dom",
+   "lines": 128,
+   "exports": [
+    "transformModel"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/vOn.ts",
+   "pkg": "compiler-dom",
+   "lines": 155,
+   "exports": [
+    "transformOn"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/vShow.ts",
+   "pkg": "compiler-dom",
+   "lines": 18,
+   "exports": [
+    "transformShow"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-dom/src/transforms/vText.ts",
+   "pkg": "compiler-dom",
+   "lines": 41,
+   "exports": [
+    "transformVText"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/cache.ts",
+   "pkg": "compiler-sfc",
+   "lines": 12,
+   "exports": [
+    "createCache"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/compileScript.ts",
+   "pkg": "compiler-sfc",
+   "lines": 1418,
+   "exports": [
+    "SFCScriptCompileOptions",
+    "ImportBinding",
+    "compileScript",
+    "genDefaultAs",
+    "foo",
+    "Foo",
+    "mergeSourceMaps",
+    "default"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/compileStyle.ts",
+   "pkg": "compiler-sfc",
+   "lines": 243,
+   "exports": [
+    "SFCStyleCompileOptions",
+    "CSSModulesOptions",
+    "SFCAsyncStyleCompileOptions",
+    "SFCStyleCompileResults",
+    "compileStyle",
+    "compileStyleAsync",
+    "doCompileStyle"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/compileTemplate.ts",
+   "pkg": "compiler-sfc",
+   "lines": 345,
+   "exports": [
+    "TemplateCompiler",
+    "SFCTemplateCompileResults",
+    "SFCTemplateCompileOptions",
+    "compileTemplate",
+    "default"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/index.ts",
+   "pkg": "compiler-sfc",
+   "lines": 90,
+   "exports": [
+    "version",
+    "parseCache",
+    "errorMessages",
+    "walk",
+    "shouldTransformRef",
+    "parse",
+    "compileTemplate",
+    "compileStyle",
+    "compileStyleAsync",
+    "compileScript",
+    "rewriteDefault",
+    "rewriteDefaultAST",
+    "resolveTypeElements",
+    "inferRuntimeType",
+    "babelParse",
+    "MagicString",
+    "generateCodeFrame",
+    "walkIdentifiers",
+    "extractIdentifiers",
+    "isInDestructureAssignment",
+    "isStaticProperty",
+    "invalidateTypeCache",
+    "registerTS",
+    "extractRuntimeProps",
+    "extractRuntimeEmits"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "compiler-sfc/src/parse.ts",
+   "pkg": "compiler-sfc",
+   "lines": 486,
+   "exports": [
+    "DEFAULT_FILENAME",
+    "SFCParseOptions",
+    "SFCBlock",
+    "SFCTemplateBlock",
+    "SFCScriptBlock",
+    "SFCStyleBlock",
+    "SFCDescriptor",
+    "SFCParseResult",
+    "parseCache",
+    "parse",
+    "hmrShouldReload"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/rewriteDefault.ts",
+   "pkg": "compiler-sfc",
+   "lines": 125,
+   "exports": [
+    "rewriteDefault",
+    "rewriteDefaultAST",
+    "hasDefaultExport",
+    "default",
+    "foo"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/analyzeScriptBindings.ts",
+   "pkg": "compiler-sfc",
+   "lines": 132,
+   "exports": [
+    "analyzeScriptBindings",
+    "getObjectOrArrayExpressionKeys"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/context.ts",
+   "pkg": "compiler-sfc",
+   "lines": 208,
+   "exports": [
+    "ScriptCompileContext",
+    "resolveParserPlugins"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/defineEmits.ts",
+   "pkg": "compiler-sfc",
+   "lines": 129,
+   "exports": [
+    "DEFINE_EMITS",
+    "processDefineEmits",
+    "genRuntimeEmits",
+    "extractRuntimeEmits"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/defineExpose.ts",
+   "pkg": "compiler-sfc",
+   "lines": 20,
+   "exports": [
+    "DEFINE_EXPOSE",
+    "processDefineExpose"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/defineModel.ts",
+   "pkg": "compiler-sfc",
+   "lines": 181,
+   "exports": [
+    "DEFINE_MODEL",
+    "ModelDecl",
+    "processDefineModel",
+    "genModelProps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/defineOptions.ts",
+   "pkg": "compiler-sfc",
+   "lines": 88,
+   "exports": [
+    "DEFINE_OPTIONS",
+    "processDefineOptions"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/defineProps.ts",
+   "pkg": "compiler-sfc",
+   "lines": 398,
+   "exports": [
+    "DEFINE_PROPS",
+    "WITH_DEFAULTS",
+    "PropTypeData",
+    "PropsDestructureBindings",
+    "processDefineProps",
+    "genRuntimeProps",
+    "extractRuntimeProps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/definePropsDestructure.ts",
+   "pkg": "compiler-sfc",
+   "lines": 429,
+   "exports": [
+    "processPropsDestructure",
+    "transformDestructuredProps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/defineSlots.ts",
+   "pkg": "compiler-sfc",
+   "lines": 34,
+   "exports": [
+    "DEFINE_SLOTS",
+    "processDefineSlots"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/importUsageCheck.ts",
+   "pkg": "compiler-sfc",
+   "lines": 174,
+   "exports": [
+    "isImportUsed",
+    "templateAnalysisCache",
+    "resolveTemplateVModelIdentifiers"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/normalScript.ts",
+   "pkg": "compiler-sfc",
+   "lines": 54,
+   "exports": [
+    "normalScriptDefaultVar",
+    "processNormalScript",
+    "default"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/resolveType.ts",
+   "pkg": "compiler-sfc",
+   "lines": 2269,
+   "exports": [
+    "SimpleTypeResolveOptions",
+    "SimpleTypeResolveContext",
+    "TypeResolveContext",
+    "TypeScope",
+    "MaybeWithScope",
+    "resolveTypeElements",
+    "registerTS",
+    "invalidateTypeCache",
+    "fileToScope",
+    "recordImports",
+    "inferRuntimeType",
+    "resolveUnionType"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/topLevelAwait.ts",
+   "pkg": "compiler-sfc",
+   "lines": 70,
+   "exports": [
+    "processAwait"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/script/utils.ts",
+   "pkg": "compiler-sfc",
+   "lines": 145,
+   "exports": [
+    "UNKNOWN_TYPE",
+    "resolveObjectKey",
+    "concatStrings",
+    "isLiteralNode",
+    "isCallOf",
+    "toRuntimeTypeString",
+    "getImportedName",
+    "getId",
+    "getStringLiteralKey",
+    "createGetCanonicalFileName",
+    "normalizePath",
+    "joinPaths",
+    "propNameEscapeSymbolsRE",
+    "getEscapedPropName",
+    "isJS",
+    "isTS"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/style/cssVars.ts",
+   "pkg": "compiler-sfc",
+   "lines": 349,
+   "exports": [
+    "CSS_VARS_HELPER",
+    "genCssVarsFromList",
+    "parseCssVars",
+    "CssVarsPluginOptions",
+    "cssVarsPlugin",
+    "genCssVarsCode",
+    "genNormalScriptCssVarsCode"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/style/pluginScoped.ts",
+   "pkg": "compiler-sfc",
+   "lines": 427,
+   "exports": [
+    "default"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/style/pluginTrim.ts",
+   "pkg": "compiler-sfc",
+   "lines": 19,
+   "exports": [
+    "default"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/style/preprocessors.ts",
+   "pkg": "compiler-sfc",
+   "lines": 162,
+   "exports": [
+    "StylePreprocessor",
+    "StylePreprocessorResults",
+    "PreprocessLang",
+    "processors"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/template/resolveTemplateAST.ts",
+   "pkg": "compiler-sfc",
+   "lines": 41,
+   "exports": [
+    "resolveTemplateAST"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/template/templateUtils.ts",
+   "pkg": "compiler-sfc",
+   "lines": 53,
+   "exports": [
+    "isRelativeUrl",
+    "isExternalUrl",
+    "isDataUrl",
+    "normalizeDecodedImportPath",
+    "parseUrl"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/template/transformAssetUrl.ts",
+   "pkg": "compiler-sfc",
+   "lines": 282,
+   "exports": [
+    "AssetURLTagConfig",
+    "AssetURLOptions",
+    "defaultAssetUrlOptions",
+    "normalizeOptions",
+    "createAssetUrlTransformWithOptions",
+    "transformAssetUrl"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/template/transformSrcset.ts",
+   "pkg": "compiler-sfc",
+   "lines": 185,
+   "exports": [
+    "createSrcsetTransformWithOptions",
+    "transformSrcset"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-sfc/src/warn.ts",
+   "pkg": "compiler-sfc",
+   "lines": 17,
+   "exports": [
+    "warnOnce",
+    "warn"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/errors.ts",
+   "pkg": "compiler-ssr",
+   "lines": 43,
+   "exports": [
+    "SSRCompilerError",
+    "createSSRCompilerError",
+    "SSRErrorCodes",
+    "SSRErrorMessages"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/index.ts",
+   "pkg": "compiler-ssr",
+   "lines": 97,
+   "exports": [
+    "compile"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "compiler-ssr/src/runtimeHelpers.ts",
+   "pkg": "compiler-ssr",
+   "lines": 56,
+   "exports": [
+    "SSR_INTERPOLATE",
+    "SSR_RENDER_VNODE",
+    "SSR_RENDER_COMPONENT",
+    "SSR_RENDER_SLOT",
+    "SSR_RENDER_SLOT_INNER",
+    "SSR_RENDER_CLASS",
+    "SSR_RENDER_STYLE",
+    "SSR_RENDER_ATTRS",
+    "SSR_RENDER_ATTR",
+    "SSR_RENDER_DYNAMIC_ATTR",
+    "SSR_RENDER_LIST",
+    "SSR_INCLUDE_BOOLEAN_ATTR",
+    "SSR_LOOSE_EQUAL",
+    "SSR_LOOSE_CONTAIN",
+    "SSR_RENDER_DYNAMIC_MODEL",
+    "SSR_GET_DYNAMIC_MODEL_PROPS",
+    "SSR_RENDER_TELEPORT",
+    "SSR_RENDER_SUSPENSE",
+    "SSR_GET_DIRECTIVE_PROPS",
+    "ssrHelpers"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "pkg": "compiler-ssr",
+   "lines": 252,
+   "exports": [
+    "ssrCodegenTransform",
+    "SSRTransformContext",
+    "processChildren",
+    "processChildrenAsStatement"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrInjectCssVars.ts",
+   "pkg": "compiler-ssr",
+   "lines": 86,
+   "exports": [
+    "ssrInjectCssVars"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrInjectFallthroughAttrs.ts",
+   "pkg": "compiler-ssr",
+   "lines": 93,
+   "exports": [
+    "ssrInjectFallthroughAttrs"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "pkg": "compiler-ssr",
+   "lines": 387,
+   "exports": [
+    "ssrTransformComponent",
+    "ssrProcessComponent",
+    "rawOptionsMap"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrTransformElement.ts",
+   "pkg": "compiler-ssr",
+   "lines": 550,
+   "exports": [
+    "ssrTransformStyle",
+    "ssrTransformElement",
+    "buildSSRProps",
+    "ssrProcessElement"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrTransformSlotOutlet.ts",
+   "pkg": "compiler-ssr",
+   "lines": 97,
+   "exports": [
+    "ssrTransformSlotOutlet",
+    "ssrProcessSlotOutlet"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrTransformSuspense.ts",
+   "pkg": "compiler-ssr",
+   "lines": 84,
+   "exports": [
+    "ssrTransformSuspense",
+    "ssrProcessSuspense"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrTransformTeleport.ts",
+   "pkg": "compiler-ssr",
+   "lines": 72,
+   "exports": [
+    "ssrProcessTeleport"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrTransformTransition.ts",
+   "pkg": "compiler-ssr",
+   "lines": 40,
+   "exports": [
+    "ssrTransformTransition",
+    "ssrProcessTransition"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrTransformTransitionGroup.ts",
+   "pkg": "compiler-ssr",
+   "lines": 119,
+   "exports": [
+    "ssrTransformTransitionGroup",
+    "ssrProcessTransitionGroup"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrVFor.ts",
+   "pkg": "compiler-ssr",
+   "lines": 53,
+   "exports": [
+    "ssrTransformFor",
+    "ssrProcessFor"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrVIf.ts",
+   "pkg": "compiler-ssr",
+   "lines": 79,
+   "exports": [
+    "ssrTransformIf",
+    "ssrProcessIf"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrVModel.ts",
+   "pkg": "compiler-ssr",
+   "lines": 201,
+   "exports": [
+    "ssrTransformModel"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "compiler-ssr/src/transforms/ssrVShow.ts",
+   "pkg": "compiler-ssr",
+   "lines": 36,
+   "exports": [
+    "ssrTransformShow"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/arrayInstrumentations.ts",
+   "pkg": "reactivity",
+   "lines": 413,
+   "exports": [
+    "reactiveReadArray",
+    "shallowReadArray",
+    "arrayInstrumentations"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/baseHandlers.ts",
+   "pkg": "reactivity",
+   "lines": 265,
+   "exports": [
+    "mutableHandlers",
+    "readonlyHandlers",
+    "shallowReactiveHandlers",
+    "shallowReadonlyHandlers"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/collectionHandlers.ts",
+   "pkg": "reactivity",
+   "lines": 332,
+   "exports": [
+    "mutableCollectionHandlers",
+    "shallowCollectionHandlers",
+    "readonlyCollectionHandlers",
+    "shallowReadonlyCollectionHandlers"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/computed.ts",
+   "pkg": "reactivity",
+   "lines": 222,
+   "exports": [
+    "ComputedRef",
+    "WritableComputedRef",
+    "ComputedGetter",
+    "ComputedSetter",
+    "WritableComputedOptions",
+    "ComputedRefImpl",
+    "computed"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/constants.ts",
+   "pkg": "reactivity",
+   "lines": 25,
+   "exports": [
+    "TrackOpTypes",
+    "TriggerOpTypes",
+    "ReactiveFlags"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/dep.ts",
+   "pkg": "reactivity",
+   "lines": 398,
+   "exports": [
+    "globalVersion",
+    "Link",
+    "Dep",
+    "targetMap",
+    "ITERATE_KEY",
+    "MAP_KEY_ITERATE_KEY",
+    "ARRAY_ITERATE_KEY",
+    "track",
+    "trigger",
+    "getDepFromReactive"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/effect.ts",
+   "pkg": "reactivity",
+   "lines": 583,
+   "exports": [
+    "EffectScheduler",
+    "DebuggerEvent",
+    "DebuggerEventExtraInfo",
+    "DebuggerOptions",
+    "ReactiveEffectOptions",
+    "ReactiveEffectRunner",
+    "activeSub",
+    "EffectFlags",
+    "Subscriber",
+    "ReactiveEffect",
+    "batch",
+    "startBatch",
+    "endBatch",
+    "refreshComputed",
+    "effect",
+    "stop",
+    "shouldTrack",
+    "pauseTracking",
+    "enableTracking",
+    "resetTracking",
+    "onEffectCleanup"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/effectScope.ts",
+   "pkg": "reactivity",
+   "lines": 243,
+   "exports": [
+    "activeEffectScope",
+    "EffectScope",
+    "effectScope",
+    "getCurrentScope",
+    "onScopeDispose"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/index.ts",
+   "pkg": "reactivity",
+   "lines": 98,
+   "exports": [
+    "ref",
+    "shallowRef",
+    "isRef",
+    "toRef",
+    "toValue",
+    "toRefs",
+    "unref",
+    "proxyRefs",
+    "customRef",
+    "triggerRef",
+    "reactive",
+    "readonly",
+    "isReactive",
+    "isReadonly",
+    "isShallow",
+    "isProxy",
+    "shallowReactive",
+    "shallowReadonly",
+    "markRaw",
+    "toRaw",
+    "toReactive",
+    "toReadonly",
+    "computed",
+    "effect",
+    "stop",
+    "enableTracking",
+    "pauseTracking",
+    "resetTracking",
+    "onEffectCleanup",
+    "ReactiveEffect",
+    "EffectFlags",
+    "trigger",
+    "track",
+    "ITERATE_KEY",
+    "ARRAY_ITERATE_KEY",
+    "MAP_KEY_ITERATE_KEY",
+    "effectScope",
+    "EffectScope",
+    "getCurrentScope",
+    "onScopeDispose",
+    "reactiveReadArray",
+    "shallowReadArray",
+    "TrackOpTypes",
+    "TriggerOpTypes",
+    "ReactiveFlags",
+    "watch",
+    "getCurrentWatcher",
+    "traverse",
+    "onWatcherCleanup",
+    "WatchErrorCodes"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "reactivity/src/reactive.ts",
+   "pkg": "reactivity",
+   "lines": 446,
+   "exports": [
+    "Target",
+    "reactiveMap",
+    "shallowReactiveMap",
+    "readonlyMap",
+    "shallowReadonlyMap",
+    "UnwrapNestedRefs",
+    "ReactiveMarker",
+    "Reactive",
+    "reactive",
+    "ShallowReactiveBrand",
+    "ShallowReactive",
+    "shallowReactive",
+    "Builtin",
+    "DeepReadonly",
+    "readonly",
+    "shallowReadonly",
+    "isReactive",
+    "isReadonly",
+    "isShallow",
+    "isProxy",
+    "toRaw",
+    "Raw",
+    "markRaw",
+    "toReactive",
+    "toReadonly"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/ref.ts",
+   "pkg": "reactivity",
+   "lines": 579,
+   "exports": [
+    "RawSymbol",
+    "Ref",
+    "isRef",
+    "ref",
+    "ShallowRef",
+    "shallowRef",
+    "triggerRef",
+    "MaybeRef",
+    "MaybeRefOrGetter",
+    "unref",
+    "toValue",
+    "proxyRefs",
+    "CustomRefFactory",
+    "customRef",
+    "ToRefs",
+    "toRefs",
+    "ToRef",
+    "toRef",
+    "RefUnwrapBailTypes",
+    "ShallowUnwrapRef",
+    "UnwrapRef",
+    "UnwrapRefSimple"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/warning.ts",
+   "pkg": "reactivity",
+   "lines": 4,
+   "exports": [
+    "warn"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "reactivity/src/watch.ts",
+   "pkg": "reactivity",
+   "lines": 374,
+   "exports": [
+    "WatchErrorCodes",
+    "WatchEffect",
+    "WatchSource",
+    "WatchCallback",
+    "OnCleanup",
+    "WatchOptions",
+    "WatchStopHandle",
+    "WatchHandle",
+    "WatchScheduler",
+    "getCurrentWatcher",
+    "onWatcherCleanup",
+    "watch",
+    "traverse"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/apiAsyncComponent.ts",
+   "pkg": "runtime-core",
+   "lines": 289,
+   "exports": [
+    "AsyncComponentResolveResult",
+    "AsyncComponentLoader",
+    "AsyncComponentOptions",
+    "isAsyncWrapper",
+    "defineAsyncComponent"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/apiComputed.ts",
+   "pkg": "runtime-core",
+   "lines": 18,
+   "exports": [
+    "computed"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/apiCreateApp.ts",
+   "pkg": "runtime-core",
+   "lines": 494,
+   "exports": [
+    "App",
+    "OptionMergeFunction",
+    "AppConfig",
+    "AppContext",
+    "ObjectPlugin",
+    "FunctionPlugin",
+    "Plugin",
+    "createAppContext",
+    "CreateAppFunction",
+    "createAppAPI",
+    "currentApp"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/apiDefineComponent.ts",
+   "pkg": "runtime-core",
+   "lines": 316,
+   "exports": [
+    "PublicProps",
+    "DefineComponent",
+    "DefineSetupFnComponent",
+    "defineComponent"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/apiInject.ts",
+   "pkg": "runtime-core",
+   "lines": 95,
+   "exports": [
+    "InjectionKey",
+    "provide",
+    "inject",
+    "hasInjectionContext"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/apiLifecycle.ts",
+   "pkg": "runtime-core",
+   "lines": 117,
+   "exports": [
+    "injectHook",
+    "onBeforeMount",
+    "onMounted",
+    "onBeforeUpdate",
+    "onUpdated",
+    "onBeforeUnmount",
+    "onUnmounted",
+    "onServerPrefetch",
+    "DebuggerHook",
+    "onRenderTriggered",
+    "onRenderTracked",
+    "ErrorCapturedHook",
+    "onErrorCaptured",
+    "onActivated",
+    "onDeactivated"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/apiSetupHelpers.ts",
+   "pkg": "runtime-core",
+   "lines": 574,
+   "exports": [
+    "defineProps",
+    "DefineProps",
+    "defineEmits",
+    "ComponentTypeEmits",
+    "defineExpose",
+    "defineOptions",
+    "defineSlots",
+    "ModelRef",
+    "DefineModelOptions",
+    "defineModel",
+    "withDefaults",
+    "useSlots",
+    "useAttrs",
+    "normalizePropsOrEmits",
+    "mergeDefaults",
+    "mergeModels",
+    "createPropsRestProxy",
+    "withAsyncContext"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/apiWatch.ts",
+   "pkg": "runtime-core",
+   "lines": 286,
+   "exports": [
+    "WatchEffectOptions",
+    "WatchOptions",
+    "watchEffect",
+    "watchPostEffect",
+    "watchSyncEffect",
+    "MultiWatchSources",
+    "watch",
+    "instanceWatch",
+    "createPathGetter"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/attrsFallthrough.ts",
+   "pkg": "runtime-core",
+   "lines": 30,
+   "exports": [
+    "shouldSkipAttr"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/compatConfig.ts",
+   "pkg": "runtime-core",
+   "lines": 643,
+   "exports": [
+    "DeprecationTypes",
+    "deprecationData",
+    "toggleDeprecationWarning",
+    "warnDeprecation",
+    "CompatConfig",
+    "globalCompatConfig",
+    "configureCompat",
+    "validateCompatConfig",
+    "getCompatConfigForKey",
+    "isCompatEnabled",
+    "assertCompatEnabled",
+    "softAssertCompatEnabled",
+    "checkCompatEnabled"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/component.ts",
+   "pkg": "runtime-core",
+   "lines": 58,
+   "exports": [
+    "convertLegacyComponent"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/componentAsync.ts",
+   "pkg": "runtime-core",
+   "lines": 62,
+   "exports": [
+    "convertLegacyAsyncComponent"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/componentFunctional.ts",
+   "pkg": "runtime-core",
+   "lines": 66,
+   "exports": [
+    "legacySlotProxyHandlers",
+    "convertLegacyFunctionalComponent"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/componentVModel.ts",
+   "pkg": "runtime-core",
+   "lines": 94,
+   "exports": [
+    "compatModelEventPrefix",
+    "convertLegacyVModelProps",
+    "compatModelEmit"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/customDirective.ts",
+   "pkg": "runtime-core",
+   "lines": 61,
+   "exports": [
+    "LegacyDirective",
+    "mapCompatDirectiveHook"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/data.ts",
+   "pkg": "runtime-core",
+   "lines": 17,
+   "exports": [
+    "deepMergeData"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/global.ts",
+   "pkg": "runtime-core",
+   "lines": 670,
+   "exports": [
+    "CompatVue",
+    "isCopyingConfig",
+    "singletonApp",
+    "createCompatVue",
+    "installAppCompatProperties"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/globalConfig.ts",
+   "pkg": "runtime-core",
+   "lines": 85,
+   "exports": [
+    "LegacyConfig",
+    "installLegacyConfigWarnings",
+    "installLegacyOptionMergeStrats"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/instance.ts",
+   "pkg": "runtime-core",
+   "lines": 201,
+   "exports": [
+    "LegacyPublicInstance",
+    "LegacyPublicProperties",
+    "installCompatInstanceProperties"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/instanceChildren.ts",
+   "pkg": "runtime-core",
+   "lines": 29,
+   "exports": [
+    "getCompatChildren"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/instanceEventEmitter.ts",
+   "pkg": "runtime-core",
+   "lines": 110,
+   "exports": [
+    "getRegistry",
+    "on",
+    "once",
+    "off",
+    "emit"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/instanceListeners.ts",
+   "pkg": "runtime-core",
+   "lines": 22,
+   "exports": [
+    "getCompatListeners"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/props.ts",
+   "pkg": "runtime-core",
+   "lines": 44,
+   "exports": [
+    "createPropsDefaultThis"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/renderFn.ts",
+   "pkg": "runtime-core",
+   "lines": 347,
+   "exports": [
+    "convertLegacyRenderFn",
+    "compatH",
+    "defineLegacyVNodeProperties"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/compat/renderHelpers.ts",
+   "pkg": "runtime-core",
+   "lines": 183,
+   "exports": [
+    "legacyBindObjectProps",
+    "legacyBindObjectListeners",
+    "legacyRenderSlot",
+    "legacyResolveScopedSlots",
+    "legacyRenderStatic",
+    "legacyCheckKeyCodes",
+    "legacyMarkOnce",
+    "legacyBindDynamicKeys",
+    "legacyPrependModifier"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/component.ts",
+   "pkg": "runtime-core",
+   "lines": 1323,
+   "exports": [
+    "Data",
+    "AllowedAttrs",
+    "Attrs",
+    "ComponentInstance",
+    "ComponentCustomProps",
+    "GlobalDirectives",
+    "GlobalComponents",
+    "AllowedComponentProps",
+    "ComponentInternalOptions",
+    "FunctionalComponent",
+    "ClassComponent",
+    "ConcreteComponent",
+    "Component",
+    "LifecycleHook",
+    "SetupContext",
+    "InternalRenderFunction",
+    "ComponentInternalInstance",
+    "getNextUid",
+    "createComponentInstance",
+    "currentInstance",
+    "getCurrentInstance",
+    "setInSSRSetupState",
+    "setCurrentInstance",
+    "unsetCurrentInstance",
+    "validateComponentName",
+    "isStatefulComponent",
+    "isInSSRComponentSetup",
+    "setupComponent",
+    "handleSetupResult",
+    "registerRuntimeCompiler",
+    "isRuntimeOnly",
+    "finishComponentSetup",
+    "rawAttrsKey",
+    "createSetupContext",
+    "getComponentPublicInstance",
+    "getComponentName",
+    "formatComponentName",
+    "isClassComponent",
+    "ComponentCustomElementInterface"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/componentEmits.ts",
+   "pkg": "runtime-core",
+   "lines": 317,
+   "exports": [
+    "ObjectEmitsOptions",
+    "EmitsOptions",
+    "EmitsToProps",
+    "TypeEmitsToOptions",
+    "ShortEmitsToObject",
+    "EmitFn",
+    "emit",
+    "normalizeEmitsOptions",
+    "isEmitListener"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/componentOptions.ts",
+   "pkg": "runtime-core",
+   "lines": 1328,
+   "exports": [
+    "ComponentCustomOptions",
+    "RenderFunction",
+    "ComponentOptionsBase",
+    "RuntimeCompilerOptions",
+    "ComponentOptions",
+    "ComponentOptionsMixin",
+    "ComputedOptions",
+    "MethodOptions",
+    "ExtractComputedReturns",
+    "ObjectWatchOptionItem",
+    "ComponentProvideOptions",
+    "ComponentInjectOptions",
+    "InjectToObject",
+    "MergedComponentOptions",
+    "MergedComponentOptionsOverride",
+    "OptionTypesKeys",
+    "OptionTypesType",
+    "shouldCacheAccess",
+    "applyOptions",
+    "resolveInjections",
+    "createWatcher",
+    "resolveMergedOptions",
+    "mergeOptions",
+    "internalOptionMergeStrats",
+    "ComponentOptionsWithoutProps",
+    "ComponentOptionsWithArrayProps",
+    "ComponentOptionsWithObjectProps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/componentProps.ts",
+   "pkg": "runtime-core",
+   "lines": 830,
+   "exports": [
+    "ComponentPropsOptions",
+    "ComponentObjectPropsOptions",
+    "Prop",
+    "PropOptions",
+    "PropType",
+    "ExtractPropTypes",
+    "ExtractPublicPropTypes",
+    "ExtractDefaultPropTypes",
+    "NormalizedProps",
+    "NormalizedPropsOptions",
+    "initProps",
+    "updateProps",
+    "normalizePropsOptions"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/componentPublicInstance.ts",
+   "pkg": "runtime-core",
+   "lines": 757,
+   "exports": [
+    "ComponentCustomProperties",
+    "IntersectionMixin",
+    "UnwrapMixinsType",
+    "ComponentPublicInstanceConstructor",
+    "CreateComponentPublicInstance",
+    "CreateComponentPublicInstanceWithMixins",
+    "ExposedKeys",
+    "ComponentPublicInstance",
+    "PublicPropertiesMap",
+    "publicPropertiesMap",
+    "ComponentRenderContext",
+    "isReservedPrefix",
+    "PublicInstanceProxyHandlers",
+    "RuntimeCompiledPublicInstanceProxyHandlers",
+    "createDevRenderContext",
+    "exposePropsOnRenderContext",
+    "exposeSetupStateOnRenderContext"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/componentRenderContext.ts",
+   "pkg": "runtime-core",
+   "lines": 127,
+   "exports": [
+    "currentRenderingInstance",
+    "currentScopeId",
+    "setCurrentRenderingInstance",
+    "pushScopeId",
+    "popScopeId",
+    "withScopeId",
+    "ContextualRenderFn",
+    "withCtx"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/componentRenderUtils.ts",
+   "pkg": "runtime-core",
+   "lines": 501,
+   "exports": [
+    "markAttrsAccessed",
+    "renderComponentRoot",
+    "filterSingleRoot",
+    "shouldUpdateComponent",
+    "updateHOCHostEl"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/components/BaseTransition.ts",
+   "pkg": "runtime-core",
+   "lines": 648,
+   "exports": [
+    "leaveCbKey",
+    "BaseTransitionProps",
+    "TransitionHooks",
+    "TransitionHookCaller",
+    "PendingCallback",
+    "TransitionState",
+    "TransitionElement",
+    "useTransitionState",
+    "BaseTransitionPropsValidators",
+    "BaseTransition",
+    "resolveTransitionHooks",
+    "getInnerChild",
+    "setTransitionHooks",
+    "getTransitionRawChildren",
+    "getTransitionRoot"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/components/KeepAlive.ts",
+   "pkg": "runtime-core",
+   "lines": 511,
+   "exports": [
+    "KeepAliveProps",
+    "KeepAliveContext",
+    "isKeepAlive",
+    "KeepAlive",
+    "onActivated",
+    "onDeactivated"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/components/Suspense.ts",
+   "pkg": "runtime-core",
+   "lines": 1144,
+   "exports": [
+    "SuspenseProps",
+    "isSuspense",
+    "resetSuspenseId",
+    "deferredEnterKey",
+    "SuspenseImpl",
+    "Suspense",
+    "SuspenseBoundary",
+    "queueEffectWithSuspense"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/components/Teleport.ts",
+   "pkg": "runtime-core",
+   "lines": 590,
+   "exports": [
+    "TeleportVNode",
+    "TeleportProps",
+    "TeleportEndKey",
+    "isTeleport",
+    "TeleportImpl",
+    "TeleportMoveTypes",
+    "Teleport"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/componentSlots.ts",
+   "pkg": "runtime-core",
+   "lines": 253,
+   "exports": [
+    "Slot",
+    "InternalSlots",
+    "Slots",
+    "SlotsType",
+    "StrictUnwrapSlotsType",
+    "UnwrapSlotsType",
+    "RawSlots",
+    "initSlots",
+    "updateSlots"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/customFormatter.ts",
+   "pkg": "runtime-core",
+   "lines": 213,
+   "exports": [
+    "initCustomFormatter"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/devtools.ts",
+   "pkg": "runtime-core",
+   "lines": 175,
+   "exports": [
+    "DevtoolsHook",
+    "devtools",
+    "setDevtoolsHook",
+    "devtoolsInitApp",
+    "devtoolsUnmountApp",
+    "devtoolsComponentAdded",
+    "devtoolsComponentUpdated",
+    "devtoolsComponentRemoved",
+    "devtoolsPerfStart",
+    "devtoolsPerfEnd",
+    "devtoolsComponentEmit"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/directives.ts",
+   "pkg": "runtime-core",
+   "lines": 229,
+   "exports": [
+    "DirectiveBinding",
+    "DirectiveHook",
+    "SSRDirectiveHook",
+    "ObjectDirective",
+    "FunctionDirective",
+    "Directive",
+    "DirectiveModifiers",
+    "validateDirectiveName",
+    "DirectiveArguments",
+    "withDirectives",
+    "invokeDirectiveHook"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/enums.ts",
+   "pkg": "runtime-core",
+   "lines": 17,
+   "exports": [
+    "LifecycleHooks"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/errorHandling.ts",
+   "pkg": "runtime-core",
+   "lines": 193,
+   "exports": [
+    "ErrorCodes",
+    "ErrorTypeStrings",
+    "ErrorTypes",
+    "callWithErrorHandling",
+    "callWithAsyncErrorHandling",
+    "handleError"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/featureFlags.ts",
+   "pkg": "runtime-core",
+   "lines": 39,
+   "exports": [
+    "initFeatureFlags"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/h.ts",
+   "pkg": "runtime-core",
+   "lines": 228,
+   "exports": [
+    "h"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/createSlots.ts",
+   "pkg": "runtime-core",
+   "lines": 45,
+   "exports": [
+    "createSlots"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/renderList.ts",
+   "pkg": "runtime-core",
+   "lines": 129,
+   "exports": [
+    "renderList"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/renderSlot.ts",
+   "pkg": "runtime-core",
+   "lines": 144,
+   "exports": [
+    "renderSlot",
+    "ensureValidVNode"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/resolveAssets.ts",
+   "pkg": "runtime-core",
+   "lines": 141,
+   "exports": [
+    "COMPONENTS",
+    "DIRECTIVES",
+    "FILTERS",
+    "AssetTypes",
+    "resolveComponent",
+    "NULL_DYNAMIC_COMPONENT",
+    "resolveDynamicComponent",
+    "resolveDirective",
+    "resolveFilter"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/toHandlers.ts",
+   "pkg": "runtime-core",
+   "lines": 26,
+   "exports": [
+    "toHandlers"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/useId.ts",
+   "pkg": "runtime-core",
+   "lines": 29,
+   "exports": [
+    "useId",
+    "markAsyncBoundary"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/useModel.ts",
+   "pkg": "runtime-core",
+   "lines": 138,
+   "exports": [
+    "useModel",
+    "getModelModifiers"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/useSsrContext.ts",
+   "pkg": "runtime-core",
+   "lines": 21,
+   "exports": [
+    "ssrContextKey",
+    "useSSRContext"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/useTemplateRef.ts",
+   "pkg": "runtime-core",
+   "lines": 45,
+   "exports": [
+    "knownTemplateRefs",
+    "TemplateRef",
+    "useTemplateRef",
+    "isTemplateRefKey"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/helpers/withMemo.ts",
+   "pkg": "runtime-core",
+   "lines": 41,
+   "exports": [
+    "withMemo",
+    "isMemoSame"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/hmr.ts",
+   "pkg": "runtime-core",
+   "lines": 250,
+   "exports": [
+    "isHmrUpdating",
+    "setHmrUpdating",
+    "hmrDirtyComponents",
+    "HMRRuntime",
+    "registerHMR",
+    "unregisterHMR"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/hydration.ts",
+   "pkg": "runtime-core",
+   "lines": 1111,
+   "exports": [
+    "RootHydrateFunction",
+    "DOMNodeTypes",
+    "isComment",
+    "createHydrationFunctions"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/hydrationStrategies.ts",
+   "pkg": "runtime-core",
+   "lines": 150,
+   "exports": [
+    "HydrationStrategy",
+    "HydrationStrategyFactory",
+    "hydrateOnIdle",
+    "hydrateOnVisible",
+    "hydrateOnMediaQuery",
+    "hydrateOnInteraction",
+    "forEachElement"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/index.ts",
+   "pkg": "runtime-core",
+   "lines": 485,
+   "exports": [
+    "version",
+    "warn",
+    "ErrorTypeStrings",
+    "devtools",
+    "setDevtoolsHook",
+    "RefUnwrapBailTypes",
+    "ssrUtils",
+    "resolveFilter",
+    "compatUtils",
+    "DeprecationTypes",
+    "ref",
+    "readonly",
+    "proxyRefs",
+    "isRef",
+    "toRef",
+    "toValue",
+    "toRefs",
+    "isProxy",
+    "isReactive",
+    "isReadonly",
+    "isShallow",
+    "triggerRef",
+    "shallowRef",
+    "shallowReactive",
+    "shallowReadonly",
+    "markRaw",
+    "toRaw",
+    "stop",
+    "getCurrentWatcher",
+    "onWatcherCleanup",
+    "ReactiveEffect",
+    "EffectScope",
+    "getCurrentScope",
+    "onScopeDispose",
+    "computed",
+    "watch",
+    "watchEffect",
+    "watchPostEffect",
+    "watchSyncEffect",
+    "onBeforeMount",
+    "onMounted",
+    "onBeforeUpdate",
+    "onUpdated",
+    "onBeforeUnmount",
+    "onUnmounted",
+    "onActivated",
+    "onDeactivated",
+    "onRenderTracked",
+    "onRenderTriggered",
+    "onErrorCaptured",
+    "onServerPrefetch",
+    "provide",
+    "inject",
+    "hasInjectionContext",
+    "nextTick",
+    "defineComponent",
+    "defineAsyncComponent",
+    "useAttrs",
+    "useSlots",
+    "useModel",
+    "useTemplateRef",
+    "useId",
+    "hydrateOnIdle",
+    "hydrateOnVisible",
+    "hydrateOnMediaQuery",
+    "hydrateOnInteraction",
+    "defineEmits",
+    "defineExpose",
+    "defineOptions",
+    "defineSlots",
+    "defineModel",
+    "withDefaults",
+    "mergeDefaults",
+    "mergeModels",
+    "createPropsRestProxy",
+    "withAsyncContext",
+    "getCurrentInstance",
+    "h",
+    "createVNode",
+    "cloneVNode",
+    "mergeProps",
+    "isVNode",
+    "Fragment",
+    "Text",
+    "Comment",
+    "Static",
+    "Teleport",
+    "Suspense",
+    "KeepAlive",
+    "BaseTransition",
+    "BaseTransitionPropsValidators",
+    "withDirectives",
+    "useSSRContext",
+    "ssrContextKey",
+    "createRenderer",
+    "createHydrationRenderer",
+    "queuePostFlushCb",
+    "assertNumber",
+    "handleError",
+    "callWithErrorHandling",
+    "callWithAsyncErrorHandling",
+    "ErrorCodes",
+    "resolveComponent",
+    "resolveDirective",
+    "resolveDynamicComponent",
+    "registerRuntimeCompiler",
+    "isRuntimeOnly",
+    "useTransitionState",
+    "resolveTransitionHooks",
+    "setTransitionHooks",
+    "getTransitionRawChildren",
+    "initCustomFormatter",
+    "TrackOpTypes",
+    "TriggerOpTypes",
+    "withCtx",
+    "pushScopeId",
+    "popScopeId",
+    "withScopeId",
+    "renderList",
+    "toHandlers",
+    "renderSlot",
+    "createSlots",
+    "withMemo",
+    "isMemoSame",
+    "openBlock",
+    "createBlock",
+    "setBlockTracking",
+    "createTextVNode",
+    "createCommentVNode",
+    "createStaticVNode",
+    "createElementVNode",
+    "createElementBlock",
+    "guardReactiveProps",
+    "toDisplayString",
+    "camelize",
+    "capitalize",
+    "toHandlerKey",
+    "normalizeProps",
+    "normalizeClass",
+    "normalizeStyle",
+    "transformVNodeArgs"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "runtime-core/src/internalObject.ts",
+   "pkg": "runtime-core",
+   "lines": 14,
+   "exports": [
+    "createInternalObject",
+    "isInternalObject"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/profiling.ts",
+   "pkg": "runtime-core",
+   "lines": 56,
+   "exports": [
+    "startMeasure",
+    "endMeasure"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/renderer.ts",
+   "pkg": "runtime-core",
+   "lines": 2715,
+   "exports": [
+    "Renderer",
+    "HydrationRenderer",
+    "ElementNamespace",
+    "RootRenderFunction",
+    "RendererOptions",
+    "RendererNode",
+    "RendererElement",
+    "RendererInternals",
+    "MountComponentFn",
+    "SetupRenderEffectFn",
+    "MoveType",
+    "queuePostRenderEffect",
+    "createRenderer",
+    "createHydrationRenderer",
+    "needTransition",
+    "traverseStaticChildren",
+    "locateUnresolvedAsyncRoot",
+    "invalidateMount",
+    "resolveAsyncComponentPlaceholder"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/rendererTemplateRef.ts",
+   "pkg": "runtime-core",
+   "lines": 216,
+   "exports": [
+    "setRef"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/scheduler.ts",
+   "pkg": "runtime-core",
+   "lines": 360,
+   "exports": [
+    "SchedulerJobFlags",
+    "SchedulerJob",
+    "SchedulerJobs",
+    "nextTick",
+    "queueJob",
+    "queuePostFlushCb",
+    "flushPreFlushCbs",
+    "flushPostFlushCbs",
+    "flushOnAppMount"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/vnode.ts",
+   "pkg": "runtime-core",
+   "lines": 950,
+   "exports": [
+    "Fragment",
+    "Text",
+    "Comment",
+    "Static",
+    "VNodeTypes",
+    "VNodeRef",
+    "VNodeNormalizedRefAtom",
+    "VNodeNormalizedRef",
+    "VNodeHook",
+    "VNodeProps",
+    "VNodeArrayChildren",
+    "VNodeChild",
+    "VNodeNormalizedChildren",
+    "VNode",
+    "blockStack",
+    "currentBlock",
+    "openBlock",
+    "closeBlock",
+    "isBlockTreeEnabled",
+    "setBlockTracking",
+    "createElementBlock",
+    "createBlock",
+    "isVNode",
+    "isSameVNodeType",
+    "transformVNodeArgs",
+    "createVNode",
+    "guardReactiveProps",
+    "cloneVNode",
+    "createTextVNode",
+    "createStaticVNode",
+    "createCommentVNode",
+    "normalizeVNode",
+    "cloneIfMounted",
+    "normalizeChildren",
+    "mergeProps",
+    "invokeVNodeHook",
+    "createElementVNode"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-core/src/warning.ts",
+   "pkg": "runtime-core",
+   "lines": 183,
+   "exports": [
+    "pushWarningContext",
+    "popWarningContext",
+    "warn",
+    "getComponentTrace",
+    "assertNumber"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/apiCustomElement.ts",
+   "pkg": "runtime-dom",
+   "lines": 844,
+   "exports": [
+    "VueElementConstructor",
+    "CustomElementOptions",
+    "defineCustomElement",
+    "defineSSRCustomElement",
+    "VueElement",
+    "useHost",
+    "useShadowRoot"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/components/Transition.ts",
+   "pkg": "runtime-dom",
+   "lines": 506,
+   "exports": [
+    "TransitionProps",
+    "vtcKey",
+    "ElementWithTransition",
+    "TransitionPropsValidators",
+    "Transition",
+    "resolveTransitionProps",
+    "addTransitionClass",
+    "removeTransitionClass",
+    "getTransitionInfo",
+    "forceReflow"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/components/TransitionGroup.ts",
+   "pkg": "runtime-dom",
+   "lines": 338,
+   "exports": [
+    "TransitionGroupProps",
+    "TransitionGroup"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/directives/vModel.ts",
+   "pkg": "runtime-dom",
+   "lines": 461,
+   "exports": [
+    "vModelText",
+    "vModelCheckbox",
+    "vModelRadio",
+    "vModelSelect",
+    "vModelDynamic",
+    "initVModelForSSR",
+    "VModelDirective"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/directives/vOn.ts",
+   "pkg": "runtime-dom",
+   "lines": 165,
+   "exports": [
+    "VOnModifiers",
+    "withModifiers",
+    "withKeys",
+    "VOnDirective"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/directives/vShow.ts",
+   "pkg": "runtime-dom",
+   "lines": 64,
+   "exports": [
+    "vShowOriginalDisplay",
+    "vShowHidden",
+    "VShowElement",
+    "vShow",
+    "initVShowForSSR"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/helpers/useCssModule.ts",
+   "pkg": "runtime-dom",
+   "lines": 32,
+   "exports": [
+    "useCssModule"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/helpers/useCssVars.ts",
+   "pkg": "runtime-dom",
+   "lines": 205,
+   "exports": [
+    "CSS_VAR_TEXT",
+    "useCssVars",
+    "TELEPORT_KEY"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/index.ts",
+   "pkg": "runtime-dom",
+   "lines": 315,
+   "exports": [
+    "RefUnwrapBailTypes",
+    "render",
+    "hydrate",
+    "createApp",
+    "createSSRApp",
+    "initDirectivesForSSR",
+    "nodeOps",
+    "patchProp",
+    "defineCustomElement",
+    "defineSSRCustomElement",
+    "useShadowRoot",
+    "useHost",
+    "VueElement",
+    "useCssModule",
+    "useCssVars",
+    "Transition",
+    "TransitionGroup",
+    "vModelText",
+    "vModelCheckbox",
+    "vModelRadio",
+    "vModelSelect",
+    "vModelDynamic",
+    "withModifiers",
+    "withKeys",
+    "vShow"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "runtime-dom/src/jsx.ts",
+   "pkg": "runtime-dom",
+   "lines": 1509,
+   "exports": [
+    "CSSProperties",
+    "AriaAttributes",
+    "StyleValue",
+    "ClassValue",
+    "HTMLAttributes",
+    "AnchorHTMLAttributes",
+    "AreaHTMLAttributes",
+    "AudioHTMLAttributes",
+    "BaseHTMLAttributes",
+    "BlockquoteHTMLAttributes",
+    "ButtonHTMLAttributes",
+    "CanvasHTMLAttributes",
+    "ColHTMLAttributes",
+    "ColgroupHTMLAttributes",
+    "DataHTMLAttributes",
+    "DetailsHTMLAttributes",
+    "DelHTMLAttributes",
+    "DialogHTMLAttributes",
+    "EmbedHTMLAttributes",
+    "FieldsetHTMLAttributes",
+    "FormHTMLAttributes",
+    "HtmlHTMLAttributes",
+    "IframeHTMLAttributes",
+    "ImgHTMLAttributes",
+    "InsHTMLAttributes",
+    "InputTypeHTMLAttribute",
+    "InputAutoCompleteAttribute",
+    "InputHTMLAttributes",
+    "KeygenHTMLAttributes",
+    "LabelHTMLAttributes",
+    "LiHTMLAttributes",
+    "LinkHTMLAttributes",
+    "MapHTMLAttributes",
+    "MenuHTMLAttributes",
+    "MediaHTMLAttributes",
+    "MetaHTMLAttributes",
+    "MeterHTMLAttributes",
+    "QuoteHTMLAttributes",
+    "ObjectHTMLAttributes",
+    "OlHTMLAttributes",
+    "OptgroupHTMLAttributes",
+    "OptionHTMLAttributes",
+    "OutputHTMLAttributes",
+    "ParamHTMLAttributes",
+    "ProgressHTMLAttributes",
+    "ScriptHTMLAttributes",
+    "SelectHTMLAttributes",
+    "SourceHTMLAttributes",
+    "StyleHTMLAttributes",
+    "TableHTMLAttributes",
+    "TextareaHTMLAttributes",
+    "TdHTMLAttributes",
+    "ThHTMLAttributes",
+    "TimeHTMLAttributes",
+    "TrackHTMLAttributes",
+    "VideoHTMLAttributes",
+    "WebViewHTMLAttributes",
+    "SVGAttributes",
+    "IntrinsicElementAttributes",
+    "Events",
+    "ReservedProps",
+    "NativeElements"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/modules/attrs.ts",
+   "pkg": "runtime-dom",
+   "lines": 96,
+   "exports": [
+    "xlinkNS",
+    "patchAttr",
+    "compatCoerceAttr"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/modules/class.ts",
+   "pkg": "runtime-dom",
+   "lines": 27,
+   "exports": [
+    "patchClass"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/modules/events.ts",
+   "pkg": "runtime-dom",
+   "lines": 164,
+   "exports": [
+    "addEventListener",
+    "removeEventListener",
+    "patchEvent"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/modules/props.ts",
+   "pkg": "runtime-dom",
+   "lines": 112,
+   "exports": [
+    "patchDOMProp"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/modules/style.ts",
+   "pkg": "runtime-dom",
+   "lines": 166,
+   "exports": [
+    "patchStyle"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/nodeOps.ts",
+   "pkg": "runtime-dom",
+   "lines": 140,
+   "exports": [
+    "unsafeToTrustedHTML",
+    "svgNS",
+    "mathmlNS",
+    "nodeOps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-dom/src/patchProp.ts",
+   "pkg": "runtime-dom",
+   "lines": 174,
+   "exports": [
+    "patchProp"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-test/src/index.ts",
+   "pkg": "runtime-test",
+   "lines": 30,
+   "exports": [
+    "render",
+    "createApp",
+    "renderToString"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "runtime-test/src/nodeOps.ts",
+   "pkg": "runtime-test",
+   "lines": 264,
+   "exports": [
+    "TestNodeTypes",
+    "NodeOpTypes",
+    "TestElement",
+    "TestText",
+    "TestComment",
+    "TestNode",
+    "NodeOp",
+    "logNodeOp",
+    "resetOps",
+    "dumpOps",
+    "nodeOps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-test/src/patchProp.ts",
+   "pkg": "runtime-test",
+   "lines": 23,
+   "exports": [
+    "patchProp"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-test/src/serialize.ts",
+   "pkg": "runtime-test",
+   "lines": 70,
+   "exports": [
+    "serialize",
+    "serializeInner"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "runtime-test/src/triggerEvent.ts",
+   "pkg": "runtime-test",
+   "lines": 23,
+   "exports": [
+    "triggerEvent"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrCompile.ts",
+   "pkg": "server-renderer",
+   "lines": 94,
+   "exports": [
+    "ssrCompile"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrGetDirectiveProps.ts",
+   "pkg": "server-renderer",
+   "lines": 31,
+   "exports": [
+    "ssrGetDirectiveProps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrInterpolate.ts",
+   "pkg": "server-renderer",
+   "lines": 6,
+   "exports": [
+    "ssrInterpolate"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrRenderAttrs.ts",
+   "pkg": "server-renderer",
+   "lines": 130,
+   "exports": [
+    "ssrRenderAttrs",
+    "ssrRenderDynamicAttr",
+    "ssrRenderAttr",
+    "ssrRenderClass",
+    "ssrRenderStyle"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrRenderComponent.ts",
+   "pkg": "server-renderer",
+   "lines": 23,
+   "exports": [
+    "ssrRenderComponent"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrRenderList.ts",
+   "pkg": "server-renderer",
+   "lines": 39,
+   "exports": [
+    "ssrRenderList"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrRenderSlot.ts",
+   "pkg": "server-renderer",
+   "lines": 146,
+   "exports": [
+    "SSRSlots",
+    "SSRSlot",
+    "ssrRenderSlot",
+    "ssrRenderSlotInner"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrRenderSuspense.ts",
+   "pkg": "server-renderer",
+   "lines": 16,
+   "exports": [
+    "ssrRenderSuspense"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrRenderTeleport.ts",
+   "pkg": "server-renderer",
+   "lines": 51,
+   "exports": [
+    "ssrRenderTeleport"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/helpers/ssrVModelHelpers.ts",
+   "pkg": "server-renderer",
+   "lines": 47,
+   "exports": [
+    "ssrLooseEqual",
+    "ssrLooseContain",
+    "ssrRenderDynamicModel",
+    "ssrGetDynamicModelProps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/index.ts",
+   "pkg": "server-renderer",
+   "lines": 20,
+   "exports": [
+    "renderToString",
+    "renderToSimpleStream",
+    "renderToNodeStream",
+    "pipeToNodeWritable",
+    "renderToWebStream",
+    "pipeToWebWritable"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "server-renderer/src/internal.ts",
+   "pkg": "server-renderer",
+   "lines": 26,
+   "exports": [
+    "ssrRenderVNode",
+    "ssrRenderComponent",
+    "ssrRenderSlot",
+    "ssrRenderSlotInner",
+    "ssrRenderTeleport",
+    "ssrRenderClass",
+    "ssrRenderStyle",
+    "ssrRenderAttrs",
+    "ssrRenderAttr",
+    "ssrRenderDynamicAttr",
+    "ssrInterpolate",
+    "ssrRenderList",
+    "ssrRenderSuspense",
+    "ssrGetDirectiveProps",
+    "ssrIncludeBooleanAttr",
+    "ssrLooseEqual",
+    "ssrLooseContain",
+    "ssrRenderDynamicModel",
+    "ssrGetDynamicModelProps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/render.ts",
+   "pkg": "server-renderer",
+   "lines": 441,
+   "exports": [
+    "SSRBuffer",
+    "SSRBufferItem",
+    "PushFn",
+    "Props",
+    "SSRContext",
+    "createBuffer",
+    "renderComponentVNode",
+    "renderVNode",
+    "renderVNodeChildren"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/renderToStream.ts",
+   "pkg": "server-renderer",
+   "lines": 222,
+   "exports": [
+    "SimpleReadable",
+    "renderToSimpleStream",
+    "renderToStream",
+    "renderToNodeStream",
+    "pipeToNodeWritable",
+    "renderToWebStream",
+    "pipeToWebWritable"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "server-renderer/src/renderToString.ts",
+   "pkg": "server-renderer",
+   "lines": 152,
+   "exports": [
+    "unrollBuffer",
+    "renderToString",
+    "stopWatchers",
+    "cleanupFailedRender",
+    "resolveTeleports"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/codeframe.ts",
+   "pkg": "shared",
+   "lines": 65,
+   "exports": [
+    "generateCodeFrame"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/cssVars.ts",
+   "pkg": "shared",
+   "lines": 25,
+   "exports": [
+    "normalizeCssVarValue"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/domAttrConfig.ts",
+   "pkg": "shared",
+   "lines": 158,
+   "exports": [
+    "isSpecialBooleanAttr",
+    "isBooleanAttr",
+    "includeBooleanAttr",
+    "isSSRSafeAttrName",
+    "propsToAttrMap",
+    "isKnownHtmlAttr",
+    "isKnownSvgAttr",
+    "isKnownMathMLAttr",
+    "isRenderableAttrValue"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/domTagConfig.ts",
+   "pkg": "shared",
+   "lines": 65,
+   "exports": [
+    "isHTMLTag",
+    "isSVGTag",
+    "isMathMLTag",
+    "isVoidTag"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/escapeHtml.ts",
+   "pkg": "shared",
+   "lines": 70,
+   "exports": [
+    "escapeHtml",
+    "escapeHtmlComment",
+    "cssVarNameEscapeSymbolsRE",
+    "getEscapedCssVarName"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/general.ts",
+   "pkg": "shared",
+   "lines": 227,
+   "exports": [
+    "EMPTY_OBJ",
+    "EMPTY_ARR",
+    "NOOP",
+    "NO",
+    "isOn",
+    "isModelListener",
+    "extend",
+    "remove",
+    "hasOwn",
+    "isArray",
+    "isMap",
+    "isSet",
+    "isDate",
+    "isRegExp",
+    "isFunction",
+    "isString",
+    "isSymbol",
+    "isObject",
+    "isPromise",
+    "objectToString",
+    "toTypeString",
+    "toRawType",
+    "isPlainObject",
+    "isIntegerKey",
+    "isReservedProp",
+    "isBuiltInDirective",
+    "camelize",
+    "hyphenate",
+    "capitalize",
+    "toHandlerKey",
+    "hasChanged",
+    "invokeArrayFns",
+    "def",
+    "looseToNumber",
+    "toNumber",
+    "getGlobalThis",
+    "genPropsAccessExp",
+    "genCacheKey"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/globalsAllowList.ts",
+   "pkg": "shared",
+   "lines": 13,
+   "exports": [
+    "isGloballyAllowed",
+    "isGloballyWhitelisted"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/index.ts",
+   "pkg": "shared",
+   "lines": 16,
+   "exports": [
+    "makeMap"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "shared/src/looseEqual.ts",
+   "pkg": "shared",
+   "lines": 143,
+   "exports": [
+    "looseEqual",
+    "looseIndexOf"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/makeMap.ts",
+   "pkg": "shared",
+   "lines": 15,
+   "exports": [
+    "makeMap"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/normalizeProp.ts",
+   "pkg": "shared",
+   "lines": 99,
+   "exports": [
+    "NormalizedStyle",
+    "normalizeStyle",
+    "parseStringStyle",
+    "stringifyStyle",
+    "normalizeClass",
+    "normalizeProps"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/patchFlags.ts",
+   "pkg": "shared",
+   "lines": 145,
+   "exports": [
+    "PatchFlags",
+    "PatchFlagNames"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/shapeFlags.ts",
+   "pkg": "shared",
+   "lines": 14,
+   "exports": [
+    "ShapeFlags"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/slotFlags.ts",
+   "pkg": "shared",
+   "lines": 31,
+   "exports": [
+    "SlotFlags",
+    "slotFlagsText"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/toDisplayString.ts",
+   "pkg": "shared",
+   "lines": 68,
+   "exports": [
+    "toDisplayString"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "shared/src/typeUtils.ts",
+   "pkg": "shared",
+   "lines": 51,
+   "exports": [
+    "Prettify",
+    "UnionToIntersection",
+    "LooseRequired",
+    "IfAny",
+    "IsKeyValues",
+    "OverloadParameters"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "vue/src/dev.ts",
+   "pkg": "vue",
+   "lines": 15,
+   "exports": [
+    "initDev"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "vue/src/index.ts",
+   "pkg": "vue",
+   "lines": 108,
+   "exports": [
+    "compile"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "vue/src/runtime.ts",
+   "pkg": "vue",
+   "lines": 26,
+   "exports": [
+    "compile"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "vue-compat/src/createCompatVue.ts",
+   "pkg": "vue-compat",
+   "lines": 46,
+   "exports": [
+    "createCompatVue"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "vue-compat/src/dev.ts",
+   "pkg": "vue-compat",
+   "lines": 15,
+   "exports": [
+    "initDev"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "vue-compat/src/esm-index.ts",
+   "pkg": "vue-compat",
+   "lines": 8,
+   "exports": [
+    "configureCompat",
+    "default"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "vue-compat/src/esm-runtime.ts",
+   "pkg": "vue-compat",
+   "lines": 8,
+   "exports": [
+    "configureCompat",
+    "default"
+   ],
+   "isIndex": false
+  },
+  {
+   "id": "vue-compat/src/index.ts",
+   "pkg": "vue-compat",
+   "lines": 113,
+   "exports": [
+    "default"
+   ],
+   "isIndex": true
+  },
+  {
+   "id": "vue-compat/src/runtime.ts",
+   "pkg": "vue-compat",
+   "lines": 24,
+   "exports": [
+    "default"
+   ],
+   "isIndex": false
+  }
+ ],
+ "edges": [
+  {
+   "from": "compiler-core/src/ast.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/ast.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/ast.ts",
+   "to": "compiler-core/src/transforms/transformElement.ts"
+  },
+  {
+   "from": "compiler-core/src/ast.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/codegen.ts",
+   "to": "compiler-core/src/options.ts"
+  },
+  {
+   "from": "compiler-core/src/codegen.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/codegen.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/codegen.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/codegen.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/codegen.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/compat/compatConfig.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/compat/compatConfig.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/compat/compatConfig.ts",
+   "to": "compiler-core/src/parser.ts"
+  },
+  {
+   "from": "compiler-core/src/compat/compatConfig.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/compat/transformFilter.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/compat/transformFilter.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/compat/transformFilter.ts",
+   "to": "compiler-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "compiler-core/src/compat/transformFilter.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/compat/transformFilter.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/options.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/parser.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/codegen.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/vIf.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/vFor.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/transformExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/transformSlotOutlet.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/transformElement.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/vOn.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/vBind.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/vSlot.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/transformText.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/vOnce.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/vModel.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/compat/transformFilter.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/vMemo.ts"
+  },
+  {
+   "from": "compiler-core/src/compile.ts",
+   "to": "compiler-core/src/transforms/transformVBindShorthand.ts"
+  },
+  {
+   "from": "compiler-core/src/errors.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/compile.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/options.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/parser.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/codegen.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/babelUtils.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/vModel.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/vOn.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/vBind.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/noopDirectiveTransform.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/vIf.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/vFor.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/transformExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/vSlot.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/transformElement.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/transformVBindShorthand.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/transformSlotOutlet.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/transforms/cacheStatic.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/index.ts",
+   "to": "compiler-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "compiler-core/src/options.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/options.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/options.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/options.ts",
+   "to": "compiler-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "compiler-core/src/parser.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/parser.ts",
+   "to": "compiler-core/src/options.ts"
+  },
+  {
+   "from": "compiler-core/src/parser.ts",
+   "to": "compiler-core/src/tokenizer.ts"
+  },
+  {
+   "from": "compiler-core/src/parser.ts",
+   "to": "compiler-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "compiler-core/src/parser.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/parser.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/parser.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/tokenizer.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/tokenizer.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transform.ts",
+   "to": "compiler-core/src/options.ts"
+  },
+  {
+   "from": "compiler-core/src/transform.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transform.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transform.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transform.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transform.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transform.ts",
+   "to": "compiler-core/src/transforms/cacheStatic.ts"
+  },
+  {
+   "from": "compiler-core/src/transform.ts",
+   "to": "compiler-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/cacheStatic.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/cacheStatic.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/cacheStatic.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/cacheStatic.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/cacheStatic.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/noopDirectiveTransform.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/transforms/vSlot.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/transforms/cacheStatic.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/options.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformElement.ts",
+   "to": "compiler-core/src/transforms/transformExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformExpression.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformExpression.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformExpression.ts",
+   "to": "compiler-core/src/babelUtils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformExpression.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformExpression.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformExpression.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformExpression.ts",
+   "to": "compiler-core/src/validateExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformExpression.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformExpression.ts",
+   "to": "compiler-core/src/options.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformSlotOutlet.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformSlotOutlet.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformSlotOutlet.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformSlotOutlet.ts",
+   "to": "compiler-core/src/transforms/transformElement.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformSlotOutlet.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformSlotOutlet.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformSlotOutlet.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformSlotOutlet.ts",
+   "to": "compiler-core/src/transforms/transformExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformText.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformText.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformText.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformText.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformText.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformText.ts",
+   "to": "compiler-core/src/transforms/cacheStatic.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformVBindShorthand.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformVBindShorthand.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformVBindShorthand.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformVBindShorthand.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/transformVBindShorthand.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vBind.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vBind.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vBind.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vBind.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vBind.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vFor.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vFor.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vFor.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vFor.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vFor.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vFor.ts",
+   "to": "compiler-core/src/transforms/transformExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vFor.ts",
+   "to": "compiler-core/src/validateExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vFor.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vIf.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vIf.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vIf.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vIf.ts",
+   "to": "compiler-core/src/transforms/transformExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vIf.ts",
+   "to": "compiler-core/src/validateExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vIf.ts",
+   "to": "compiler-core/src/parser.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vIf.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vIf.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vIf.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vMemo.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vMemo.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vMemo.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vMemo.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vModel.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vModel.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vModel.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vModel.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vModel.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vModel.ts",
+   "to": "compiler-core/src/options.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vModel.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOn.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOn.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOn.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOn.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOn.ts",
+   "to": "compiler-core/src/transforms/transformExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOn.ts",
+   "to": "compiler-core/src/validateExpression.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOn.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOn.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOnce.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOnce.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOnce.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vOnce.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vSlot.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vSlot.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vSlot.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vSlot.ts",
+   "to": "compiler-core/src/utils.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vSlot.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vSlot.ts",
+   "to": "compiler-core/src/transforms/vFor.ts"
+  },
+  {
+   "from": "compiler-core/src/transforms/vSlot.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/utils.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/utils.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/utils.ts",
+   "to": "compiler-core/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-core/src/utils.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-core/src/utils.ts",
+   "to": "compiler-core/src/transforms/transformElement.ts"
+  },
+  {
+   "from": "compiler-core/src/utils.ts",
+   "to": "compiler-core/src/babelUtils.ts"
+  },
+  {
+   "from": "compiler-core/src/utils.ts",
+   "to": "compiler-core/src/tokenizer.ts"
+  },
+  {
+   "from": "compiler-core/src/validateExpression.ts",
+   "to": "compiler-core/src/ast.ts"
+  },
+  {
+   "from": "compiler-core/src/validateExpression.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-core/src/validateExpression.ts",
+   "to": "compiler-core/src/errors.ts"
+  },
+  {
+   "from": "compiler-dom/src/errors.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/parserOptions.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/transformStyle.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/vHtml.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/vText.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/vModel.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/vOn.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/vShow.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/Transition.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/stringifyStatic.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/ignoreSideEffectTags.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/transforms/validateHtmlNesting.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-dom/src/index.ts",
+   "to": "compiler-dom/src/errors.ts"
+  },
+  {
+   "from": "compiler-dom/src/parserOptions.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/parserOptions.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/parserOptions.ts",
+   "to": "compiler-dom/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-dom/src/parserOptions.ts",
+   "to": "compiler-dom/src/decodeHtmlBrowser.ts"
+  },
+  {
+   "from": "compiler-dom/src/runtimeHelpers.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/ignoreSideEffectTags.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/ignoreSideEffectTags.ts",
+   "to": "compiler-dom/src/errors.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/stringifyStatic.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/stringifyStatic.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/transformStyle.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/transformStyle.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/Transition.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/Transition.ts",
+   "to": "compiler-dom/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/Transition.ts",
+   "to": "compiler-dom/src/errors.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/validateHtmlNesting.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/validateHtmlNesting.ts",
+   "to": "compiler-dom/src/htmlNesting.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vHtml.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vHtml.ts",
+   "to": "compiler-dom/src/errors.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vModel.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vModel.ts",
+   "to": "compiler-dom/src/errors.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vModel.ts",
+   "to": "compiler-dom/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vOn.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vOn.ts",
+   "to": "compiler-dom/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vOn.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vShow.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vShow.ts",
+   "to": "compiler-dom/src/errors.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vShow.ts",
+   "to": "compiler-dom/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vText.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-dom/src/transforms/vText.ts",
+   "to": "compiler-dom/src/errors.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/parse.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/normalScript.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/style/cssVars.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/compileTemplate.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/warn.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/definePropsDestructure.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/defineProps.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/defineEmits.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/defineExpose.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/defineOptions.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/defineSlots.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/defineModel.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/analyzeScriptBindings.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/importUsageCheck.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileScript.ts",
+   "to": "compiler-sfc/src/script/topLevelAwait.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileStyle.ts",
+   "to": "compiler-sfc/src/style/pluginTrim.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileStyle.ts",
+   "to": "compiler-sfc/src/style/pluginScoped.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileStyle.ts",
+   "to": "compiler-sfc/src/style/preprocessors.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileStyle.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileStyle.ts",
+   "to": "compiler-sfc/src/style/cssVars.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileTemplate.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileTemplate.ts",
+   "to": "compiler-sfc/src/template/transformAssetUrl.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileTemplate.ts",
+   "to": "compiler-sfc/src/template/transformSrcset.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileTemplate.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileTemplate.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileTemplate.ts",
+   "to": "compiler-ssr/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileTemplate.ts",
+   "to": "compiler-sfc/src/warn.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileTemplate.ts",
+   "to": "compiler-sfc/src/style/cssVars.ts"
+  },
+  {
+   "from": "compiler-sfc/src/compileTemplate.ts",
+   "to": "compiler-sfc/src/template/resolveTemplateAST.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/parse.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/compileTemplate.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/compileStyle.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/compileScript.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/rewriteDefault.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/script/resolveType.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/script/defineProps.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/script/defineEmits.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/index.ts",
+   "to": "compiler-sfc/src/template/transformAssetUrl.ts"
+  },
+  {
+   "from": "compiler-sfc/src/parse.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/parse.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/parse.ts",
+   "to": "compiler-sfc/src/compileTemplate.ts"
+  },
+  {
+   "from": "compiler-sfc/src/parse.ts",
+   "to": "compiler-sfc/src/style/cssVars.ts"
+  },
+  {
+   "from": "compiler-sfc/src/parse.ts",
+   "to": "compiler-sfc/src/cache.ts"
+  },
+  {
+   "from": "compiler-sfc/src/parse.ts",
+   "to": "compiler-sfc/src/compileScript.ts"
+  },
+  {
+   "from": "compiler-sfc/src/parse.ts",
+   "to": "compiler-sfc/src/script/importUsageCheck.ts"
+  },
+  {
+   "from": "compiler-sfc/src/parse.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/rewriteDefault.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/analyzeScriptBindings.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/analyzeScriptBindings.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/context.ts",
+   "to": "compiler-sfc/src/parse.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/context.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/context.ts",
+   "to": "compiler-sfc/src/compileScript.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/context.ts",
+   "to": "compiler-sfc/src/script/defineProps.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/context.ts",
+   "to": "compiler-sfc/src/script/defineModel.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/context.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/context.ts",
+   "to": "compiler-sfc/src/script/resolveType.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/context.ts",
+   "to": "compiler-sfc/src/warn.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/context.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineEmits.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineEmits.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineEmits.ts",
+   "to": "compiler-sfc/src/script/resolveType.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineExpose.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineExpose.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineModel.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineModel.ts",
+   "to": "compiler-sfc/src/script/resolveType.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineModel.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineModel.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineOptions.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineOptions.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineOptions.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineOptions.ts",
+   "to": "compiler-sfc/src/script/defineProps.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineOptions.ts",
+   "to": "compiler-sfc/src/script/defineEmits.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineOptions.ts",
+   "to": "compiler-sfc/src/script/defineExpose.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineOptions.ts",
+   "to": "compiler-sfc/src/script/defineSlots.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineProps.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineProps.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineProps.ts",
+   "to": "compiler-sfc/src/script/resolveType.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineProps.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineProps.ts",
+   "to": "compiler-sfc/src/script/defineModel.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineProps.ts",
+   "to": "compiler-sfc/src/script/analyzeScriptBindings.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineProps.ts",
+   "to": "compiler-sfc/src/script/definePropsDestructure.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/definePropsDestructure.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/definePropsDestructure.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/definePropsDestructure.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/definePropsDestructure.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/definePropsDestructure.ts",
+   "to": "compiler-sfc/src/script/defineProps.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/definePropsDestructure.ts",
+   "to": "compiler-sfc/src/script/defineModel.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineSlots.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/defineSlots.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/importUsageCheck.ts",
+   "to": "compiler-sfc/src/parse.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/importUsageCheck.ts",
+   "to": "compiler-sfc/src/compileTemplate.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/importUsageCheck.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/importUsageCheck.ts",
+   "to": "compiler-sfc/src/cache.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/importUsageCheck.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/importUsageCheck.ts",
+   "to": "compiler-sfc/src/template/resolveTemplateAST.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/normalScript.ts",
+   "to": "compiler-sfc/src/script/analyzeScriptBindings.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/normalScript.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/normalScript.ts",
+   "to": "compiler-sfc/src/rewriteDefault.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/normalScript.ts",
+   "to": "compiler-sfc/src/style/cssVars.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/normalScript.ts",
+   "to": "compiler-sfc/src/parse.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/resolveType.ts",
+   "to": "compiler-sfc/src/script/utils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/resolveType.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/resolveType.ts",
+   "to": "compiler-sfc/src/compileScript.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/resolveType.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/resolveType.ts",
+   "to": "compiler-sfc/src/parse.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/resolveType.ts",
+   "to": "compiler-sfc/src/cache.ts"
+  },
+  {
+   "from": "compiler-sfc/src/script/topLevelAwait.ts",
+   "to": "compiler-sfc/src/script/context.ts"
+  },
+  {
+   "from": "compiler-sfc/src/style/cssVars.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/style/cssVars.ts",
+   "to": "compiler-sfc/src/parse.ts"
+  },
+  {
+   "from": "compiler-sfc/src/style/cssVars.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/style/pluginScoped.ts",
+   "to": "compiler-sfc/src/warn.ts"
+  },
+  {
+   "from": "compiler-sfc/src/style/preprocessors.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/style/preprocessors.ts",
+   "to": "compiler-sfc/src/compileStyle.ts"
+  },
+  {
+   "from": "compiler-sfc/src/style/preprocessors.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/template/resolveTemplateAST.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/template/resolveTemplateAST.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/template/templateUtils.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/template/transformAssetUrl.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/template/transformAssetUrl.ts",
+   "to": "compiler-sfc/src/template/templateUtils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/template/transformAssetUrl.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/template/transformSrcset.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "compiler-sfc/src/template/transformSrcset.ts",
+   "to": "compiler-sfc/src/template/templateUtils.ts"
+  },
+  {
+   "from": "compiler-sfc/src/template/transformSrcset.ts",
+   "to": "compiler-sfc/src/template/transformAssetUrl.ts"
+  },
+  {
+   "from": "compiler-ssr/src/errors.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformElement.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformComponent.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformSlotOutlet.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/transforms/ssrVIf.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/transforms/ssrVFor.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/transforms/ssrVModel.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/transforms/ssrVShow.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/transforms/ssrInjectFallthroughAttrs.ts"
+  },
+  {
+   "from": "compiler-ssr/src/index.ts",
+   "to": "compiler-ssr/src/transforms/ssrInjectCssVars.ts"
+  },
+  {
+   "from": "compiler-ssr/src/runtimeHelpers.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "to": "compiler-ssr/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "to": "compiler-ssr/src/transforms/ssrVIf.ts"
+  },
+  {
+   "from": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "to": "compiler-ssr/src/transforms/ssrVFor.ts"
+  },
+  {
+   "from": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformSlotOutlet.ts"
+  },
+  {
+   "from": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformComponent.ts"
+  },
+  {
+   "from": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformElement.ts"
+  },
+  {
+   "from": "compiler-ssr/src/ssrCodegenTransform.ts",
+   "to": "compiler-ssr/src/errors.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrInjectCssVars.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrInjectFallthroughAttrs.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "to": "compiler-ssr/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformTeleport.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformSuspense.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformTransitionGroup.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformElement.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformComponent.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformTransition.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformElement.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformElement.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformElement.ts",
+   "to": "compiler-ssr/src/errors.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformElement.ts",
+   "to": "compiler-ssr/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformElement.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformSlotOutlet.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformSlotOutlet.ts",
+   "to": "compiler-ssr/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformSlotOutlet.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformSuspense.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformSuspense.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformSuspense.ts",
+   "to": "compiler-ssr/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTeleport.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTeleport.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTeleport.ts",
+   "to": "compiler-ssr/src/errors.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTeleport.ts",
+   "to": "compiler-ssr/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTransition.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTransition.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTransitionGroup.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTransitionGroup.ts",
+   "to": "compiler-ssr/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTransitionGroup.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrTransformTransitionGroup.ts",
+   "to": "compiler-ssr/src/transforms/ssrTransformElement.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrVFor.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrVFor.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrVFor.ts",
+   "to": "compiler-ssr/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrVIf.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrVIf.ts",
+   "to": "compiler-ssr/src/ssrCodegenTransform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrVModel.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrVModel.ts",
+   "to": "compiler-ssr/src/runtimeHelpers.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrVModel.ts",
+   "to": "compiler-core/src/transform.ts"
+  },
+  {
+   "from": "compiler-ssr/src/transforms/ssrVShow.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/arrayInstrumentations.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/arrayInstrumentations.ts",
+   "to": "reactivity/src/effect.ts"
+  },
+  {
+   "from": "reactivity/src/arrayInstrumentations.ts",
+   "to": "reactivity/src/reactive.ts"
+  },
+  {
+   "from": "reactivity/src/arrayInstrumentations.ts",
+   "to": "reactivity/src/dep.ts"
+  },
+  {
+   "from": "reactivity/src/arrayInstrumentations.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/baseHandlers.ts",
+   "to": "reactivity/src/reactive.ts"
+  },
+  {
+   "from": "reactivity/src/baseHandlers.ts",
+   "to": "reactivity/src/arrayInstrumentations.ts"
+  },
+  {
+   "from": "reactivity/src/baseHandlers.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/baseHandlers.ts",
+   "to": "reactivity/src/dep.ts"
+  },
+  {
+   "from": "reactivity/src/baseHandlers.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/baseHandlers.ts",
+   "to": "reactivity/src/ref.ts"
+  },
+  {
+   "from": "reactivity/src/baseHandlers.ts",
+   "to": "reactivity/src/warning.ts"
+  },
+  {
+   "from": "reactivity/src/collectionHandlers.ts",
+   "to": "reactivity/src/reactive.ts"
+  },
+  {
+   "from": "reactivity/src/collectionHandlers.ts",
+   "to": "reactivity/src/dep.ts"
+  },
+  {
+   "from": "reactivity/src/collectionHandlers.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/collectionHandlers.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/collectionHandlers.ts",
+   "to": "reactivity/src/warning.ts"
+  },
+  {
+   "from": "reactivity/src/computed.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/computed.ts",
+   "to": "reactivity/src/effect.ts"
+  },
+  {
+   "from": "reactivity/src/computed.ts",
+   "to": "reactivity/src/ref.ts"
+  },
+  {
+   "from": "reactivity/src/computed.ts",
+   "to": "reactivity/src/warning.ts"
+  },
+  {
+   "from": "reactivity/src/computed.ts",
+   "to": "reactivity/src/dep.ts"
+  },
+  {
+   "from": "reactivity/src/computed.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/dep.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/dep.ts",
+   "to": "reactivity/src/computed.ts"
+  },
+  {
+   "from": "reactivity/src/dep.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/dep.ts",
+   "to": "reactivity/src/effect.ts"
+  },
+  {
+   "from": "reactivity/src/effect.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/effect.ts",
+   "to": "reactivity/src/computed.ts"
+  },
+  {
+   "from": "reactivity/src/effect.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/effect.ts",
+   "to": "reactivity/src/dep.ts"
+  },
+  {
+   "from": "reactivity/src/effect.ts",
+   "to": "reactivity/src/effectScope.ts"
+  },
+  {
+   "from": "reactivity/src/effect.ts",
+   "to": "reactivity/src/warning.ts"
+  },
+  {
+   "from": "reactivity/src/effectScope.ts",
+   "to": "reactivity/src/effect.ts"
+  },
+  {
+   "from": "reactivity/src/effectScope.ts",
+   "to": "reactivity/src/warning.ts"
+  },
+  {
+   "from": "reactivity/src/index.ts",
+   "to": "reactivity/src/ref.ts"
+  },
+  {
+   "from": "reactivity/src/index.ts",
+   "to": "reactivity/src/reactive.ts"
+  },
+  {
+   "from": "reactivity/src/index.ts",
+   "to": "reactivity/src/computed.ts"
+  },
+  {
+   "from": "reactivity/src/index.ts",
+   "to": "reactivity/src/effect.ts"
+  },
+  {
+   "from": "reactivity/src/index.ts",
+   "to": "reactivity/src/dep.ts"
+  },
+  {
+   "from": "reactivity/src/index.ts",
+   "to": "reactivity/src/effectScope.ts"
+  },
+  {
+   "from": "reactivity/src/index.ts",
+   "to": "reactivity/src/arrayInstrumentations.ts"
+  },
+  {
+   "from": "reactivity/src/index.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/index.ts",
+   "to": "reactivity/src/watch.ts"
+  },
+  {
+   "from": "reactivity/src/reactive.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/reactive.ts",
+   "to": "reactivity/src/baseHandlers.ts"
+  },
+  {
+   "from": "reactivity/src/reactive.ts",
+   "to": "reactivity/src/collectionHandlers.ts"
+  },
+  {
+   "from": "reactivity/src/reactive.ts",
+   "to": "reactivity/src/ref.ts"
+  },
+  {
+   "from": "reactivity/src/reactive.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/reactive.ts",
+   "to": "reactivity/src/warning.ts"
+  },
+  {
+   "from": "reactivity/src/ref.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/ref.ts",
+   "to": "reactivity/src/dep.ts"
+  },
+  {
+   "from": "reactivity/src/ref.ts",
+   "to": "reactivity/src/reactive.ts"
+  },
+  {
+   "from": "reactivity/src/ref.ts",
+   "to": "reactivity/src/computed.ts"
+  },
+  {
+   "from": "reactivity/src/ref.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/ref.ts",
+   "to": "reactivity/src/warning.ts"
+  },
+  {
+   "from": "reactivity/src/watch.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "reactivity/src/watch.ts",
+   "to": "reactivity/src/warning.ts"
+  },
+  {
+   "from": "reactivity/src/watch.ts",
+   "to": "reactivity/src/computed.ts"
+  },
+  {
+   "from": "reactivity/src/watch.ts",
+   "to": "reactivity/src/constants.ts"
+  },
+  {
+   "from": "reactivity/src/watch.ts",
+   "to": "reactivity/src/effect.ts"
+  },
+  {
+   "from": "reactivity/src/watch.ts",
+   "to": "reactivity/src/reactive.ts"
+  },
+  {
+   "from": "reactivity/src/watch.ts",
+   "to": "reactivity/src/ref.ts"
+  },
+  {
+   "from": "reactivity/src/watch.ts",
+   "to": "reactivity/src/effectScope.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "runtime-core/src/apiDefineComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "runtime-core/src/components/KeepAlive.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "runtime-core/src/helpers/useId.ts"
+  },
+  {
+   "from": "runtime-core/src/apiAsyncComponent.ts",
+   "to": "runtime-core/src/hydrationStrategies.ts"
+  },
+  {
+   "from": "runtime-core/src/apiComputed.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiComputed.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/apiInject.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/hydration.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/devtools.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/compat/global.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/componentProps.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/apiCreateApp.ts",
+   "to": "runtime-core/src/apiDefineComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "runtime-core/src/componentProps.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/apiDefineComponent.ts",
+   "to": "runtime-core/src/apiSetupHelpers.ts"
+  },
+  {
+   "from": "runtime-core/src/apiInject.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiInject.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/apiInject.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/apiInject.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/apiLifecycle.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/apiLifecycle.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/apiLifecycle.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/apiLifecycle.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/apiLifecycle.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiLifecycle.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiLifecycle.ts",
+   "to": "runtime-core/src/enums.ts"
+  },
+  {
+   "from": "runtime-core/src/apiLifecycle.ts",
+   "to": "runtime-core/src/components/KeepAlive.ts"
+  },
+  {
+   "from": "runtime-core/src/apiSetupHelpers.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiSetupHelpers.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/apiSetupHelpers.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/apiSetupHelpers.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/apiSetupHelpers.ts",
+   "to": "runtime-core/src/componentProps.ts"
+  },
+  {
+   "from": "runtime-core/src/apiSetupHelpers.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/apiSetupHelpers.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/apiSetupHelpers.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "runtime-core/src/helpers/useSsrContext.ts"
+  },
+  {
+   "from": "runtime-core/src/apiWatch.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/attrsFallthrough.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/attrsFallthrough.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/attrsFallthrough.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/compatConfig.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/compatConfig.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/compatConfig.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/component.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/component.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/component.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/component.ts",
+   "to": "runtime-core/src/compat/componentAsync.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/component.ts",
+   "to": "runtime-core/src/compat/componentFunctional.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentAsync.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentAsync.ts",
+   "to": "runtime-core/src/apiAsyncComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentAsync.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentAsync.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentFunctional.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentFunctional.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentFunctional.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentFunctional.ts",
+   "to": "runtime-core/src/compat/instanceListeners.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentFunctional.ts",
+   "to": "runtime-core/src/compat/renderFn.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentVModel.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentVModel.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentVModel.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentVModel.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentVModel.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentVModel.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/componentVModel.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/customDirective.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/customDirective.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/customDirective.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/customDirective.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/data.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/data.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/devtools.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/compat/globalConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/compat/customDirective.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/global.ts",
+   "to": "runtime-core/src/compat/instance.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/globalConfig.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/globalConfig.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/globalConfig.ts",
+   "to": "runtime-core/src/compat/global.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/globalConfig.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/compat/instanceChildren.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/compat/instanceEventEmitter.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/compat/instanceListeners.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/compat/componentFunctional.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/compat/renderFn.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/helpers/renderList.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/compat/renderHelpers.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/helpers/resolveAssets.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instance.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceChildren.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceChildren.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceChildren.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceChildren.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceChildren.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceEventEmitter.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceEventEmitter.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceEventEmitter.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceEventEmitter.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceEventEmitter.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceListeners.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceListeners.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/instanceListeners.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/props.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/props.ts",
+   "to": "runtime-core/src/apiInject.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/props.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/props.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/props.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderFn.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderFn.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderFn.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderFn.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderFn.ts",
+   "to": "runtime-core/src/helpers/resolveAssets.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderFn.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderFn.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderFn.ts",
+   "to": "runtime-core/src/compat/componentVModel.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderHelpers.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderHelpers.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderHelpers.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderHelpers.ts",
+   "to": "runtime-core/src/helpers/createSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderHelpers.ts",
+   "to": "runtime-core/src/helpers/renderSlot.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderHelpers.ts",
+   "to": "runtime-core/src/helpers/toHandlers.ts"
+  },
+  {
+   "from": "runtime-core/src/compat/renderHelpers.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/componentProps.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/components/Suspense.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/componentRenderUtils.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/profiling.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/compat/renderFn.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/enums.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/components/Teleport.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/components/KeepAlive.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/components/BaseTransition.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/apiDefineComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/helpers/useId.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/apiAsyncComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/component.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/devtools.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/compat/instanceEventEmitter.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/compat/componentVModel.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/apiSetupHelpers.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/helpers/useModel.ts"
+  },
+  {
+   "from": "runtime-core/src/componentEmits.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/apiComputed.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/apiWatch.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/apiInject.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/apiLifecycle.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/componentProps.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/compat/data.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/enums.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/apiSetupHelpers.ts"
+  },
+  {
+   "from": "runtime-core/src/componentOptions.ts",
+   "to": "runtime-core/src/helpers/useId.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "runtime-core/src/compat/props.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "runtime-core/src/compat/attrsFallthrough.ts"
+  },
+  {
+   "from": "runtime-core/src/componentProps.ts",
+   "to": "runtime-core/src/internalObject.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/apiWatch.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/componentRenderUtils.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/compat/instance.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/componentPublicInstance.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderContext.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderContext.ts",
+   "to": "runtime-core/src/devtools.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderContext.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/hmr.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/componentProps.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/components/BaseTransition.ts"
+  },
+  {
+   "from": "runtime-core/src/componentRenderUtils.ts",
+   "to": "runtime-core/src/components/Teleport.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/components/KeepAlive.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/apiLifecycle.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/components/Teleport.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/hmr.ts"
+  },
+  {
+   "from": "runtime-core/src/components/BaseTransition.ts",
+   "to": "runtime-core/src/componentRenderUtils.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/apiLifecycle.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/apiWatch.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/components/BaseTransition.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/devtools.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/apiAsyncComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/components/Suspense.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/enums.ts"
+  },
+  {
+   "from": "runtime-core/src/components/KeepAlive.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "runtime-core/src/componentRenderUtils.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Suspense.ts",
+   "to": "runtime-core/src/helpers/resolveAssets.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Teleport.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Teleport.ts",
+   "to": "runtime-core/src/components/Suspense.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Teleport.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Teleport.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Teleport.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Teleport.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Teleport.ts",
+   "to": "runtime-core/src/hmr.ts"
+  },
+  {
+   "from": "runtime-core/src/components/Teleport.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "runtime-core/src/components/KeepAlive.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "runtime-core/src/hmr.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/componentSlots.ts",
+   "to": "runtime-core/src/internalObject.ts"
+  },
+  {
+   "from": "runtime-core/src/customFormatter.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/customFormatter.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/customFormatter.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/customFormatter.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/devtools.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/devtools.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/devtools.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/directives.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/directives.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/directives.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/directives.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/directives.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/directives.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/directives.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/directives.ts",
+   "to": "runtime-core/src/compat/customDirective.ts"
+  },
+  {
+   "from": "runtime-core/src/directives.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/errorHandling.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/errorHandling.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/errorHandling.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/errorHandling.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/errorHandling.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/errorHandling.ts",
+   "to": "runtime-core/src/enums.ts"
+  },
+  {
+   "from": "runtime-core/src/featureFlags.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/h.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/h.ts",
+   "to": "runtime-core/src/components/Teleport.ts"
+  },
+  {
+   "from": "runtime-core/src/h.ts",
+   "to": "runtime-core/src/components/Suspense.ts"
+  },
+  {
+   "from": "runtime-core/src/h.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/h.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/h.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/h.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/h.ts",
+   "to": "runtime-core/src/apiDefineComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/createSlots.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/createSlots.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderList.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderList.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderList.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderList.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderSlot.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderSlot.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderSlot.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderSlot.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderSlot.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderSlot.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/renderSlot.ts",
+   "to": "runtime-core/src/apiAsyncComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/resolveAssets.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/resolveAssets.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/resolveAssets.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/resolveAssets.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/resolveAssets.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/resolveAssets.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/toHandlers.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/toHandlers.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useId.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useId.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useModel.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useModel.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useModel.ts",
+   "to": "runtime-core/src/apiSetupHelpers.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useModel.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useModel.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useModel.ts",
+   "to": "runtime-core/src/componentProps.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useModel.ts",
+   "to": "runtime-core/src/apiWatch.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useSsrContext.ts",
+   "to": "runtime-core/src/apiInject.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useSsrContext.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useTemplateRef.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useTemplateRef.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useTemplateRef.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/useTemplateRef.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/withMemo.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/helpers/withMemo.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/hmr.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/hmr.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/hmr.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/hmr.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/rendererTemplateRef.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/components/Suspense.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/components/Teleport.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/apiAsyncComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/hydration.ts",
+   "to": "runtime-core/src/componentRenderUtils.ts"
+  },
+  {
+   "from": "runtime-core/src/hydrationStrategies.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/hydrationStrategies.ts",
+   "to": "runtime-core/src/hydration.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/apiComputed.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/apiWatch.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/apiLifecycle.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/apiInject.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/apiDefineComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/apiAsyncComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/apiSetupHelpers.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/useModel.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/useTemplateRef.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/useId.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/hydrationStrategies.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/h.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/components/Teleport.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/components/Suspense.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/components/KeepAlive.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/components/BaseTransition.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/useSsrContext.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/resolveAssets.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/customFormatter.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/devtools.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/componentOptions.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/componentEmits.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/hydration.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/componentProps.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/hmr.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/renderList.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/toHandlers.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/renderSlot.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/createSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/helpers/withMemo.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/componentRenderUtils.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/compat/global.ts"
+  },
+  {
+   "from": "runtime-core/src/index.ts",
+   "to": "runtime-core/src/compat/globalConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/profiling.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/profiling.ts",
+   "to": "runtime-core/src/devtools.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/componentRenderUtils.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/componentProps.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/rendererTemplateRef.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/components/Suspense.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/components/Teleport.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/components/KeepAlive.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/hmr.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/hydration.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/profiling.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/devtools.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/featureFlags.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/apiAsyncComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "runtime-core/src/renderer.ts",
+   "to": "runtime-core/src/components/BaseTransition.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "runtime-core/src/components/Suspense.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "runtime-core/src/apiAsyncComponent.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "runtime-core/src/scheduler.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/rendererTemplateRef.ts",
+   "to": "runtime-core/src/helpers/useTemplateRef.ts"
+  },
+  {
+   "from": "runtime-core/src/scheduler.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/scheduler.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/scheduler.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/componentSlots.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/apiCreateApp.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/components/Suspense.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/directives.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/components/BaseTransition.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/warning.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/components/Teleport.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/componentRenderContext.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/renderer.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/helpers/resolveAssets.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/hmr.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/compat/component.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/compat/componentVModel.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/compat/renderFn.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/componentPublicInstance.ts"
+  },
+  {
+   "from": "runtime-core/src/vnode.ts",
+   "to": "runtime-core/src/internalObject.ts"
+  },
+  {
+   "from": "runtime-core/src/warning.ts",
+   "to": "runtime-core/src/vnode.ts"
+  },
+  {
+   "from": "runtime-core/src/warning.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "runtime-core/src/warning.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/warning.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-core/src/warning.ts",
+   "to": "runtime-core/src/errorHandling.ts"
+  },
+  {
+   "from": "runtime-dom/src/apiCustomElement.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/apiCustomElement.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/apiCustomElement.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/components/Transition.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/components/Transition.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/components/TransitionGroup.ts",
+   "to": "runtime-dom/src/components/Transition.ts"
+  },
+  {
+   "from": "runtime-dom/src/components/TransitionGroup.ts",
+   "to": "runtime-dom/src/directives/vShow.ts"
+  },
+  {
+   "from": "runtime-dom/src/components/TransitionGroup.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/components/TransitionGroup.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/directives/vModel.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/directives/vModel.ts",
+   "to": "runtime-dom/src/modules/events.ts"
+  },
+  {
+   "from": "runtime-dom/src/directives/vModel.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/directives/vOn.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/directives/vOn.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/directives/vShow.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/helpers/useCssModule.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/helpers/useCssModule.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/helpers/useCssVars.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/helpers/useCssVars.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/nodeOps.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/patchProp.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/components/Transition.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/components/TransitionGroup.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/directives/vShow.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/directives/vOn.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/directives/vModel.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/jsx.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/apiCustomElement.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/helpers/useCssModule.ts"
+  },
+  {
+   "from": "runtime-dom/src/index.ts",
+   "to": "runtime-dom/src/helpers/useCssVars.ts"
+  },
+  {
+   "from": "runtime-dom/src/jsx.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/attrs.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/attrs.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/class.ts",
+   "to": "runtime-dom/src/components/Transition.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/events.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/events.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/props.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/props.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/props.ts",
+   "to": "runtime-dom/src/nodeOps.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/style.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/style.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/style.ts",
+   "to": "runtime-dom/src/directives/vShow.ts"
+  },
+  {
+   "from": "runtime-dom/src/modules/style.ts",
+   "to": "runtime-dom/src/helpers/useCssVars.ts"
+  },
+  {
+   "from": "runtime-dom/src/nodeOps.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/patchProp.ts",
+   "to": "runtime-dom/src/modules/class.ts"
+  },
+  {
+   "from": "runtime-dom/src/patchProp.ts",
+   "to": "runtime-dom/src/modules/style.ts"
+  },
+  {
+   "from": "runtime-dom/src/patchProp.ts",
+   "to": "runtime-dom/src/modules/attrs.ts"
+  },
+  {
+   "from": "runtime-dom/src/patchProp.ts",
+   "to": "runtime-dom/src/modules/props.ts"
+  },
+  {
+   "from": "runtime-dom/src/patchProp.ts",
+   "to": "runtime-dom/src/modules/events.ts"
+  },
+  {
+   "from": "runtime-dom/src/patchProp.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/patchProp.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-dom/src/patchProp.ts",
+   "to": "runtime-dom/src/apiCustomElement.ts"
+  },
+  {
+   "from": "runtime-test/src/index.ts",
+   "to": "runtime-core/src/index.ts"
+  },
+  {
+   "from": "runtime-test/src/index.ts",
+   "to": "runtime-test/src/nodeOps.ts"
+  },
+  {
+   "from": "runtime-test/src/index.ts",
+   "to": "runtime-test/src/patchProp.ts"
+  },
+  {
+   "from": "runtime-test/src/index.ts",
+   "to": "runtime-test/src/serialize.ts"
+  },
+  {
+   "from": "runtime-test/src/index.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-test/src/index.ts",
+   "to": "runtime-test/src/triggerEvent.ts"
+  },
+  {
+   "from": "runtime-test/src/nodeOps.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "runtime-test/src/patchProp.ts",
+   "to": "runtime-test/src/nodeOps.ts"
+  },
+  {
+   "from": "runtime-test/src/patchProp.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-test/src/serialize.ts",
+   "to": "runtime-test/src/nodeOps.ts"
+  },
+  {
+   "from": "runtime-test/src/serialize.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-test/src/triggerEvent.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "runtime-test/src/triggerEvent.ts",
+   "to": "runtime-test/src/nodeOps.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrCompile.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrCompile.ts",
+   "to": "compiler-ssr/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrCompile.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrCompile.ts",
+   "to": "compiler-core/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrCompile.ts",
+   "to": "server-renderer/src/render.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrCompile.ts",
+   "to": "server-renderer/src/internal.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrGetDirectiveProps.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrInterpolate.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderAttrs.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderComponent.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderComponent.ts",
+   "to": "server-renderer/src/render.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderComponent.ts",
+   "to": "server-renderer/src/helpers/ssrRenderSlot.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderList.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderList.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderSlot.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderSlot.ts",
+   "to": "server-renderer/src/render.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderSlot.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderSuspense.ts",
+   "to": "server-renderer/src/render.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderTeleport.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderTeleport.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrRenderTeleport.ts",
+   "to": "server-renderer/src/render.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrVModelHelpers.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/helpers/ssrVModelHelpers.ts",
+   "to": "server-renderer/src/helpers/ssrRenderAttrs.ts"
+  },
+  {
+   "from": "server-renderer/src/index.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/index.ts",
+   "to": "server-renderer/src/render.ts"
+  },
+  {
+   "from": "server-renderer/src/index.ts",
+   "to": "server-renderer/src/renderToString.ts"
+  },
+  {
+   "from": "server-renderer/src/index.ts",
+   "to": "server-renderer/src/renderToStream.ts"
+  },
+  {
+   "from": "server-renderer/src/index.ts",
+   "to": "server-renderer/src/internal.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/render.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/helpers/ssrRenderComponent.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/helpers/ssrRenderSlot.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/helpers/ssrRenderTeleport.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/helpers/ssrRenderAttrs.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/helpers/ssrInterpolate.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/helpers/ssrRenderList.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/helpers/ssrRenderSuspense.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/helpers/ssrGetDirectiveProps.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/internal.ts",
+   "to": "server-renderer/src/helpers/ssrVModelHelpers.ts"
+  },
+  {
+   "from": "server-renderer/src/render.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/render.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/render.ts",
+   "to": "server-renderer/src/helpers/ssrRenderAttrs.ts"
+  },
+  {
+   "from": "server-renderer/src/render.ts",
+   "to": "server-renderer/src/helpers/ssrCompile.ts"
+  },
+  {
+   "from": "server-renderer/src/render.ts",
+   "to": "server-renderer/src/helpers/ssrRenderTeleport.ts"
+  },
+  {
+   "from": "server-renderer/src/renderToStream.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/renderToStream.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/renderToStream.ts",
+   "to": "server-renderer/src/render.ts"
+  },
+  {
+   "from": "server-renderer/src/renderToStream.ts",
+   "to": "server-renderer/src/renderToString.ts"
+  },
+  {
+   "from": "server-renderer/src/renderToString.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/renderToString.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "server-renderer/src/renderToString.ts",
+   "to": "server-renderer/src/render.ts"
+  },
+  {
+   "from": "shared/src/domAttrConfig.ts",
+   "to": "shared/src/makeMap.ts"
+  },
+  {
+   "from": "shared/src/domAttrConfig.ts",
+   "to": "shared/src/general.ts"
+  },
+  {
+   "from": "shared/src/domTagConfig.ts",
+   "to": "shared/src/makeMap.ts"
+  },
+  {
+   "from": "shared/src/general.ts",
+   "to": "shared/src/makeMap.ts"
+  },
+  {
+   "from": "shared/src/globalsAllowList.ts",
+   "to": "shared/src/makeMap.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/makeMap.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/general.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/patchFlags.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/shapeFlags.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/slotFlags.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/globalsAllowList.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/codeframe.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/normalizeProp.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/domTagConfig.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/domAttrConfig.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/escapeHtml.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/looseEqual.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/toDisplayString.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/typeUtils.ts"
+  },
+  {
+   "from": "shared/src/index.ts",
+   "to": "shared/src/cssVars.ts"
+  },
+  {
+   "from": "shared/src/looseEqual.ts",
+   "to": "shared/src/general.ts"
+  },
+  {
+   "from": "shared/src/normalizeProp.ts",
+   "to": "shared/src/general.ts"
+  },
+  {
+   "from": "shared/src/toDisplayString.ts",
+   "to": "reactivity/src/index.ts"
+  },
+  {
+   "from": "shared/src/toDisplayString.ts",
+   "to": "shared/src/general.ts"
+  },
+  {
+   "from": "vue/src/dev.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "vue/src/index.ts",
+   "to": "vue/src/dev.ts"
+  },
+  {
+   "from": "vue/src/index.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "vue/src/index.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "vue/src/index.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "vue/src/index.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "vue/src/runtime.ts",
+   "to": "vue/src/dev.ts"
+  },
+  {
+   "from": "vue/src/runtime.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/createCompatVue.ts",
+   "to": "vue-compat/src/dev.ts"
+  },
+  {
+   "from": "vue-compat/src/createCompatVue.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/createCompatVue.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/dev.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/esm-index.ts",
+   "to": "vue-compat/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/esm-index.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/esm-runtime.ts",
+   "to": "vue-compat/src/runtime.ts"
+  },
+  {
+   "from": "vue-compat/src/esm-runtime.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/index.ts",
+   "to": "vue-compat/src/createCompatVue.ts"
+  },
+  {
+   "from": "vue-compat/src/index.ts",
+   "to": "compiler-dom/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/index.ts",
+   "to": "runtime-dom/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/index.ts",
+   "to": "shared/src/index.ts"
+  },
+  {
+   "from": "vue-compat/src/index.ts",
+   "to": "runtime-core/src/component.ts"
+  },
+  {
+   "from": "vue-compat/src/index.ts",
+   "to": "runtime-core/src/compat/compatConfig.ts"
+  },
+  {
+   "from": "vue-compat/src/runtime.ts",
+   "to": "vue-compat/src/createCompatVue.ts"
+  },
+  {
+   "from": "vue-compat/src/runtime.ts",
+   "to": "runtime-core/src/index.ts"
+  }
+ ]
+}

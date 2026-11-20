@@ -1,0 +1,3 @@
+[
+  {"path":"packages/runtime-core/src/renderer.ts","entry":"renderer.ts[DB9L]: F:把新旧 VNode 树的差异落到宿主节点，并调度组件的挂载、更新与卸载 | R:code:packages/runtime-core/src/vnode.ts,code:packages/runtime-core/src/component.ts,code:packages/runtime-core/src/componentRenderUtils.ts | A:createRenderer,createHydrationRenderer,queuePostRenderEffect,traverseStaticChildren | S:patch 按 shapeFlag 位分派不验类型；双数组才做完整 diff，无 key 也走 keyed；块按索引硬配 dynamicChildren，长度不等须降级"}
+]

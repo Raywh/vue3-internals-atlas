@@ -1,0 +1,30 @@
+[
+ {
+  "path": "packages/vue/src/index.ts",
+  "entry": "index.ts[EG9S]: F:组合运行时与编译器，并把 template 选项按需编译成渲染函数 | R:code:packages/compiler-dom/src/index.ts,code:packages/runtime-dom/src/index.ts | A:compileToFunction,compile | S:第 104 行才把 compileToFunction 注册给运行时，缺这一步 template 选项在挂载时无人编译"
+ },
+ {
+  "path": "packages/vue/src/runtime.ts",
+  "entry": "runtime.ts[EG9T]: F:只带运行时的默认入口，重导出 runtime-dom 并给出无编译器的 compile 告警 | R:code:packages/runtime-dom/src/index.ts,code:packages/vue/src/dev.ts | A:compile | S:此构建不含编译器，compile 是告警函数不是编译器，template 选项不会在运行时被编译"
+ },
+ {
+  "path": "packages/vue/src/dev.ts",
+  "entry": "dev.ts[EG3T]: F:dev 构建下打印构建类型提示并初始化自定义格式化器 | R:code:packages/runtime-dom/src/index.ts | A:initDev | S:浏览器构建才有提示，打包器构建跳过"
+ },
+ {
+  "path": "packages/vue-compat/src/index.ts",
+  "entry": "index.ts[IG8S]: F:compat 全量构建入口，把 v2 全局 API 与运行时编译接到同一个 Vue 对象 | R:code:packages/vue-compat/src/createCompatVue.ts,code:packages/compiler-dom/src/index.ts | A:compileToFunction,compile | S:与 vue/src/index.ts 同构，差别是 runtimeDom 被 createCompatVue 包装，且多注册一层 v2 废弃警告"
+ },
+ {
+  "path": "packages/vue-compat/src/runtime.ts",
+  "entry": "runtime.ts[IG7T]: F:构造带 v2 全局 API 的 Vue 单例并默认导出，compile 只告警 | R:code:packages/vue-compat/src/createCompatVue.ts | A:default | S:默认导出的是单例对象而非 createApp，v2 的 new Vue 语义靠它成立"
+ },
+ {
+  "path": "packages/vue-compat/src/esm-index.ts",
+  "entry": "esm-index.ts[IG3T]: F:ESM 形态的 compat 全量入口，默认导出 Vue 并重导出 configureCompat | R:code:packages/vue-compat/src/index.ts,code:packages/runtime-dom/src/index.ts | A:configureCompat | S:默认导出与具名导出同时存在"
+ },
+ {
+  "path": "packages/vue-compat/src/esm-runtime.ts",
+  "entry": "esm-runtime.ts[IG3T]: F:ESM 形态的 compat 运行时入口，默认导出 Vue 并重导出 configureCompat | R:code:packages/vue-compat/src/runtime.ts | A:configureCompat | S:只换引入的 runtime，同样不带编译器"
+ }
+]

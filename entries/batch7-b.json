@@ -1,0 +1,34 @@
+[
+  {
+    "path": "packages/runtime-dom/src/index.ts",
+    "entry": "index.ts[IU9M]: F:装配 DOM 渲染器选项，导出页面级 render 与 createApp，挂载前清空容器并兜底取模板 | R:code:packages/runtime-dom/src/nodeOps.ts,code:packages/runtime-dom/src/patchProp.ts,code:packages/runtime-core/src/renderer.ts | A:createApp,createSSRApp,render,hydrate | S:渲染器惰性创建且只建一次，先调 hydrate 后全局都用 hydration 渲染器；createApp 挂载清空容器，无 render 与 template 时取 innerHTML 当模板"
+  },
+  {
+    "path": "packages/runtime-dom/src/nodeOps.ts",
+    "entry": "nodeOps.ts[IU8S]: F:提供 DOM 节点的增删查改与静态内容插入，构成浏览器渲染器的宿主操作集 | R:code:packages/runtime-dom/src/index.ts,code:packages/runtime-core/src/hydration.ts,code:packages/runtime-dom/src/modules/props.ts | A:nodeOps,svgNS,mathmlNS,unsafeToTrustedHTML | S:静态内容缓存路径要求单根且 nextSibling 有效；hydration 靠 nextSibling 逐个对位，svg 与 mathml 需剥外层包装"
+  },
+  {
+    "path": "packages/runtime-dom/src/patchProp.ts",
+    "entry": "patchProp.ts[IU8S]: F:按 key 前缀与目标判定分派到 class、style、事件、属性或特性五路补丁 | R:code:packages/runtime-dom/src/modules/class.ts,code:packages/runtime-dom/src/modules/style.ts,code:packages/runtime-dom/src/modules/props.ts | A:patchProp | S:分派顺序固定 class、style、on、其余；点前缀强制 DOM 属性，尖号前缀强制特性"
+  },
+  {
+    "path": "packages/runtime-dom/src/modules/attrs.ts",
+    "entry": "attrs.ts[IU5T]: F:写入或移除单个 DOM 特性，布尔与符号值按空串和字符串化处理 | R:code:packages/runtime-dom/src/patchProp.ts,code:packages/shared/src/domAttrConfig.ts | A:patchAttr,xlinkNS | S:布尔特性写空串、假值直接移除；xlink 走命名空间接口，其余值原样交给 setAttribute"
+  },
+  {
+    "path": "packages/runtime-dom/src/modules/class.ts",
+    "entry": "class.ts[IU5T]: F:把规范化后的 class 字符串写进元素，并合并过渡期间的临时类名 | R:code:packages/runtime-dom/src/components/Transition.ts,code:packages/runtime-dom/src/patchProp.ts | A:patchClass | S:过渡未结束时须把 vtcKey 上的临时类拼回；值为空时移除特性而非设空串"
+  },
+  {
+    "path": "packages/runtime-dom/src/modules/events.ts",
+    "entry": "events.ts[IU7S]: F:为元素挂载事件监听，用每元素缓存的 invoker 复用绑定并解析选项修饰符 | R:code:packages/runtime-dom/src/patchProp.ts,code:packages/runtime-core/src/errorHandling.ts | A:patchEvent,addEventListener,removeEventListener | S:按原始名缓存 invoker，更新只换 value 不重绑；attached 时间戳丢弃补丁期旧事件"
+  },
+  {
+    "path": "packages/runtime-dom/src/modules/props.ts",
+    "entry": "props.ts[IU5S]: F:把值写进 DOM 属性，处理 value 特例与布尔、数字、字符串的空值回退 | R:code:packages/runtime-dom/src/modules/attrs.ts,code:packages/runtime-dom/src/nodeOps.ts | A:patchDOMProp | S:value 存 _value 并按串比较；空值按属性类型补空串或 0，随后移除同名特性"
+  },
+  {
+    "path": "packages/runtime-dom/src/modules/style.ts",
+    "entry": "style.ts[IU6S]: F:按对象或字符串两种形态增删行内样式，处理 CSS 变量、前缀与 important | R:code:packages/runtime-dom/src/directives/vShow.ts,code:packages/runtime-dom/src/helpers/useCssVars.ts,code:packages/runtime-dom/src/patchProp.ts | A:patchStyle | S:双横线开头的键走 setProperty 并保留 important；字符串形态要拼回 CSS_VAR_TEXT"
+  }
+]

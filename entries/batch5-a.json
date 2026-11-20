@@ -1,0 +1,4 @@
+[
+{"path":"packages/runtime-core/src/component.ts","entry":"component.ts[DB9L]: F:创建组件实例并逐层装配 props、slots、setup 状态与渲染函数 | R:code:packages/runtime-core/src/componentPublicInstance.ts,code:packages/runtime-core/src/componentProps.ts,code:packages/runtime-core/src/componentEmits.ts | A:createComponentInstance,setupComponent,handleSetupResult,finishComponentSetup | S:proxy 在调 setup 前就绑定当时的 ctx，ctx 只能原地写入；setupContext 仅在 setup 形参多于一才创建；isMounted 由 renderer 首帧 patch 末才置真"},
+{"path":"packages/runtime-core/src/componentEmits.ts","entry":"componentEmits.ts[RB8M]: F:把组件 emit 的事件名解析成父级传入的监听器并负责校验与派发 | R:code:packages/runtime-core/src/component.ts,code:packages/runtime-core/src/componentProps.ts,code:packages/shared/src/general.ts | A:emit,normalizeEmitsOptions,isEmitListener | S:once 键取自最后命中的 handlerName，命中过即整体 return；未声明事件与 validator 失败只告警不阻断；监听名先原样再 camelize，仅 update 才回退 hyphenate"}
+]

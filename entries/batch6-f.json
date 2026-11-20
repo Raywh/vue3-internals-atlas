@@ -1,0 +1,42 @@
+[
+  {
+    "path": "packages/runtime-core/src/helpers/renderList.ts",
+    "entry": "renderList.ts[RB7S]: F:把模板 v-for 的数据源展开成一组 vnode 子节点，支持数组、数字、对象与可迭代 | R:code:packages/reactivity/src/arrayInstrumentations.ts,code:packages/runtime-core/src/helpers/withMemo.ts,code:packages/runtime-core/src/vnode.ts | A:renderList | S:稀疏数组逐下标仍调用 renderItem；普通对象按 Object.keys 键序，可迭代走迭代器"
+  },
+  {
+    "path": "packages/runtime-core/src/helpers/renderSlot.ts",
+    "entry": "renderSlot.ts[RB7S]: F:把具名插槽渲染成 fragment 块，为空时回落到编译期兜底，自定义元素下改渲染原生 slot 出口 | R:code:packages/runtime-core/src/vnode.ts,code:packages/runtime-core/src/componentRenderContext.ts,code:packages/runtime-core/src/componentSlots.ts | A:renderSlot,ensureValidVNode | S:插槽抛错须按 prevStackSize 补齐 closeBlock，否则残留块继续吞后续 vnode"
+  },
+  {
+    "path": "packages/runtime-core/src/helpers/resolveAssets.ts",
+    "entry": "resolveAssets.ts[RB6S]: F:按名字在本地与全局注册表里查组件、指令与过滤器，组件查不到就回落成名字 | R:code:packages/runtime-core/src/component.ts,code:packages/runtime-core/src/componentRenderContext.ts,code:packages/runtime-core/src/directives.ts | A:resolveComponent,resolveDynamicComponent,resolveDirective,resolveFilter | S:组件解析先命中显式 self 名；未命中且 maybeSelfReference 才回落自身，dev 缺失仅告警"
+  },
+  {
+    "path": "packages/runtime-core/src/helpers/createSlots.ts",
+    "entry": "createSlots.ts[RB5T]: F:把编译期收集的动态插槽描述合并进插槽对象，条件分支的键一并挂上 | R:code:packages/runtime-core/src/componentSlots.ts,code:packages/runtime-core/src/helpers/renderSlot.ts | A:createSlots | S:分支键挂在插槽返回的 vnode 数组上，由 renderSlot 当作 Fragment 的 key 读取"
+  },
+  {
+    "path": "packages/runtime-core/src/helpers/toHandlers.ts",
+    "entry": "toHandlers.ts[RB4T]: F:给 v-on 不带参数的对象键补 on 前缀，转成监听用的 props | R:code:packages/shared/src/general.ts | A:toHandlers | S:键含大写时改用 on: 前缀并保留原始大小写"
+  },
+  {
+    "path": "packages/runtime-core/src/helpers/useId.ts",
+    "entry": "useId.ts[RB5T]: F:为每个组件生成稳定 id，并让异步边界把 id 分段以免冲突 | R:code:packages/runtime-core/src/component.ts,code:packages/runtime-core/src/apiAsyncComponent.ts | A:useId,markAsyncBoundary | S:id 计数按调用次序在同一实例上递增，服务端与客户端调用次序须一致"
+  },
+  {
+    "path": "packages/runtime-core/src/helpers/useModel.ts",
+    "entry": "useModel.ts[RB7S]: F:把 props 上的模型值包成可写 ref，并 emit update 事件回写父级 | R:code:packages/runtime-core/src/apiSetupHelpers.ts,code:packages/runtime-core/src/componentProps.ts,code:packages/runtime-core/src/apiWatch.ts | A:useModel,getModelModifiers | S:父未同时给出 prop 与 update 监听时只改本地值；setter 还要比对前后值防漏更新"
+  },
+  {
+    "path": "packages/runtime-core/src/helpers/useSsrContext.ts",
+    "entry": "useSsrContext.ts[RB4T]: F:从组件注入里取服务端渲染上下文，非服务端构建下只告警 | R:code:packages/runtime-core/src/apiInject.ts,code:packages/server-renderer/src/renderToString.ts | A:useSSRContext,ssrContextKey | S:取不到上下文只告警，调用方须自行兜底"
+  },
+  {
+    "path": "packages/runtime-core/src/helpers/useTemplateRef.ts",
+    "entry": "useTemplateRef.ts[RB5T]: F:按 key 建浅 ref 并挂到实例 refs 的同名属性，供模板引用回填 | R:code:packages/runtime-core/src/component.ts,code:packages/runtime-core/src/rendererTemplateRef.ts | A:useTemplateRef,knownTemplateRefs,isTemplateRefKey | S:refs 上已有不可配置同名属性即判重复并告警，dev 下返回只读包装"
+  },
+  {
+    "path": "packages/runtime-core/src/helpers/withMemo.ts",
+    "entry": "withMemo.ts[RB5T]: F:按编译期给定的缓存槽位复用 vnode，memo 数组变了才重新渲染 | R:code:packages/runtime-core/src/vnode.ts,code:packages/compiler-core/src/transforms/vMemo.ts | A:withMemo,isMemoSame | S:缓存槽位必须与编译序号一致，命中缓存时还要把 vnode 推回 currentBlock"
+  }
+]

@@ -1,0 +1,38 @@
+[
+ {
+  "path": "packages/runtime-test/src/index.ts",
+  "entry": "index.ts[TQ4T]: F:用测试版 nodeOps 与 patchProp 组装渲染器，并导出把 vnode 渲染成字符串的便捷函数 | R:code:packages/runtime-test/src/nodeOps.ts,code:packages/runtime-test/src/patchProp.ts,code:packages/runtime-test/src/serialize.ts | A:render,createApp,renderToString | S:op 记录跨用例累积，断言前须 resetOps"
+ },
+ {
+  "path": "packages/runtime-test/src/nodeOps.ts",
+  "entry": "nodeOps.ts[TQ6M]: F:用普通对象模拟元素、文本与注释节点，并把每次节点操作记入队列供断言 | R:code:packages/runtime-core/src/renderer.ts,code:packages/reactivity/src/reactive.ts,code:packages/runtime-test/src/serialize.ts | A:nodeOps,TestElement,logNodeOp,dumpOps | S:节点创建即 markRaw 避免被观测，insert 先静默移除再重算子节点下标"
+ },
+ {
+  "path": "packages/runtime-test/src/patchProp.ts",
+  "entry": "patchProp.ts[TQ4T]: F:把补丁写进测试元素的 props，并把事件监听器按事件名登记 | R:code:packages/runtime-test/src/nodeOps.ts,code:packages/shared/src/general.ts | A:patchProp | S:事件名无冒号时整体转小写"
+ },
+ {
+  "path": "packages/runtime-test/src/serialize.ts",
+  "entry": "serialize.ts[TQ5T]: F:递归输出测试节点树的 HTML 字符串，支持缩进并跳过事件与空值属性 | R:code:packages/runtime-test/src/nodeOps.ts,code:packages/runtime-test/src/index.ts | A:serialize,serializeInner | S:输出格式被大量测试字符串断言依赖，属性值走 JSON.stringify 形式"
+ },
+ {
+  "path": "packages/runtime-test/src/triggerEvent.ts",
+  "entry": "triggerEvent.ts[TQ3T]: F:按事件名取出测试元素登记的监听器，用给定参数同步调用 | R:code:packages/runtime-test/src/nodeOps.ts,code:packages/runtime-test/src/patchProp.ts | A:triggerEvent | S:同步调用并丢弃返回值，不等待异步监听器"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts",
+  "entry": "ssrRenderAttrs.ts[IB6S]: F:把 props 拼成 SSR 属性串，对 class、style 与布尔属性单独处理 | R:code:packages/shared/src/normalizeProp.ts,code:packages/shared/src/domAttrConfig.ts,code:packages/shared/src/escapeHtml.ts | A:ssrRenderAttrs,ssrRenderDynamicAttr,ssrRenderClass,ssrRenderStyle | S:class 与 style 经 normalize 后整体转义，className 只做字符串强转不归一"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrCompile.ts",
+  "entry": "ssrCompile.ts[IB4T]: F:运行时把模板编译成 SSR 渲染函数，并按模板与编译选项缓存 | R:code:packages/compiler-ssr/src/index.ts,code:packages/server-renderer/src/render.ts | A:ssrCompile | S:仅 CJS 构建可用，ESM 构建下直接抛错"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrGetDirectiveProps.ts",
+  "entry": "ssrGetDirectiveProps.ts[IB3T]: F:调用指令的 getSSRProps，产出待合并到元素上的属性对象 | R:code:packages/runtime-core/src/directives.ts,code:packages/runtime-core/src/componentPublicInstance.ts | A:ssrGetDirectiveProps | S:缺 getSSRProps 时统一返回空对象"
+ },
+ {
+  "path": "packages/server-renderer/src/helpers/ssrInterpolate.ts",
+  "entry": "ssrInterpolate.ts[IB3T]: F:把插值内容转成显示字符串再转义，供文本节点的 SSR 输出使用 | R:code:packages/shared/src/toDisplayString.ts,code:packages/shared/src/escapeHtml.ts | A:ssrInterpolate | S:先 toDisplayString 再 escape，顺序反了会重复转义"
+ }
+]

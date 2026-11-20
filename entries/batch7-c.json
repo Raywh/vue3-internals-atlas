@@ -1,0 +1,6 @@
+[
+  {
+    "path": "packages/runtime-dom/src/jsx.ts",
+    "entry": "jsx.ts[FG9L]: F:为原生 HTML 与 SVG 标签、事件和保留属性声明 JSX 类型映射 | R:code:packages/vue/jsx.d.ts,code:packages/vue/jsx-runtime/index.d.ts,code:packages/runtime-dom/src/index.ts | A:CSSProperties,ReservedProps,NativeElements,IntrinsicElementAttributes | S:纯类型文件无运行时导出，只经 index.ts 的 export * 进 d.ts；事件键须按 toHandlerKey 命名（onDblclick），且 Events 存事件对象类型由 EventHandlers 包成回调"
+  }
+]

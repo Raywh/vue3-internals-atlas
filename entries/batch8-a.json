@@ -1,0 +1,66 @@
+[
+ {
+  "path": "packages/shared/src/index.ts",
+  "entry": "index.ts[CG3T]: F:汇总导出各子模块的公共工具与常量，是全仓引入共享能力的唯一入口 | R:- | A:- | S:纯重导出，实现放子文件，防止循环依赖"
+ },
+ {
+  "path": "packages/shared/src/general.ts",
+  "entry": "general.ts[CG8M]: F:汇集类型判断、字符串命名转换、缓存包装与全局对象探测等基础工具 | R:code:packages/shared/src/makeMap.ts,code:packages/reactivity/src/ref.ts,code:packages/runtime-core/src/vnode.ts | A:hasOwn,isOn,camelize,getGlobalThis | S:命名转换函数带字符串缓存，超过一万条整体清空；isOn 逐字符码判断，只认小写 on 前缀"
+ },
+ {
+  "path": "packages/shared/src/makeMap.ts",
+  "entry": "makeMap.ts[CG6T]: F:把逗号分隔的字符串编成一个查询函数，用来判断键是否属于该白名单 | R:- | A:makeMap | S:返回的是函数不是集合，调用处要标纯函数才能被摇树移除"
+ },
+ {
+  "path": "packages/shared/src/shapeFlags.ts",
+  "entry": "shapeFlags.ts[CG8T]: F:用位标记描述虚拟节点的种类与子节点形态，供渲染器做快速分支 | R:code:packages/runtime-core/src/vnode.ts,code:packages/runtime-core/src/renderer.ts | A:ShapeFlags | S:COMPONENT 是两位合成值，判断组件类型只能用按位与，不能用等值比较"
+ },
+ {
+  "path": "packages/shared/src/patchFlags.ts",
+  "entry": "patchFlags.ts[CG8S]: F:定义编译器写进虚拟节点的更新提示位，让运行时跳过静态部分 | R:code:packages/runtime-core/src/renderer.ts,code:packages/compiler-core/src/transforms/transformElement.ts | A:PatchFlags,PatchFlagNames | S:位值被编译产物内联成字面量，与编译器共用同一套常量不能改；负数特例只做等值比较"
+ },
+ {
+  "path": "packages/shared/src/slotFlags.ts",
+  "entry": "slotFlags.ts[CG6T]: F:标记插槽的稳定性，决定父组件更新时是否要强制子组件重渲染 | R:code:packages/runtime-core/src/componentSlots.ts,code:packages/compiler-core/src/transforms/vSlot.ts | A:SlotFlags,slotFlagsText | S:只有三个枚举值，FORWARDED 要到运行时看到父插槽后才能定下来"
+ },
+ {
+  "path": "packages/shared/src/domTagConfig.ts",
+  "entry": "domTagConfig.ts[CG5T]: F:维护 HTML、SVG、MathML 与空元素的标签名单，供编译器判定命名空间 | R:code:packages/compiler-dom/src/parserOptions.ts,code:packages/compiler-core/src/parser.ts | A:isHTMLTag,isSVGTag,isVoidTag | S:只有编译器用，运行时调用必须放在开发分支里，否则打包体积变大"
+ },
+ {
+  "path": "packages/shared/src/domAttrConfig.ts",
+  "entry": "domAttrConfig.ts[CG6S]: F:维护布尔属性表、属性名映射与已知属性表，供运行时和服务端渲染决定属性写法 | R:code:packages/runtime-dom/src/modules/attrs.ts,code:packages/server-renderer/src/helpers/ssrRenderAttrs.ts | A:isBooleanAttr,isSpecialBooleanAttr,includeBooleanAttr,propsToAttrMap | S:布尔属性表决定属性写法，改表会让服务端标记与客户端不一致"
+ },
+ {
+  "path": "packages/shared/src/escapeHtml.ts",
+  "entry": "escapeHtml.ts[CG5T]: F:按最小实体集把文本转义成安全 HTML，并清理注释与 CSS 变量名 | R:code:packages/server-renderer/src/helpers/ssrInterpolate.ts,code:packages/compiler-dom/src/transforms/stringifyStatic.ts | A:escapeHtml,escapeHtmlComment,getEscapedCssVarName | S:只转义五个字符，别扩成完整实体表，输出与快照按这份最小集"
+ },
+ {
+  "path": "packages/shared/src/normalizeProp.ts",
+  "entry": "normalizeProp.ts[CG6T]: F:把 class 与 style 的数组、对象写法归一成字符串或扁平对象 | R:code:packages/runtime-core/src/vnode.ts,code:packages/server-renderer/src/helpers/ssrRenderAttrs.ts | A:normalizeClass,normalizeStyle,normalizeProps,stringifyStyle | S:解析 style 字符串要先把引号和注释保护起来再按分号切，顺序不能反"
+ },
+ {
+  "path": "packages/shared/src/toDisplayString.ts",
+  "entry": "toDisplayString.ts[CG5T]: F:把插值结果转成展示字符串，特殊处理引用、集合、符号与自定义对象 | R:code:packages/reactivity/src/constants.ts,code:packages/server-renderer/src/helpers/ssrInterpolate.ts | A:toDisplayString | S:不能直接引 isRef，改用 ReactiveFlags 判断，否则 shared 会依赖响应式包"
+ },
+ {
+  "path": "packages/shared/src/typeUtils.ts",
+  "entry": "typeUtils.ts[CG4T]: F:提供类型层面的工具别名，用于解析函数重载参数与收紧可选字段 | R:- | A:Prettify,UnionToIntersection,LooseRequired,OverloadParameters | S:any 检测靠条件类型技巧，换写法会失效"
+ },
+ {
+  "path": "packages/shared/src/looseEqual.ts",
+  "entry": "looseEqual.ts[CG5S]: F:按值递归比较两个任意值，兼容日期、符号、数组、集合与循环引用 | R:code:packages/runtime-dom/src/directives/vModel.ts,code:packages/runtime-core/src/componentRenderUtils.ts | A:looseEqual,looseIndexOf | S:用一对 Map 记递归路径，进递归前写入、返回前删除，否则循环引用会判错"
+ },
+ {
+  "path": "packages/shared/src/cssVars.ts",
+  "entry": "cssVars.ts[CG4T]: F:把绑定表达式拿到的 CSS 变量值规整成能写进样式表的字符串 | R:code:packages/runtime-dom/src/helpers/useCssVars.ts,code:packages/server-renderer/src/helpers/ssrRenderAttrs.ts | A:normalizeCssVarValue | S:空串要返回一个空格，不能与空值合并"
+ },
+ {
+  "path": "packages/shared/src/codeframe.ts",
+  "entry": "codeframe.ts[CG4T]: F:由源码与出错区间生成带行号和脱字符指示的代码片段 | R:- | A:generateCodeFrame | S:偏移含行尾换行符长度，别只用行文本"
+ },
+ {
+  "path": "packages/shared/src/globalsAllowList.ts",
+  "entry": "globalsAllowList.ts[CG5T]: F:声明模板表达式里允许直接访问的全局白名单，供编译与运行时校验 | R:code:packages/compiler-core/src/transforms/transformExpression.ts,code:packages/runtime-core/src/componentPublicInstance.ts | A:isGloballyAllowed | S:名单外的名字会被加上 _ctx 前缀，漏项就变成运行时取不到值"
+ }
+]

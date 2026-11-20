@@ -1,0 +1,6 @@
+[
+  {
+    "path": "packages/runtime-core/src/components/Suspense.ts",
+    "entry": "Suspense.ts[DB9L]: F:把内容分支挂到隐藏容器，异步依赖清零后整体揭示，超时则先挂回退 | R:code:packages/runtime-core/src/renderer.ts,code:packages/runtime-core/src/component.ts,code:packages/runtime-core/src/scheduler.ts | A:Suspense,SuspenseImpl,isSuspense,SuspenseBoundary | S:registerDep 只对已置位的 pendingBranch 计数；deps 须在 patch 前后成对增减，否则嵌套分支会提前 resolve 父级"
+  }
+]

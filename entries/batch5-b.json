@@ -1,0 +1,4 @@
+[
+  {"path":"packages/runtime-core/src/componentOptions.ts","entry":"componentOptions.ts[DB9L]: F:按固定顺序把对象式选项装到实例上下文，并定义 mixin 合并策略 | R:code:packages/runtime-core/src/componentProps.ts,code:packages/runtime-core/src/componentPublicInstance.ts,code:packages/runtime-core/src/apiCreateApp.ts | A:applyOptions,mergeOptions,resolveMergedOptions,createWatcher | S:执行序固定 inject、methods、data、computed、watch，data 后于 methods 且装完才开 proxy 缓存"},
+  {"path":"packages/runtime-core/src/componentProps.ts","entry":"componentProps.ts[DB9L]: F:归一化 props 声明，初始化与更新时分离 props 与 attrs，并在开发期校验 | R:code:packages/runtime-core/src/component.ts,code:packages/runtime-core/src/renderer.ts,code:packages/runtime-core/src/componentEmits.ts | A:initProps,updateProps,normalizePropsOptions,ExtractPropTypes | S:props 外层 shallowReactive，更新只认引用变化，对象内部变化不触发重渲染；未声明且非 emit 监听才落 attrs"}
+]

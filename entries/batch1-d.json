@@ -1,0 +1,6 @@
+[
+  {
+    "path": "packages/compiler-core/src/compat/transformFilter.ts",
+    "entry": "transformFilter.ts[DA5S]: F:在 v2 兼容模式下把模板里的管道过滤器语法改写成 resolveFilter 调用 | R:code:packages/compiler-core/src/compat/compatConfig.ts,code:packages/compiler-core/src/runtimeHelpers.ts | A:transformFilter | S:必须在 transformExpression 之前跑，改写后清空 node.ast，否则 codegen 仍用旧表达式"
+  }
+]

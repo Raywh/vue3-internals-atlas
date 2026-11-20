@@ -1,0 +1,6 @@
+[
+{"path":"packages/compiler-core/src/transforms/vOnce.ts","entry":"vOnce.ts[KA6T]: F:实现 v-once 指令，把节点产出的 vnode 代码包进缓存调用 | R:code:packages/compiler-core/src/transform.ts,code:packages/compiler-core/src/utils.ts | A:transformOnce | S:退出回调里靠 currentNode 取节点，遍历顺序一变就会缓存错节点"},
+{"path":"packages/compiler-core/src/transforms/vSlot.ts","entry":"vSlot.ts[KA8L]: F:把组件的插槽子节点编译成插槽对象，并判定插槽稳定性标记 | R:code:packages/compiler-core/src/transforms/transformElement.ts,code:packages/compiler-core/src/transforms/vFor.ts,code:packages/compiler-core/src/transforms/transformExpression.ts | A:buildSlots,trackSlotScopes,trackVForSlotScopes,SlotFnBuilder | S:vSlot 计数只在退出回调里递减，故 buildSlots 读到的正数只来自外层插槽，改遍历顺序会让静态判定失真"},
+{"path":"packages/compiler-core/src/utils.ts","entry":"utils.ts[KA7L]: F:提供 AST 判定、属性注入与源码位置推进等编译器共用辅助 | R:code:packages/compiler-core/src/ast.ts,code:packages/compiler-core/src/transform.ts,code:packages/compiler-core/src/runtimeHelpers.ts | A:findDir,injectProp,hasScopeRef,isMemberExpression | S:成员表达式与函数表达式判定各有浏览器词法与 babel 两套实现，改一处即不一致"},
+{"path":"packages/compiler-core/src/validateExpression.ts","entry":"validateExpression.ts[KA5T]: F:用 new Function 试解析模板表达式，捕获语法错误并改写报错文案 | R:code:packages/compiler-core/src/transforms/transformExpression.ts,code:packages/compiler-core/src/errors.ts | A:validateBrowserExpression | S:只编译不执行代码，且仅在浏览器内编译器路径调用，服务端编译不经过它"}
+]

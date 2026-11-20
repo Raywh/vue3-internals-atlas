@@ -1,0 +1,18 @@
+[
+  {
+    "path": "packages/runtime-core/src/componentPublicInstance.ts",
+    "entry": "componentPublicInstance.ts[DB8L]: F:定义组件对外实例的属性契约，并实现渲染上下文的读写代理 | R:code:packages/runtime-core/src/component.ts,code:packages/runtime-core/src/componentOptions.ts,code:packages/runtime-core/src/componentRenderUtils.ts | A:PublicInstanceProxyHandlers,RuntimeCompiledPublicInstanceProxyHandlers,publicPropertiesMap,createDevRenderContext | S:编译版代理的 has 把下划线前缀与全局白名单内的键都判缺席，with 块才落到真全局；get 用 accessCache 记来源，换 getter 要把缓存置 0"
+  },
+  {
+    "path": "packages/runtime-core/src/componentRenderUtils.ts",
+    "entry": "componentRenderUtils.ts[RB8L]: F:把组件 render 的返回值归一成根 vnode，并判断子组件是否需要更新 | R:code:packages/runtime-core/src/component.ts,code:packages/runtime-core/src/vnode.ts,code:packages/runtime-core/src/componentRenderContext.ts | A:renderComponentRoot,shouldUpdateComponent,filterSingleRoot,updateHOCHostEl | S:render 抛错要先清空 blockStack 再 handleError，根回落成注释节点；dev 下的注释根另走 getChildRoot 定位真实元素根"
+  },
+  {
+    "path": "packages/runtime-core/src/componentSlots.ts",
+    "entry": "componentSlots.ts[DB7M]: F:把组件的 vnode children 归一成插槽对象，并在更新时增删条目 | R:code:packages/runtime-core/src/vnode.ts,code:packages/runtime-core/src/componentRenderContext.ts,code:packages/runtime-core/src/component.ts | A:initSlots,updateSlots,Slot,SlotsType | S:compiled 插槽在 optimized 且 STABLE 时不更新也不删陈旧键，手写插槽靠 $stable 关掉删键"
+  },
+  {
+    "path": "packages/runtime-core/src/componentRenderContext.ts",
+    "entry": "componentRenderContext.ts[RB5S]: F:维护当前渲染实例与 scopeId，并把插槽函数绑定到正确的渲染上下文 | R:code:packages/runtime-core/src/vnode.ts,code:packages/runtime-core/src/componentSlots.ts | A:withCtx,setCurrentRenderingInstance,currentRenderingInstance,pushScopeId | S:withCtx 每次调用切换 currentRenderingInstance 到捕获的 ctx，收尾按 blockStack 补齐未闭合块"
+  }
+]
