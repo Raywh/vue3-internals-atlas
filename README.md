@@ -16,18 +16,30 @@
 因此**需要 Chrome / Edge 157+**。不支持时页面顶部会给一条横幅，并提供
 [`vue-graph-classic.html`](vue-graph-classic.html)——同数据、纯 Canvas2D、任何浏览器都能开。
 
-在 Chrome 157.0.8103.79 / headless 下实测（不是估计）：
+在 Chrome 157 / 158 headless 下实测（不是估计）：
 
 | 项 | 结果 |
 |---|---|
-| 整帧成本（233 圆点 + 233 标签 + 1187 边） | **1.6–1.7 ms**（60fps 预算 16.7 ms） |
+| 整帧成本（233 圆点 + 233 标签 + 1187 边） | **0.32–0.40 ms**（60fps 预算 16.7 ms，占 2.4%） |
+| 优化前 → 后 | 2.93 ms → **0.40 ms**（7.3×），其中边 2.12 → **0.18 ms** |
 | `drawElementImage` 失败次数 | 0 |
 | 放大 2×/3× 的文字 | **重新栅格，不糊** |
 | 缩放来回（1×→3×→1×） | 与新元素逐像素一致，不累积失真 |
 | dest rect 的副作用 | **会改元素几何**：画到 (500,300)，`getBoundingClientRect` 就是 (500,300) |
 | 初始布局在画布外 | 没有 paint record，调用抛 `No cached paint record` |
 
+边原先每条一次 `beginPath/stroke`（2.12 ms，占七成），现在整批合成一条路径一次 stroke，端点也提前绑好。
+
 所以命中测试不依赖元素几何（那只是「上次画到哪」），而是按自己的变换算；元素全部 `pointer-events:none`。
+
+### 交互
+
+滚轮/拖拽走缓动（每帧 25% 逼近），双击复位；触摸支持单指拖拽与双指捏合；键盘 `/` 搜索、`Esc` 取消、
+`+/-` 缩放、`f` 复位、`←/→` 沿 import 反向/正向走一步、`↑/↓` 同包上下跳；搜索时右上角显示「命中 9 / 233」。
+
+「导出卡片」把选中节点的 F/S 排成 1200×630 的 DOM，`drawElementImage` 一次画进 canvas 再 `toDataURL` 下载 PNG：
+
+![导出卡片](screenshots/05-export-card.png)
 
 ![总览](screenshots/01-overview.png)
 

@@ -24,6 +24,35 @@
   .search input{background:#0e131d;border:1px solid var(--line);color:var(--fg);border-radius:7px;
     padding:7px 11px;width:270px;font-size:12.5px;font-family:var(--mono);outline:none}
   .search input:focus{border-color:var(--vue)}
+  .btn{background:#12241e;border:1px solid #2c4a3a;color:var(--vue);border-radius:7px;
+    padding:7px 12px;font-size:12px;font-family:var(--sans);cursor:pointer;white-space:nowrap}
+  .btn:hover{background:#173026}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+
+  /* 导出预览：卡片是真 DOM，画进 canvas 才看得到（content=drawable 下子元素不自己绘制）*/
+  #exportModal{position:fixed;inset:0;display:grid;place-items:center;gap:14px;
+    background:rgba(6,9,14,.88);z-index:30;padding:24px}
+  #exportModal[hidden]{display:none}
+  #expwrap{display:flex;flex-direction:column;gap:12px;align-items:center;max-height:100%;overflow:auto}
+  #expcv{width:1200px;height:630px;max-width:92vw;max-height:78vh;border-radius:12px;
+    box-shadow:0 30px 80px #000a;background:#0b0e14}
+  #expactions{display:flex;gap:10px}
+  .card{position:absolute;left:0;top:0;width:1200px;height:630px;box-sizing:border-box;
+    padding:54px 58px;display:flex;flex-direction:column;
+    background:linear-gradient(158deg,#101a28 0%,#0b0e14 58%,#0d1520 100%);
+    color:#e6edf7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+  .card h1{margin:0;font-size:34px;line-height:1.25;letter-spacing:.3px}
+  .card .sub{margin-top:10px;font-size:15px;color:#8b9ab1;font-family:ui-monospace,monospace}
+  .card .body{margin-top:30px;flex:1;display:flex;flex-direction:column;gap:16px}
+  .card .path{font-family:ui-monospace,monospace;font-size:19px;color:#42b883;word-break:break-all}
+  .card .tags{font-family:ui-monospace,monospace;font-size:13px;color:#5d6b82}
+  .card .f{font-size:22px;line-height:1.5;color:#dbe6f4}
+  .card .s{font-size:16px;line-height:1.6;color:#ffb86c;border-left:3px solid #ffb86c;padding-left:14px}
+  .card .empty{font-size:20px;color:#8b9ab1;line-height:1.7}
+  .card .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;
+    font-family:ui-monospace,monospace;font-size:13px;color:#5d6b82;border-top:1px solid #1e2837;padding-top:18px}
+  .card .legend{display:flex;gap:14px;flex-wrap:wrap;font-family:ui-monospace,monospace;font-size:12px;color:#8b9ab1}
+  .card .legend b{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}
   .stat{font-size:11px;color:var(--dim2);font-family:var(--mono);white-space:nowrap}
 
   aside.left{border-right:1px solid var(--line);background:var(--bg2);overflow-y:auto;padding:10px 0 40px}
@@ -63,8 +92,7 @@
   .nocap b{color:#ffb86c}
   .nocap a{color:var(--vue)}
 
-  aside.right{border-left:1px solid var(--line);background:var(--bg2);overflow-y:auto;padding:0 0 60px}
-  .detail{padding:16px 18px}
+  aside.right{border-left:1px solid var(--line);background:var(--bg2);overflow-y:auto;padding:0 0 60px}  .detail{padding:16px 18px}
   .path{font-family:var(--mono);font-size:11px;color:var(--vue);word-break:break-all;line-height:1.5}
   .badges{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0 12px}
   .badge{font-family:var(--mono);font-size:10px;border:1px solid var(--line);border-radius:5px;padding:2px 6px;color:var(--dim)}
@@ -102,6 +130,7 @@
     <div class="search">
       <span class="stat" id="stat"></span>
       <input id="q" placeholder="搜索文件 / 符号 / 职责…" autocomplete="off">
+      <button class="btn" id="expBtn" title="把当前选中节点的条目导出成 1200×630 的 PNG">导出卡片</button>
     </div>
   </header>
 
@@ -111,7 +140,7 @@
     <canvas id="cv" content="drawable"></canvas>
     <div class="chiprow" id="chips"></div>
     <div class="legend" id="legend"></div>
-    <div class="hint">拖拽平移 · 滚轮缩放 · 点节点看条目</div>
+    <div class="hint">拖拽平移 · 滚轮缩放 · 双击复位 · 方向键沿依赖走 · / 搜索</div>
     <div class="nocap" id="nocap" hidden>
       <div>
         <p><b>这个页面需要 HTML-in-canvas</b>（Chrome / Edge 157+）。</p>
@@ -123,6 +152,27 @@
   </main>
 
   <aside class="right" id="right"></aside>
+
+  <div id="exportModal" hidden>
+    <div id="expwrap">
+      <canvas id="expcv" content="drawable">
+        <div class="card" drawable id="card">
+          <h1 id="cardTitle">Vue 3 内核知识图谱</h1>
+          <div class="sub" id="cardSub"></div>
+          <div class="body" id="cardBody"></div>
+          <div class="legend" id="cardLegend"></div>
+          <div class="foot">
+            <span>vuejs/core @ v3.5.46 · AOCI-CODE 索引</span>
+            <span>github.com/Raywh/vue3-internals-atlas</span>
+          </div>
+        </div>
+      </canvas>
+      <div id="expactions">
+        <button class="btn" id="expDl">下载 PNG</button>
+        <button class="btn" id="expClose">关闭</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script id="data" type="application/json">__DATA__</script>
@@ -153,6 +203,7 @@ const HIC = 'content' in document.createElement('canvas') && typeof ctx.drawElem
 const W = () => cv.clientWidth || 1;
 const H = () => cv.clientHeight || 1;
 let scale = 1, tx = 0, ty = 0;
+let tScale = 1, tTx = 0, tTy = 0;
 const LABEL_MIN_SCALE = 2.0;    // 低于这个比例只有悬停/选中的节点显示标签
 
 // ── 力导向布局（与经典版一致）：每个包一个锚点 ──
@@ -180,6 +231,9 @@ const sim = nodes.map(n => {
   };
 });
 const simById = new Map(sim.map(n => [n.id, n]));
+// 边两端一次性绑定到节点对象，避免每帧 2×1187 次 Map 查找
+for (const e of edges) { e.a = simById.get(e.from); e.b = simById.get(e.to); }
+let visibleNodes = [], visibleEdges = [];
 let alpha = 1, frames = 0;
 
 function clampRadius(p) {
@@ -278,6 +332,7 @@ function sy(wy) { return H() / 2 + ty + wy * scale; }
 
 const state = { focus: null, pkg: null, q: '', hover: null, sel: null };
 let dirty = true;
+let decorDirty = true;
 let ready = false;
 const R = {};              // 运行时诊断（CDP 可读）
 window.__diag = R;
@@ -293,13 +348,30 @@ function matches(n) {
   return true;
 }
 
+// 过滤结果只在 query/pkg/focus 变化时重算：draw() 里不再逐帧跑 matches()
+function recomputeVisible() {
+  visibleNodes = [];
+  for (const n of sim) { n.vis = matches(n); if (n.vis) visibleNodes.push(n); }
+  visibleEdges = edges.filter((e) => (e.a && e.a.vis) || (e.b && e.b.vis));
+  updateStat();
+}
+function updateStat() {
+  const el = document.getElementById('stat');
+  if (!el) return;
+  const q = state.q.trim();
+  const filtered = state.pkg || state.focus;
+  el.textContent = (q || filtered)
+    ? '命中 ' + visibleNodes.length + ' / ' + sim.length
+    : sim.length + ' files · ' + edges.length + ' imports';
+}
+
 function updateNodeDecor() {
   if (!HIC) return;
   const hot = state.hover;
   const nbr = hot ? new Set([hot, ...(outMap.get(hot) || []), ...(inMap.get(hot) || [])]) : null;
   const allLabels = scale >= LABEL_MIN_SCALE;
   for (const n of sim) {
-    const dim = (nbr && !nbr.has(n.id)) || !matches(n);
+    const dim = (nbr && !nbr.has(n.id)) || !n.vis;
     n.el.classList.toggle('hot', hot === n.id);
     n.el.classList.toggle('sel', state.sel === n.id);
     n.el.classList.toggle('dim', dim);
@@ -311,11 +383,14 @@ function updateNodeDecor() {
 
 function draw() {
   const w = W(), h = H();
+  const T = R.parts || (R.parts = { clear: 0, edges: 0, dots: 0, labels: 0 });
+  let t0 = performance.now();
   const dpr = Math.min(2, window.devicePixelRatio || 1);
   const pw = Math.round(w * dpr), ph = Math.round(h * dpr);
   if (cv.width !== pw || cv.height !== ph) { cv.width = pw; cv.height = ph; }
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, w, h);
+  T.clear = performance.now() - t0; t0 = performance.now();
 
   // 包名（少量，直接 fillText）
   ctx.font = '600 11px ui-monospace,monospace';
@@ -328,41 +403,54 @@ function draw() {
   ctx.textAlign = 'left';
   ctx.globalAlpha = 1;
 
-  // 边
+  // 投影：每个可见节点算一次屏幕坐标，边和圆点共用
+  for (const n of visibleNodes) {
+    n.px = sx(n.x); n.py = sy(n.y);
+    n.cd = Math.max(6, n.d * scale);
+  }
+
+  // 边：整批合成一条路径，一次 stroke（原来是每条边一次 beginPath+stroke）
   const hot = state.hover;
   ctx.lineWidth = 1;
-  for (const e of edges) {
-    const a = simById.get(e.from), b = simById.get(e.to);
-    if (!a || !b) continue;
-    if (!matches(a) && !matches(b)) continue;
-    const isHot = hot && (e.from === hot || e.to === hot);
-    ctx.strokeStyle = isHot ? 'rgba(66,184,131,.5)' : 'rgba(120,150,190,.11)';
-    ctx.beginPath(); ctx.moveTo(sx(a.x), sy(a.y)); ctx.lineTo(sx(b.x), sy(b.y)); ctx.stroke();
+  ctx.beginPath();
+  for (const e of visibleEdges) {
+    if (hot && (e.from === hot || e.to === hot)) continue;
+    if (!e.a.vis && !e.b.vis) continue;
+    ctx.moveTo(e.a.px, e.a.py); ctx.lineTo(e.b.px, e.b.py);
   }
+  ctx.strokeStyle = 'rgba(120,150,190,.11)';
+  ctx.stroke();
+  if (hot) {
+    ctx.beginPath();
+    for (const e of visibleEdges) {
+      if (e.from !== hot && e.to !== hot) continue;
+      ctx.moveTo(e.a.px, e.a.py); ctx.lineTo(e.b.px, e.b.py);
+    }
+    ctx.strokeStyle = 'rgba(66,184,131,.5)';
+    ctx.stroke();
+  }
+  T.edges = performance.now() - t0; t0 = performance.now();
 
   // 节点圆点：随缩放；标签：固定字号（1:1 画，不跟着放大）
   if (!HIC || !ready) return;
   let fails = 0, lastErr = '';
   const allLabels = scale >= LABEL_MIN_SCALE;
-  for (const n of sim) {
-    if (!matches(n)) continue;
-    const px = sx(n.x), py = sy(n.y);
-    const cd = Math.max(6, n.d * scale);
-    if (px + cd < -40 || px - cd > w + 40 || py + cd < -40 || py - cd > h + 40) continue;
-    try { ctx.drawElementImage(n.el, px - cd / 2, py - cd / 2, cd, cd); }
+  for (const n of visibleNodes) {
+    if (n.px + n.cd < -40 || n.px - n.cd > w + 40 || n.py + n.cd < -40 || n.py - n.cd > h + 40) continue;
+    try { ctx.drawElementImage(n.el, n.px - n.cd / 2, n.py - n.cd / 2, n.cd, n.cd); }
     catch (err) { fails++; lastErr = String((err && err.message) || err); }
   }
+  T.dots = performance.now() - t0; t0 = performance.now();
   if (allLabels || state.hover || state.sel) {
-    for (const n of sim) {
-      if (!matches(n)) continue;
+    for (const n of visibleNodes) {
       if (!(allLabels || state.hover === n.id || state.sel === n.id)) continue;
-      const px = sx(n.x), py = sy(n.y);
-      const cd = Math.max(6, n.d * scale);
-      try { ctx.drawElementImage(n.lbl, px - n.lw / 2, py + cd / 2 + 2, n.lw, 13); }
+      try { ctx.drawElementImage(n.lbl, n.px - n.lw / 2, n.py + n.cd / 2 + 2, n.lw, 13); }
       catch (err) { fails++; lastErr = String((err && err.message) || err); }
     }
   }
   R.drawFails = fails; R.drawErr = lastErr; R.drawnAt = Date.now();
+  T.labels = performance.now() - t0;
+  R.lastParts = { ...T, total: T.clear + T.edges + T.dots + T.labels };
 }
 
 function loop() {
@@ -372,11 +460,25 @@ function loop() {
     if (frames >= 2) { ready = true; dirty = true; }
     else { frames++; requestAnimationFrame(loop); return; }
   }
-  if (dirty) { updateNodeDecor(); draw(); dirty = false; }
+  // 缓动到目标视口：0.4ms 的帧预算，动画只吃掉一小部分
+  const ds = tScale - scale, ddx = tTx - tx, ddy = tTy - ty;
+  if (Math.abs(ds) > 1e-4 || Math.abs(ddx) > 0.4 || Math.abs(ddy) > 0.4) {
+    scale += ds * 0.25; tx += ddx * 0.25; ty += ddy * 0.25; dirty = true;
+    if (Math.abs(tScale - scale) < 1e-4) scale = tScale;
+    if (Math.abs(tTx - tx) < 0.4) tx = tTx;
+    if (Math.abs(tTy - ty) < 0.4) ty = tTy;
+  }
+  // 标签阈值变化会改 DOM 装饰，单独标脏
+  const allL = scale >= LABEL_MIN_SCALE;
+  if (allL !== lastAllLabels) { lastAllLabels = allL; decorDirty = true; }
+  // DOM 装饰（class/opacity）只在悬停、选中、过滤、阈值变化时更新，不跟着物理帧刷
+  if (decorDirty) { updateNodeDecor(); decorDirty = false; }
+  if (dirty) { draw(); dirty = false; }
   requestAnimationFrame(loop);
 }
+let lastAllLabels = null;
 
-function fit() {
+function fit(snap) {
   let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
   for (const a of anchor.values()) {
     minx = Math.min(minx, a.x); maxx = Math.max(maxx, a.x);
@@ -384,10 +486,8 @@ function fit() {
   }
   const pad = 265;
   const s = Math.min(W() / (maxx - minx + pad * 2), H() / (maxy - miny + pad * 2), 1.8);
-  scale = Math.max(0.22, s);
-  tx = -((minx + maxx) / 2) * scale;
-  ty = -((miny + maxy) / 2) * scale;
-  dirty = true;
+  const ns = Math.max(0.22, s);
+  zoomTo(ns, -((minx + maxx) / 2) * ns, -((miny + maxy) / 2) * ns, !!snap);
 }
 function fitTo(ids) {
   const pts = ids.map(id => simById.get(id)).filter(Boolean);
@@ -398,10 +498,8 @@ function fitTo(ids) {
     miny = Math.min(miny, p.y); maxy = Math.max(maxy, p.y);
   }
   const s = Math.min(W() / (maxx - minx + 330), H() / (maxy - miny + 330), 2.2);
-  scale = Math.max(0.45, s);
-  tx = -((minx + maxx) / 2) * scale;
-  ty = -((miny + maxy) / 2) * scale;
-  dirty = true;
+  const ns = Math.max(0.45, s);
+  zoomTo(ns, -((minx + maxx) / 2) * ns, -((miny + maxy) / 2) * ns, false);
 }
 
 // ── 交互：自己算命中（元素的几何是“上次画到哪”，不拿来当真相）──
@@ -410,7 +508,7 @@ function pick(ev) {
   const mx = ev.clientX - r.left, my = ev.clientY - r.top;
   let best = null, bd = 1e9;
   for (const n of sim) {
-    if (!matches(n)) continue;
+    if (!n.vis) continue;
     const d = Math.hypot(sx(n.x) - mx, sy(n.y) - my);
     const hit = Math.max(6, (n.d * scale) / 2 + 4);
     if (d < hit && d < bd) { bd = d; best = n; }
@@ -418,32 +516,129 @@ function pick(ev) {
   return best;
 }
 let drag = null;
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+
+// 目标值 + 缓动：每帧只花 0.4ms，这点余量正好用来做平滑
+function panTo(x, y, snap) {
+  tTx = x; tTy = y;
+  if (snap) { tx = x; ty = y; }
+  dirty = true;
+}
+function zoomTo(s, x, y, snap) {
+  tScale = clamp(s, 0.28, 5); tTx = x; tTy = y;
+  if (snap) { scale = tScale; tx = x; ty = y; }
+  dirty = true;
+}
+// 以画布上的 (mx,my) 为锚点缩放
+function zoomAt(mx, my, factor) {
+  const ns = clamp(tScale * factor, 0.28, 5);
+  const cx = W() / 2 + tTx, cy = H() / 2 + tTy;
+  const wx = (mx - cx) / tScale, wy = (my - cy) / tScale;
+  tScale = ns;
+  tTx = mx - W() / 2 - wx * ns;
+  tTy = my - H() / 2 - wy * ns;
+  dirty = true;
+}
+function centerOn(n, s) {
+  const ns = s || Math.max(tScale, 1.4);
+  zoomTo(ns, -n.x * ns, -n.y * ns);
+}
+
 cv.addEventListener('mousedown', e => { drag = { x: e.clientX, y: e.clientY, tx, ty, moved: false }; cv.classList.add('drag'); });
 window.addEventListener('mouseup', () => { drag = null; cv.classList.remove('drag'); });
 window.addEventListener('mousemove', e => {
   if (drag) {
     const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
     if (Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true;
-    tx = drag.tx + dx; ty = drag.ty + dy; dirty = true; return;
+    panTo(drag.tx + dx, drag.ty + dy, true); return;
   }
   const n = pick(e);
   const id = n ? n.id : null;
-  if (id !== state.hover) { state.hover = id; dirty = true; }
+  if (id !== state.hover) { state.hover = id; dirty = true; decorDirty = true; }
 });
 cv.addEventListener('click', e => {
   if (drag && drag.moved) return;
   const n = pick(e);
-  if (n) { state.sel = n.id; renderDetail(n.id); dirty = true; }
+  if (n) { state.sel = n.id; renderDetail(n.id); dirty = true; decorDirty = true; }
 });
+cv.addEventListener('dblclick', () => fit(false));
 cv.addEventListener('wheel', e => {
   e.preventDefault();
   const r = cv.getBoundingClientRect();
-  const mx = e.clientX - r.left - W() / 2, my = e.clientY - r.top - H() / 2;
-  const ns = Math.min(5, Math.max(.28, scale * (e.deltaY < 0 ? 1.1 : 0.9)));
-  tx = mx - (mx - tx) * (ns / scale);
-  ty = my - (my - ty) * (ns / scale);
-  scale = ns; dirty = true;
+  zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.12 : 1 / 1.12);
 }, { passive: false });
+
+// 触摸：单指拖拽，双指捏合缩放
+let touch = null;
+cv.addEventListener('touchstart', e => {
+  if (e.touches.length === 1) {
+    const t = e.touches[0];
+    touch = { mode: 'pan', x: t.clientX, y: t.clientY, tx: tTx, ty: tTy };
+  } else if (e.touches.length === 2) {
+    const [a, b] = e.touches;
+    const r = cv.getBoundingClientRect();
+    const mx = (a.clientX + b.clientX) / 2 - r.left, my = (a.clientY + b.clientY) / 2 - r.top;
+    touch = {
+      mode: 'pinch',
+      d: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY) || 1,
+      s: tScale, mx, my,
+      cx: W() / 2 + tTx, cy: H() / 2 + tTy,
+      wx: (mx - (W() / 2 + tTx)) / tScale, wy: (my - (H() / 2 + tTy)) / tScale,
+    };
+  }
+}, { passive: true });
+cv.addEventListener('touchmove', e => {
+  if (!touch) return;
+  e.preventDefault();
+  if (touch.mode === 'pan' && e.touches.length === 1) {
+    const t = e.touches[0];
+    panTo(touch.tx + (t.clientX - touch.x), touch.ty + (t.clientY - touch.y), true);
+  } else if (touch.mode === 'pinch' && e.touches.length === 2) {
+    const [a, b] = e.touches;
+    const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY) || 1;
+    const ns = clamp(touch.s * (d / touch.d), 0.28, 5);
+    tScale = ns;
+    tTx = touch.mx - W() / 2 - touch.wx * ns;
+    tTy = touch.my - H() / 2 - touch.wy * ns;
+    scale = ns; tx = tTx; ty = tTy;   // 捏合跟手，不做缓动
+    dirty = true;
+  }
+}, { passive: false });
+cv.addEventListener('touchend', () => { touch = null; });
+
+// 键盘：/ 搜索，Esc 取消，+/- 缩放，方向键沿依赖走，F 复位
+function selectNode(n, center) {
+  if (!n) return;
+  state.sel = n.id; state.hover = n.id;
+  renderDetail(n.id); decorDirty = true; dirty = true;
+  if (center) centerOn(n);
+}
+window.addEventListener('keydown', e => {
+  const em = document.getElementById('exportModal');
+  if (em && !em.hidden) { if (e.key === 'Escape') em.hidden = true; return; }
+  const tag = (e.target && e.target.tagName) || '';
+  if (tag === 'INPUT') { if (e.key === 'Escape') e.target.blur(); return; }
+  if (e.key === '/') { e.preventDefault(); document.getElementById('q').focus(); return; }
+  if (e.key === 'Escape') { state.sel = null; state.hover = null; decorDirty = true; dirty = true; renderEmpty(); return; }
+  if (e.key === 'f' || e.key === 'F' || e.key === '0') { fit(false); return; }
+  if (e.key === '+' || e.key === '=') { zoomAt(W() / 2, H() / 2, 1.25); return; }
+  if (e.key === '-' || e.key === '_') { zoomAt(W() / 2, H() / 2, 1 / 1.25); return; }
+  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+    e.preventDefault();
+    const cur = state.sel && simById.get(state.sel);
+    if (!cur) { const v = window.__probe.firstVisible(); if (v) selectNode(simById.get(v.id), true); return; }
+    let next = null;
+    if (e.key === 'ArrowRight') next = (outMap.get(cur.id) || [])[0];
+    else if (e.key === 'ArrowLeft') next = (inMap.get(cur.id) || [])[0];
+    else {
+      const same = sim.filter(n => n.pkg === cur.pkg).sort((a, b) => a.y - b.y);
+      const i = same.indexOf(cur);
+      next = same[(i + (e.key === 'ArrowDown' ? 1 : -1) + same.length) % same.length];
+      next = next && next.id;
+    }
+    if (next) selectNode(simById.get(next), true);
+  }
+});
 window.addEventListener('resize', () => { dirty = true; });
 
 // ── 左栏 / 搜索 / chips ──
@@ -461,14 +656,14 @@ chips.addEventListener('click', e => {
   const c = e.target.closest('.chip'); if (!c) return;
   chips.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
   c.classList.add('on');
-  state.pkg = c.dataset.pkg || null; dirty = true;
+  state.pkg = c.dataset.pkg || null; recomputeVisible(); decorDirty = true; dirty = true;
 });
 chapEl.addEventListener('click', e => {
   const b = e.target.closest('.chap'); if (!b) return;
   chapEl.querySelectorAll('.chap').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
   state.focus = b.dataset.ch || null;
-  state.sel = null; dirty = true;
+  state.sel = null; recomputeVisible(); decorDirty = true; dirty = true;
   if (state.focus) {
     renderChapter(state.focus);
     const c = chapters.find(x => x.id === state.focus);
@@ -477,8 +672,9 @@ chapEl.addEventListener('click', e => {
 });
 document.getElementById('legend').innerHTML = pkgs.map(p =>
   '<span><b style="background:' + (PKG_COLOR[p] || '#888') + '"></b>' + p + '</span>').join('');
-document.getElementById('stat').textContent = nodes.length + ' files · ' + edges.length + ' imports';
-document.getElementById('q').addEventListener('input', e => { state.q = e.target.value; dirty = true; });
+document.getElementById('q').addEventListener('input', e => { state.q = e.target.value; recomputeVisible(); decorDirty = true; dirty = true; });
+// 有命中时把统计换成「命中 x / 全量」，让搜索有即时反馈
+updateStat();
 
 // ── 右栏 ──
 const right = document.getElementById('right');
@@ -516,7 +712,7 @@ function renderDetail(id) {
     + '<div class="field"><h4>谁 import 了它</h4>' + relLinks(inMap.get(id)) + '</div>'
     + '</div>';
   right.querySelectorAll('[data-go]').forEach(el2 => el2.onclick = () => {
-    const t = el2.dataset.go; state.sel = t; state.hover = t; renderDetail(t); dirty = true;
+    const t = el2.dataset.go; state.sel = t; state.hover = t; renderDetail(t); dirty = true; decorDirty = true;
   });
   right.scrollTop = 0;
 }
@@ -542,7 +738,7 @@ function renderChapter(cid) {
     chapEl.querySelectorAll('.chap').forEach(x => x.classList.remove('on'));
     const all = chapEl.querySelector('.chap[data-ch=""]');
     if (all) all.classList.add('on');
-    renderDetail(t); dirty = true;
+    renderDetail(t); dirty = true; decorDirty = true;
   });
   right.scrollTop = 0;
 }
@@ -553,13 +749,16 @@ function renderEmpty() {
 // ── 启动 ──
 document.getElementById('nocap').hidden = HIC;
 buildNodes();
-fit();
+recomputeVisible();
+fit(true);
 (function deepLink() {
   const h = decodeURIComponent(location.hash.slice(1));
   if (!h) { renderEmpty(); return; }
   if (/^ch[0-9]$/.test(h) && chapters.some(c => c.id === h)) {
     state.focus = h;
     chapEl.querySelectorAll('.chap').forEach(x => x.classList.toggle('on', x.dataset.ch === h));
+    recomputeVisible();
+    decorDirty = true; dirty = true;
     renderChapter(h);
     const c = chapters.find(x => x.id === h);
     if (c) setTimeout(() => fitTo(c.files), 1400);
@@ -567,14 +766,83 @@ fit();
     state.sel = h; state.hover = h; renderDetail(h);
   } else { renderEmpty(); }
 })();
-requestAnimationFrame(loop);
+// ── 导出分享卡：DOM 排版一次 → drawElementImage → toDataURL ──
+const expModal = document.getElementById('exportModal');
+const expcv = document.getElementById('expcv');
+const expctx = expcv.getContext('2d');
+const cardEl = document.getElementById('card');
 
-// 自检钩子（只读，给 headless 验证用：拿某节点的屏幕坐标、当前比例、被选中的节点）
+function buildCard() {
+  const n = state.sel && byId.get(state.sel);
+  document.getElementById('cardSub').textContent =
+    nodes.length + ' 个源文件 · ' + edges.length + ' 条 import 依赖 · 234 条 FRAS 条目 · 9 章学习路线';
+  const body = document.getElementById('cardBody');
+  if (n) {
+    body.innerHTML = '<div class="path">' + esc(n.id) + '</div>'
+      + '<div class="tags">' + esc(n.tags || '') + ' · ' + n.lines + ' 行 · 被 ' + inMap.get(n.id).length
+      + ' 个文件依赖，依赖 ' + outMap.get(n.id).length + ' 个</div>'
+      + '<div class="f">' + esc(n.f || '') + '</div>'
+      + (n.s && n.s !== '-' ? '<div class="s">' + esc(n.s) + '</div>' : '');
+  } else {
+    body.innerHTML = '<div class="empty">先在图上点一个文件，卡片会带上它的职责（F）和「不能改坏的约束」（S）。</div>';
+  }
+  document.getElementById('cardLegend').innerHTML = pkgs.map(p =>
+    '<span><b style="background:' + (PKG_COLOR[p] || '#888') + '"></b>' + p + '</span>').join('');
+}
+
+function drawCard() {
+  const dpr = Math.min(2, devicePixelRatio || 1);
+  const pw = Math.round(1200 * dpr), ph = Math.round(630 * dpr);
+  if (expcv.width !== pw || expcv.height !== ph) { expcv.width = pw; expcv.height = ph; }
+  expctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  expctx.clearRect(0, 0, 1200, 630);
+  try {
+    expctx.drawElementImage(cardEl, 0, 0, 1200, 630);
+    R.exportDrawn = Date.now();
+  } catch (err) { R.exportErr = String((err && err.message) || err); }
+}
+
+async function openExport() {
+  buildCard();
+  expModal.hidden = false;
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  drawCard();
+}
+
+document.getElementById('expBtn').addEventListener('click', openExport);
+document.getElementById('expClose').addEventListener('click', () => { expModal.hidden = true; });
+document.getElementById('expDl').addEventListener('click', () => {
+  try {
+    const n = state.sel && byId.get(state.sel);
+    const a = document.createElement('a');
+    a.href = expcv.toDataURL('image/png');
+    a.download = (n ? n.id.split('/').pop().replace(/\.ts$/, '') : 'vue3-atlas') + '-card.png';
+    a.click();
+    R.exportPng = a.href.length;
+  } catch (err) { R.exportErr = String(err); }
+});
+
+requestAnimationFrame(loop);
 window.__probe = {
   at(id) { const n = simById.get(id); return n ? [Math.round(sx(n.x)), Math.round(sy(n.y))] : null; },
   scale: () => scale,
+  dbg: () => ({ scale, tx: Math.round(tx), ty: Math.round(ty), w: W(), h: H(), alpha: +alpha.toFixed(3), frames, ready }),
   sel: () => state.sel,
   bench(n = 30) { const t0 = performance.now(); for (let i = 0; i < n; i++) draw(); return +((performance.now() - t0) / n).toFixed(2); },
+  // 分段性能：返回每帧各阶段平均毫秒
+  profile(n = 40) {
+    const acc = { clear: 0, edges: 0, dots: 0, labels: 0 };
+    for (let i = 0; i < n; i++) {
+      draw();
+      const p = R.parts;
+      acc.clear += p.clear; acc.edges += p.edges; acc.dots += p.dots; acc.labels += p.labels;
+    }
+    const r = {};
+    for (const k of Object.keys(acc)) r[k] = +(acc[k] / n).toFixed(2);
+    r.total = +(Object.values(r).reduce((a, b) => a + b, 0)).toFixed(2);
+    r.scale = +scale.toFixed(2);
+    return r;
+  },
   // 找一个落在画布可见区内的节点，返回它的屏幕点（自检时用来点它）
   firstVisible() {
     const w = W(), h = H();
