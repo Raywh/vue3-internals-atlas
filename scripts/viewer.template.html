@@ -58,11 +58,16 @@
   aside.left{border-right:1px solid var(--line);background:var(--bg2);overflow-y:auto;padding:10px 0 40px}
   .sect{padding:10px 14px 6px;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim2)}
   .chap{display:block;width:100%;text-align:left;background:none;border:0;border-left:2px solid transparent;
-    color:var(--dim);padding:9px 14px 9px 15px;cursor:pointer;font-size:12.5px;line-height:1.45;transition:.13s}
+    color:var(--dim);padding:9px 38px 9px 15px;cursor:pointer;font-size:12.5px;line-height:1.45;transition:.13s;position:relative}
   .chap:hover{background:#161d2b;color:var(--fg)}
   .chap.on{background:#16202f;border-left-color:var(--vue);color:var(--fg)}
   .chap i{display:block;font-style:normal;font-size:10px;color:var(--dim2);font-family:var(--mono);margin-bottom:2px}
   .chap em{display:block;font-style:normal;color:var(--dim2);font-size:11px;margin-top:3px}
+  .ck{position:absolute;right:10px;top:11px;width:18px;height:18px;border-radius:5px;
+    border:1px solid var(--line);color:transparent;font-size:11px;line-height:16px;text-align:center;
+    background:#0e131d}
+  .ck:hover{border-color:var(--vue)}
+  .ck.done{background:#173026;border-color:#2c4a3a;color:var(--vue)}
 
   main{position:relative;overflow:hidden;background:radial-gradient(1200px 700px at 50% 40%,#111a26 0%,#0b0e14 62%)}
   canvas{display:block;width:100%;height:100%;cursor:grab;outline:none}
@@ -220,11 +225,22 @@ const anchor = new Map();
   });
 }
 
+// 固定种子的 PRNG：布局每次加载都一样，存档里的视口才有意义，截图也可复现
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const rnd = mulberry32(0x5EED1234);
+
 const sim = nodes.map(n => {
   const a = anchor.get(n.pkg) || { x: 0, y: 0 };
   return {
     ...n, ax: a.x, ay: a.y,
-    x: a.x + (Math.random() - .5) * 170, y: a.y + (Math.random() - .5) * 170,
+    x: a.x + (rnd() - .5) * 170, y: a.y + (rnd() - .5) * 170,
     vx: 0, vy: 0,
     d: Math.max(7, Math.min(24, 3.4 + Math.sqrt(n.lines) * .62)),
     el: null, bw: 0, bh: 0, cx: 0, cy: 0,
@@ -359,10 +375,10 @@ function updateStat() {
   const el = document.getElementById('stat');
   if (!el) return;
   const q = state.q.trim();
-  const filtered = state.pkg || state.focus;
-  el.textContent = (q || filtered)
-    ? '命中 ' + visibleNodes.length + ' / ' + sim.length
-    : sim.length + ' files · ' + edges.length + ' imports';
+  if (q) el.textContent = '命中 ' + visibleNodes.length + ' / ' + sim.length;
+  else if (state.focus) el.textContent = '本章 ' + visibleNodes.length + ' / ' + sim.length;
+  else if (state.pkg) el.textContent = '该包 ' + visibleNodes.length + ' / ' + sim.length;
+  else el.textContent = sim.length + ' files · ' + edges.length + ' imports';
 }
 
 function updateNodeDecor() {
@@ -646,8 +662,11 @@ const chapEl = document.getElementById('chapters');
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 chapEl.innerHTML = '<div class="sect">学习路线</div>'
   + '<button class="chap on" data-ch="">全部文件<em>' + nodes.length + ' 个节点 · ' + edges.length + ' 条依赖</em></button>'
-  + '<div class="sect">9 章 · 约 10 小时</div>'
-  + chapters.map(c => '<button class="chap" data-ch="' + c.id + '"><i>CH ' + String(c.order).padStart(2, '0') + ' · ' + c.minutes + ' 分钟</i>' + esc(c.title) + '</button>').join('');
+  + '<div class="sect" id="prog">已读 0 / ' + chapters.length + '</div>'
+  + chapters.map(c => '<button class="chap" data-ch="' + c.id + '">'
+      + '<span class="ck" data-ck="' + c.id + '" title="标记这一章已读">✓</span>'
+      + '<i>CH ' + String(c.order).padStart(2, '0') + ' · ' + c.minutes + ' 分钟</i>' + esc(c.title)
+      + '</button>').join('');
 
 const chips = document.getElementById('chips');
 chips.innerHTML = '<span class="chip on" data-pkg="">全部包</span>' + pkgs.map(p =>
@@ -659,6 +678,8 @@ chips.addEventListener('click', e => {
   state.pkg = c.dataset.pkg || null; recomputeVisible(); decorDirty = true; dirty = true;
 });
 chapEl.addEventListener('click', e => {
+  const ck = e.target.closest('.ck');
+  if (ck) { e.stopPropagation(); toggleRead(ck.dataset.ck); return; }
   const b = e.target.closest('.chap'); if (!b) return;
   chapEl.querySelectorAll('.chap').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
@@ -672,6 +693,68 @@ chapEl.addEventListener('click', e => {
 });
 document.getElementById('legend').innerHTML = pkgs.map(p =>
   '<span><b style="background:' + (PKG_COLOR[p] || '#888') + '"></b>' + p + '</span>').join('');
+// ── 记忆：视口 / 选中 / 过滤 / 章节进度（localStorage，失败静默降级）──
+const STORE_KEY = 'vue3-atlas-v1';
+const TOTAL_MIN = chapters.reduce((a, c) => a + c.minutes, 0);
+let readSet = new Set();
+function loadStore() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function saveStore(patch) {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(Object.assign(loadStore(), patch))); } catch (e) {}
+}
+let saveTimer = null;
+function scheduleSave() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    saveStore({
+      s: +scale.toFixed(4), x: Math.round(tx), y: Math.round(ty),
+      sel: state.sel, focus: state.focus, pkg: state.pkg, read: [...readSet],
+    });
+  }, 400);
+}
+function updateProgress() {
+  const el = document.getElementById('prog');
+  if (el) el.textContent = '已读 ' + readSet.size + ' / ' + chapters.length + ' · 约 ' + Math.round(TOTAL_MIN / 60) + ' 小时';
+  document.querySelectorAll('.ck').forEach(ck => ck.classList.toggle('done', readSet.has(ck.dataset.ck)));
+}
+function toggleRead(id) {
+  readSet.has(id) ? readSet.delete(id) : readSet.add(id);
+  updateProgress();
+  saveStore({ read: [...readSet] });
+}
+updateProgress();
+
+// 关页面/切后台时立刻落盘，别等 debounce
+window.addEventListener('pagehide', () => {
+  saveStore({
+    s: +scale.toFixed(4), x: Math.round(tx), y: Math.round(ty),
+    sel: state.sel, focus: state.focus, pkg: state.pkg, read: [...readSet],
+  });
+});
+['pointerup', 'click', 'wheel', 'keyup'].forEach(ev => window.addEventListener(ev, scheduleSave, { passive: true }));
+
+// 恢复上次的位置与进度；有 hash 深链时以深链为准，只恢复进度
+function applyStore(hasHash) {
+  const st = loadStore();
+  readSet = new Set(Array.isArray(st.read) ? st.read.filter(id => chapters.some(c => c.id === id)) : []);
+  updateProgress();
+  if (hasHash) return;
+  if (st.pkg && pkgs.includes(st.pkg)) {
+    state.pkg = st.pkg;
+    chips.querySelectorAll('.chip').forEach(x => x.classList.toggle('on', x.dataset.pkg === st.pkg));
+  }
+  if (st.focus && chapters.some(c => c.id === st.focus)) {
+    state.focus = st.focus;
+    chapEl.querySelectorAll('.chap').forEach(x => x.classList.toggle('on', x.dataset.ch === st.focus));
+    renderChapter(st.focus);
+  }
+  if (st.sel && byId.has(st.sel)) { state.sel = st.sel; renderDetail(st.sel); }
+  recomputeVisible();
+  if (typeof st.s === 'number' && st.s > 0.21 && st.s < 5.01 && isFinite(st.x) && isFinite(st.y)) {
+    zoomTo(st.s, st.x, st.y, true);
+  }
+  decorDirty = true; dirty = true;
+}
+
 document.getElementById('q').addEventListener('input', e => { state.q = e.target.value; recomputeVisible(); decorDirty = true; dirty = true; });
 // 有命中时把统计换成「命中 x / 全量」，让搜索有即时反馈
 updateStat();
@@ -751,9 +834,9 @@ document.getElementById('nocap').hidden = HIC;
 buildNodes();
 recomputeVisible();
 fit(true);
-(function deepLink() {
+function applyHash() {
   const h = decodeURIComponent(location.hash.slice(1));
-  if (!h) { renderEmpty(); return; }
+  if (!h) return false;
   if (/^ch[0-9]$/.test(h) && chapters.some(c => c.id === h)) {
     state.focus = h;
     chapEl.querySelectorAll('.chap').forEach(x => x.classList.toggle('on', x.dataset.ch === h));
@@ -762,10 +845,19 @@ fit(true);
     renderChapter(h);
     const c = chapters.find(x => x.id === h);
     if (c) setTimeout(() => fitTo(c.files), 1400);
-  } else if (byId.has(h)) {
+    return true;
+  }
+  if (byId.has(h)) {
     state.sel = h; state.hover = h; renderDetail(h);
-  } else { renderEmpty(); }
-})();
+    decorDirty = true; dirty = true;
+    return true;
+  }
+  return false;
+}
+if (!applyHash()) renderEmpty();
+applyStore(!!location.hash.slice(1));
+// 同页改 hash（分享链接粘进地址栏）也要生效
+window.addEventListener('hashchange', () => { if (applyHash()) scheduleSave(); });
 // ── 导出分享卡：DOM 排版一次 → drawElementImage → toDataURL ──
 const expModal = document.getElementById('exportModal');
 const expcv = document.getElementById('expcv');
